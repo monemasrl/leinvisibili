@@ -1,0 +1,27 @@
+{
+    "generics": {
+        "label_tel": "Numero di telefono",
+        "telNumber": "+39 0574 514380 ",
+        "label_iva": "Partita IVA",
+        "iva": "02056820976",
+        "albo": "Albo dei Medici e Odontoiatri n. 128",
+        "label_powered": "Powered by",
+        "powered": "https://monema.it",
+        "footer_credit": "© 2016 Studio dentistico dott. Vincenti",
+        "city": " Prato",
+        "address": "Via Torelli",
+        "address_number": " 57"
+    },
+    "FormContatti": {
+        "nome": "Nome",
+        "err_nome": "Inserire almeno 3 caratteri",
+        "email": "Email",
+        "err_email": "Inserire un indirizzo email valido",
+        "tel": "Il tuo numero di telefono",
+        "err_tel": "Inserire almeno 8 caratteri",
+        "messaggio": "Messaggio",
+        "err_messaggio": "Inserire almeno 10 caratteri",
+        "success": "Messaggio inviato, risponderemo al messaggio nel più breve tempo possibile",
+        "invia": "Invia"
+    }
+}

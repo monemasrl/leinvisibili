@@ -1,0 +1,24 @@
+{
+    "it": [
+        {
+            "name": "Lo Studio dentistico",
+            "url": "#studio"
+        },
+        {
+            "name": "I trattamenti",
+            "url": "#trattamenti"
+        },
+        {
+            "name": "il team",
+            "url": "#team"
+        },
+        {
+            "name": "strumentazione e sicurezza",
+            "url": "#strumentazione"
+        },
+        {
+            "name": "contatti",
+            "url": "#contatti"
+        }
+    ]
+}

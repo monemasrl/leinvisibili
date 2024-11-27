@@ -1,0 +1,77 @@
+{
+    "it": {
+        "titolo": "Studio dentistico dott. Vincenti",
+        "trattamenti": [
+            {
+                "titolo": "Odontoiatria pediatrica                ",
+                "descrizione": "Dedichiamo particolari attenzioni ai bambini per potere assicurare loro un rapporto sereno con le cure dentistiche ed un futuro di buona salute orale!",
+                "img": "denstista-icon-castoro.png",
+                "img-width": 75,
+                "img-height": 64
+            },
+            {
+                "titolo": "Ortodonzia",
+                "descrizione": "La cura delle malposizioni dentarie dei bambini ma anche degli adulti: avere denti sani e ben allineati aiuta a previene molteplici problematiche future come carie, disturbi masticatori ed articolari.",
+                "img": "dentista-icon-dente.png",
+                "img-width": 48,
+                "img-height": 70
+            },
+            {
+                "titolo": "Odontoiatria conservativa",
+                "descrizione": "La terapia della carie, effettuata sempre con l’utilizzo della diga, mezzi ingrandenti e materiali di prima qualità (3M, Ivoclar Vivadent).",
+                "img": "dentista-icon-trapano.png",
+                "img-width": 65,
+                "img-height": 66
+            },
+            {
+                "titolo": "Protesi",
+                "descrizione": "Lo studio offre un’ampia gamma di soluzioni protesiche per ogni esigenza: oltre alla protesi estetica e su impianti, realizziamo protesi tradizionali a ponte, protesi mobili e protesi totali anche stabilizzate da impianti.",
+                "img": "dentista-icon-dente-grafico.png",
+                "img-width": 68,
+                "img-height": 52
+            },
+            {
+                "titolo": "Prevenzione e igiene",
+                "descrizione": "L’igiene viene praticata con l’ausilio di mezzi ingrandenti e con apparecchiature moderne altamente efficienti per garantire il massimo confort con i migliori risultati.<br/>La cura delle problematiche gengivali superficiali e profonde, dalle gengiviti alla malattia parodontale (piorrea) viene effettuata seguendo sempre le tecniche più attuali, anche con l’ausilio del Laser.",
+                "img": "dentista-icon-mela.png",
+                "img-width": 48,
+                "img-height": 70
+            },
+            {
+                "titolo": "Endodonzia",
+                "descrizione": "La terapia canalare, rigorosamente praticata con la diga di gomma e gli ingrandimenti, secondo le tecniche moderne che prevedono l’utilizzo di strumenti in Nichel - Titanio, per ottenere risultati sempre più predicibili e durevoli.",
+                "img": "dentista-icson-dente2.png",
+                "img-width": 70,
+                "img-height": 50
+            },
+            {
+                "titolo": "Implantologia",
+                "descrizione": "Il ripristino dei denti mancanti mediante l’utilizzo di radici artificiali in titanio è ormai una pratica ampiamente consolidata. L’aggiornamento continuo ci consente di scegliere sempre la tecnica più adeguata alle esigenze di ciascun caso. Utilizziamo impianti Dentsply, azienda leader del settore che garantisce 10 anni i propri prodotti. Dove indicato, effettuiamo anche implantologia a carico immediato per l’elemento singolo, per più elementi o per l’intera arcata (es. protesi tipo Toronto): riabilitazioni immediate senza attese per riavere denti fissi.",
+                "img": "dentista-icon-impianto.png",
+                "img-width": 48,
+                "img-height": 56
+            },
+            {
+                "titolo": "Odontoiatria estetica",
+                "descrizione": "Tornare a sorridere spensieratamente è oggi possibile grazie alle moderne tecniche di ripristino dell’estetica e della funzione dentale anche grazie a materiali di elevata qualità e durata come le ceramiche in disilicato di litio o lo zirconio. In molti casi è inoltre possibile valutare una anteprima del risultato finale mediante lo studio digitale del sorriso o smile design. Lo studio collabora con <a href='http://www.ivoclarvivadent.us/emaxchangeseverything/theworldspeaks/michele-temperani.php'>l’Odontotecnica Temperani di Firenze</a>, professionisti di fama internazionale per la qualità del loro lavoro: il risultato estetico è frutto di un lavoro d’equipe altamente competente in ogni fase operativa.",
+                "img": "dentista-icon-diamante.png",
+                "img-width": 58,
+                "img-height": 48
+            }
+        ],
+        "gallery1": [
+            "dott.vincenti-prato-img-1a-1024x485.jpg",
+            "dott.vincenti-prato-img-2a-1.jpg",
+            "dott-vincenti-prato-img-3-1024x661.jpg",
+            "dott.vincenti-prato-img-4-1024x664.jpg",
+            "dott.vincenti-prato-img-5-1024x661.jpg",
+            "dott.vincenti-prato-img-7-1024x662.jpg"
+        ],
+        "gallery2": [
+            "strumento1giusto.jpg",
+            "strumenti3.jpg",
+            "strumenti2giusto.jpg",
+            "strumenti3giusto.jpg"
+        ]
+    }
+}

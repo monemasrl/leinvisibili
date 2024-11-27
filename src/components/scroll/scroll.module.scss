@@ -1,0 +1,22 @@
+.scrollTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-size: 2rem;
+  border: 1px solid $blue;
+  text-align: center;
+  padding-top: 2px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+
+  svg {
+    color: white;
+  }
+}

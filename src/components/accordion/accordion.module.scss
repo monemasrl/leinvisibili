@@ -1,0 +1,26 @@
+.accordion {
+  margin-top: 2rem;
+  h3 {
+    font-size: $pageSubtitle;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    background: aliceblue;
+  }
+
+  li {
+    font-size: $size-p;
+    font-weight: 200;
+    .title {
+      font-weight: 400;
+    }
+  }
+}
+.accordion__content {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  line-height: $size-p + ($size-p / 2);
+}
+.accordion__title {
+  font-weight: 400;
+}

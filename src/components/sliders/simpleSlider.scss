@@ -1,0 +1,28 @@
+.swiper {
+  width: 100%;
+  max-width: 800px;
+  @media #{$tablet} {
+    max-width: 350px;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  @media #{$tablet} {
+    max-width: 350px;
+    height: auto;
+  }
+}

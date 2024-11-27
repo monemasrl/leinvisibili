@@ -1,0 +1,47 @@
+{
+    "it": {
+        "metaHtml": {
+            "title": "Studio dentistico Dott. Vincenti",
+            "description": "Lo studio dentistico Dott. Vincenti, situato a Prato, si avvale di uno staff di professionisti qualificati e di attrezzature moderne per la prevenzione e la cura delle malattie della bocca e per le riabilitazioni su impianti.",
+            "keywords": "dentista, Prato, dott. Vincenti, studio dentistico",
+            "openGraph": {
+                "title": "Studio dentistico Dott. Vincenti",
+                "description": "Lo studio dentistico Dott. Vincenti, situato a Prato, si avvale di uno staff di professionisti qualificati e di attrezzature moderne per la prevenzione e la cura delle malattie della bocca e per le riabilitazioni su impianti.",
+                "type": "website",
+                "locale": "it_IT",
+                "url": "https://dottvincenti.dentistiprato.com/",
+                "siteName": "Studio dentistico Dott. Vincenti",
+                "images": [
+                    {
+                        "url": "https://dottvincenti.dentistiprato.com/image/opengraph-image.jpg",
+                        "width": 1200,
+                        "height": 630,
+                        "alt": "simple website"
+                    }
+                ]
+            }
+        },
+        "jsonld": {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "image": [
+                "https://dottvincenti.dentistiprato.com/image/4_3graph.jpg",
+                "https://dottvincenti.dentistiprato.com/image/mainimage.jpg"
+            ],
+            "name": "Studio dentistico Dott. Vincenti",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Via Torelli, 57, 59100 Prato PO",
+                    "addressLocality": "Prato",
+                    "addressRegion": "Prato",
+                    "postalCode": "59100",
+                    "addressCountry": "IT"
+                }
+            ],
+            "url": "https://dottvincenti.dentistiprato.com/",
+            "telephone": "+390574514380",
+            "email": "info@dottvincenti.dentistiprato.com"
+        }
+    }
+}

@@ -1,0 +1,59 @@
+/*COLORI*/
+$orange: #e5794b;
+$blue: rgb(0, 96, 141);
+$darkblue: #3b4e67;
+$navyBlue: #092b51;
+$green: #7dbc77;
+$red: #ed0423;
+$lightBlue: #c7e4f5;
+$lightGrey: #f8f8f8;
+$black: #121212;
+$darkGrey: #3b3b3b;
+$grey: #c8c8c8;
+
+/*FONTS*/
+$size-navbar: 15px;
+$size-p: 22px;
+$pageSubtitle: 32px;
+
+/* mixin per l'inclusione dei font */
+@mixin title() {
+  font-family: var(--font-inter);
+}
+
+/*MEDIA QUERY*/
+$phone: "only screen and (max-width : 460px)";
+$tablet: "only screen and (max-width : 720px)";
+$landscape: "only screen and (max-width : 1024px)";
+$desktop: "only screen and (max-width : 1200px)";
+$large: "only screen and (max-width: 1340px)";
+$laptop: "only screen and (max-width : 1460px)";
+$wide: "only screen and (max-width : 1620px)";
+$big: "only screen and (max-width : 1920px)";
+
+$container: 1610px;
+
+/* LAYOUT SECTION */
+
+@mixin mainGrid() {
+  display: grid;
+  gap: 1rem;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@mixin freeGrid(
+  $rows: null,
+  $columns: null,
+  $gap: null,
+  $row-gap: null,
+  $column-gap: null
+) {
+  display: grid;
+  gap: $gap;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+}

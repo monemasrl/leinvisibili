@@ -1,0 +1,244 @@
+.section2 {
+  text-align: center;
+  padding: 6rem 0;
+  @media #{$tablet} {
+    padding: 3rem 0;
+  }
+  p {
+    color: #666666;
+    font-family: roboto condensed, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    margin: 1rem 0 0 0;
+  }
+}
+.section4 {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 6rem 0;
+  @media #{$tablet} {
+    padding: 3rem 0;
+  }
+  .trattamenti {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    margin-top: 2rem;
+
+    &__box {
+      padding: 1rem;
+      border-radius: 5px;
+      grid-column: span 2;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      color: grey;
+      font-weight: 300;
+      @media #{$tablet} {
+        grid-column: span 3;
+      }
+      @media #{$phone} {
+        grid-column: span 6;
+      }
+      &__imageBox {
+        height: 65px;
+      }
+      img {
+        display: block;
+        object-fit: contain;
+      }
+      h3 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: $blue;
+        margin: 1rem 0;
+      }
+      p {
+        font-size: 0.9rem;
+        margin: 0;
+      }
+    }
+    &__6 {
+      grid-column: 2 / span 2;
+      @media #{$tablet} {
+        grid-column: span 3;
+      }
+      @media #{$phone} {
+        grid-column: span 6;
+      }
+    }
+    &__7 {
+      grid-column: 4 / span 2;
+      @media #{$tablet} {
+        grid-column: span 3;
+      }
+      @media #{$phone} {
+        grid-column: span 6;
+      }
+    }
+  }
+}
+.section6 {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 6rem 0;
+  @media #{$tablet} {
+    padding: 3rem 0;
+  }
+  .staff {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    &__box {
+      @media #{$laptop} {
+        grid-column: span 2;
+      }
+      @media #{$tablet} {
+        grid-column: span 4;
+      }
+    }
+    grid-gap: 1rem;
+    hr {
+      width: 50%;
+      opacity: 0.3;
+      margin: 1rem auto;
+    }
+    h3 {
+      color: $blue;
+      font-family: roboto condensed, sans-serif;
+      font-size: 21px;
+      line-height: 22px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    p {
+      color: grey;
+      font-family: roboto condensed, sans-serif;
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 18px;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+    }
+    &__box {
+      &__4 {
+        grid-column: 2 / 3;
+        @media #{$laptop} {
+          grid-column: span 2;
+        }
+        @media #{$tablet} {
+          grid-column: span 4;
+        }
+        hr {
+          display: none;
+        }
+      }
+      &__5 {
+        grid-column: 3 / 4;
+        @media #{$laptop} {
+          grid-column: span 2;
+        }
+        @media #{$tablet} {
+          grid-column: span 4;
+        }
+        hr {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.section7 {
+  text-align: center;
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 1400px;
+    object-fit: cover;
+  }
+  hr {
+    border: 1px solid lightgray;
+  }
+}
+.section8 {
+  padding: 6rem 0;
+  text-align: center;
+  @media #{$tablet} {
+    padding: 3rem 0;
+  }
+  p {
+    margin-bottom: 4rem;
+  }
+  .strumentazioneGallery {
+    margin-top: 2rem;
+  }
+}
+.section9 {
+  text-align: center;
+}
+
+.section10 {
+  text-align: center;
+  max-width: 1200px;
+  padding-bottom: 3rem;
+  .contatti {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+    margin-top: 2rem;
+    @media #{$tablet} {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    &__box {
+      padding: 1rem 2rem 0 2rem;
+
+      &:nth-child(1) {
+        background-color: #007db6;
+      }
+      &:nth-child(2) {
+        background-color: #0174aa;
+      }
+      &:nth-child(3) {
+        background-color: #00618d;
+      }
+      img {
+        width: 40px;
+        height: auto;
+      }
+      h3 {
+        text-transform: uppercase;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+      hr {
+        opacity: 0.3;
+      }
+      p {
+        color: white;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        span {
+          margin-top: 1rem;
+          display: block;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+.section11 {
+  text-align: center;
+  background-color: #fafafa;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}

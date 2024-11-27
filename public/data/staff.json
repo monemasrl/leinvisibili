@@ -1,0 +1,38 @@
+{
+    "it": [
+        {
+            "nome": "Dott. Alessandro Vincenti",
+            "ruolo": "Odontoiatra",
+            "image": "dott_alessandro_vincenti-300x230.jpg",
+            "descrizione": "Laurea Università Cattolica Roma, Odontoiatria conservativa ed estetica, Endodonzia, Protesi"
+        },
+        {
+            "nome": "Dott. Sergio Bonato",
+            "ruolo": "Medico Chirurgo Odontoiatra",
+            "image": "dott_sergio_bonato-300x230.jpg",
+            "descrizione": "Laurea Università di Firenze, Chirugia Orale, Implantologia, Parodontologia"
+        },
+        {
+            "nome": "Dott. Sara Piluso",
+            "ruolo": "Odontoiatra",
+            "image": "dott_ssa_sara_piluso-300x230-1-300x230.jpg",
+            "descrizione": "Laurea Università di Firenze, Ortodonzia ed odontoiatria pediatrica"
+        },
+        {
+            "nome": "Dott. Filippo Paoletti",
+            "ruolo": "Odontoiatra",
+            "image": "dott_filippo_paoletti-300x230.jpg",
+            "descrizione": "Laurea Università di Firenze, Gnatologo"
+        },
+        {
+            "nome": "Martina Guazzini",
+            "ruolo": "Assistente alla poltrona",
+            "image": "sig_guazzini_martina-300x230.jpg"
+        },
+        {
+            "nome": "Caterina Bogani",
+            "ruolo": "Assistente alla poltrona",
+            "image": "sig_bogani_caterina-300x230.jpg"
+        }
+    ]
+}

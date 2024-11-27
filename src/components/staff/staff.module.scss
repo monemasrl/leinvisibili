@@ -1,0 +1,43 @@
+.staff {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 4rem auto;
+  gap: 2rem;
+  @media #{$tablet} {
+    justify-content: center;
+  }
+  > li {
+    position: relative;
+    cursor: pointer;
+  }
+  &__nome {
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: absolute;
+    bottom: 20px;
+    background-color: white;
+    right: 0;
+    width: 80%;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    text-align: left;
+    span {
+      display: block;
+      font-size: 1rem;
+      font-weight: 200;
+    }
+  }
+  &__image {
+    position: relative;
+    width: 349px;
+    height: 490px;
+    @media #{$tablet} {
+      width: 320px;
+      height: 400px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+}

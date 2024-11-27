@@ -1,0 +1,178 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.wrapperSliderImage {
+  width: 100%;
+  height: 100vh;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sliderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  @media #{$landscape} {
+    font-size: 0.7rem;
+  }
+  @media #{$phone} {
+    font-size: 0.6rem;
+  }
+  .buttonLink {
+    display: inline-block;
+    background: $blue;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 2rem;
+    position: relative;
+    font-size: 1.7rem;
+  }
+  &__box {
+    color: white;
+    padding: 1rem;
+    h3 {
+      font-size: 2em;
+      margin: 0;
+      @media #{$landscape} {
+        font-size: 2em !important;
+      }
+    }
+    h4 {
+      font-size: 5.5em;
+      margin: 0;
+
+      @media #{$landscape} {
+        font-size: 2em !important;
+      }
+    }
+    h5 {
+      font-weight: normal;
+      max-width: 800px;
+      margin: 3rem 0 0 0;
+      @media #{$landscape} {
+        font-size: 1.8em !important;
+        margin: 1rem 0 0 0;
+      }
+    }
+    div {
+      font-size: 2em !important;
+    }
+    p {
+      max-width: 760px;
+      font-size: 1.5em;
+      color: white;
+      text-transform: none;
+      @media #{$phone} {
+      }
+    }
+  }
+}
+.background-slider {
+  width: 100%;
+  @media #{$desktop} {
+    height: 600px;
+  }
+  @media #{$phone} {
+    height: 300px;
+  }
+}
+
+.mySwiperNav {
+  height: 50px;
+  position: relative;
+  top: -60px;
+
+  @media #{$phone} {
+    display: none !important;
+  }
+  .swiper-wrapper {
+    justify-content: center;
+    .swiper-slide {
+      position: relative;
+      background-color: transparent;
+      color: white;
+      height: 50px;
+      line-height: 50px;
+      text-transform: uppercase;
+      flex-direction: column;
+      cursor: pointer;
+      .sliderProgressBar {
+        width: 100%;
+        height: 5px;
+        background: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+      }
+    }
+  }
+}

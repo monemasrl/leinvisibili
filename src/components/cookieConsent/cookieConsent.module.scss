@@ -1,0 +1,34 @@
+.wrapperCookie {
+  position: fixed;
+  background-color: $darkblue;
+  width: 100%;
+  max-width: 440px;
+  bottom: 2rem;
+  z-index: 1000;
+  padding: 2rem;
+  color: white;
+  animation: slideIn 1s;
+  p {
+    color: white;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+  button {
+    background-color: $navyBlue;
+    color: white;
+    margin-right: 1rem;
+  }
+  a {
+    color: white;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0;
+  }
+}

@@ -1,0 +1,109 @@
+.titleAnimationsWrapper {
+  font-size: 8.8rem;
+  color: rgb(208 217 224);
+  font-weight: 700;
+  text-align: center;
+  @include title();
+
+  letter-spacing: -5px;
+  overflow: hidden;
+  @media #{$large} {
+    font-size: 6rem;
+  }
+  @media #{$landscape} {
+    font-size: 4rem;
+    letter-spacing: -1px;
+    line-height: 1;
+    padding: 1rem;
+  }
+  span {
+    display: inline-block;
+    transform-origin: left;
+    &.word {
+      margin-right: 1rem;
+    }
+  }
+  .sub {
+    font-size: 2rem;
+    text-align: right;
+    top: -31px;
+    position: relative;
+    letter-spacing: -1px;
+    right: 18px;
+    @media #{$landscape} {
+      font-size: 1.5rem;
+      top: 0px;
+      right: 10px;
+      text-align: center;
+    }
+  }
+}
+.monemaTitle {
+  transform: skew(10deg) rotate(-5deg);
+}
+.scrollingElement {
+  overflow: hidden;
+  &.keyboard {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.2;
+    img {
+      left: -1200px !important;
+    }
+  }
+  &.mondo {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.2;
+    right: 0;
+    img {
+      left: 40% !important;
+    }
+  }
+  &.ecommerce {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    opacity: 0.2;
+    img {
+      width: 500px !important;
+      left: 0px !important;
+    }
+  }
+}
+.titolColorAnimation {
+  position: relative;
+
+  h2,
+  h3 {
+    position: relative;
+    margin: 0;
+    line-height: 1;
+    font-size: 7rem;
+    top: 0%;
+
+    color: #d0d9e0;
+    text-transform: uppercase;
+    display: inline-block;
+    @media #{$landscape} {
+      font-size: 4rem;
+    }
+    &:hover {
+      cursor: pointer;
+      span {
+        width: 100%;
+      }
+    }
+    span {
+      position: absolute;
+      left: 0;
+      width: 0px;
+      overflow: hidden;
+      transition: all ease-in-out 0.5s;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+  }
+}

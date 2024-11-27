@@ -1,0 +1,37 @@
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: $blue;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  justify-items: center;
+  align-items: end;
+  font-size: 19px;
+  gap: 2rem;
+  font-weight: 200;
+  a,
+  a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__first {
+    text-align: center;
+    p {
+      color: white;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+    ul {
+      display: flex;
+      gap: 1rem;
+      font-size: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+}

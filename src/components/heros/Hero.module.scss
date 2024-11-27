@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  z-index: -1;
+
+  @media #{$landscape} {
+  }
+  &__mainImage {
+    object-fit: cover;
+  }
+  &__wrapperVideo {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    z-index: 0;
+
+    svg {
+      position: absolute;
+      z-index: 100;
+      right: 120px;
+      width: 700px;
+      height: 700px;
+      @media #{$wide} {
+        width: 500px;
+        height: 500px;
+        right: 50px;
+      }
+      path {
+        stroke-width: 0.2px;
+      }
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__wrapperImg {
+    display: none;
+    height: 300px;
+    overflow: hidden;
+    @media #{$landscape} {
+      display: block;
+    }
+  }
+  &__image {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  &__text {
+    position: absolute;
+    z-index: 1;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    @media #{$landscape} {
+      transform: translate(-50%, -50%);
+    }
+    @media #{$phone} {
+      top: 50%;
+    }
+    &__quoteBy {
+      font-size: 1.5rem;
+      font-weight: 200;
+      text-align: right;
+    }
+    &__title {
+      font-size: 3rem;
+      @media #{$large} {
+        font-size: 2rem;
+      }
+      @media #{$tablet} {
+        font-size: 1.5rem;
+      }
+    }
+    ul {
+      display: flex;
+      gap: 1rem;
+      overflow: hidden;
+      @media #{$landscape} {
+        gap: 1rem;
+      }
+
+      li {
+        @include title();
+        font-size: 8rem;
+        display: flex;
+        align-items: center;
+        @media #{$large} {
+          font-size: 3rem;
+        }
+        @media #{$tablet} {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
