@@ -7,7 +7,14 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "invisibili.monema.dev",
+      },
+    ],
   },
+
   webpack: (config, options) => {
     /**
      * Force scss source maps for debugging. If there are performance issues or you don't need debug css, use the value "eval-source-map" instead.

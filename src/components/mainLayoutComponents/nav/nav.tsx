@@ -49,14 +49,12 @@ function NavBar() {
     >
       <nav className={`${style.mainNavBar}`}>
         <div className={style.mainNavBar__logo}>
-          <Link href="/">
+          <Link href="/" className={style.title}>
             {!scrolling ? (
-              <img
-                src="/image/logo-studio-dentistico-vincenzi.png"
-                width={300}
-                height={58}
-                alt="logo"
-              />
+              <>
+                <div className={style.mainTitle}>Le Invisibili </div>
+                <span>web archive</span>
+              </>
             ) : (
               <img
                 src="/image/dott-vincenti-logo.png"

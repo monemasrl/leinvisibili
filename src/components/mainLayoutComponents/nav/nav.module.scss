@@ -1,12 +1,11 @@
 .header {
   position: absolute;
-  padding: 0 1rem;
+  padding: 1rem;
   top: 0;
   z-index: 200;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  background-color: white;
   &.scrolling {
     background-color: $blue;
     position: fixed;
@@ -62,12 +61,12 @@
   .mainNavBar {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+
+    padding: 0 2rem;
     color: white;
     font-size: $size-navbar;
     font-weight: 700;
-    text-transform: uppercase;
+
     align-items: flex-end;
     gap: 2rem;
     padding-top: 1.5rem;
@@ -76,7 +75,28 @@
     @media #{$desktop} {
       font-size: 13px;
     }
+
     &__logo {
+      .title {
+        font-size: 70px;
+        font-weight: 300;
+        letter-spacing: -1px;
+        color: white;
+        text-decoration: none;
+        .mainTitle {
+          margin-bottom: 0;
+          line-height: 1;
+        }
+        span {
+          margin-top: 0;
+          display: block;
+          font-size: 32px;
+          line-height: 1;
+          text-align: right;
+          font-weight: 200;
+          letter-spacing: 0px;
+        }
+      }
       img {
         width: 300px;
         display: block;

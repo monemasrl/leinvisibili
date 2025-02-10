@@ -10,6 +10,7 @@ $lightGrey: #f8f8f8;
 $black: #121212;
 $darkGrey: #3b3b3b;
 $grey: #c8c8c8;
+$gold: #7a4535;
 
 /*FONTS*/
 $size-navbar: 15px;
@@ -19,6 +20,7 @@ $pageSubtitle: 32px;
 /* mixin per l'inclusione dei font */
 @mixin title() {
   font-family: var(--font-inter);
+  font-weight: 200;
 }
 
 /*MEDIA QUERY*/

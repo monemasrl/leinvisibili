@@ -1,4 +1,4 @@
-import { Roboto_Condensed } from "next/font/google";
+import { Trirong } from "next/font/google";
 import "@/sass/all.scss";
 import SmoothScrolling from "@/components/scroll/smoothScrolling";
 import JsonldMetaData from "@/components/metaData/jsonldmetadata";
@@ -9,10 +9,10 @@ import Footer from "@/components/mainLayoutComponents/footer/footer";
 import ScrollTop from "@/components/scroll/scrollToTop";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const inter = Roboto_Condensed({
+const inter = Trirong({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "700"],
+  weight: ["200", "300", "400"],
 });
 
 /** FUNZIONE NEXT PER INSERIRE I METADATA NELL' HEAD */
