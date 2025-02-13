@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import style from "./tabs.module.scss";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 type Tdata = {
   titolo: string;
   testo: string;

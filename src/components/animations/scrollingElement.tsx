@@ -1,12 +1,12 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import style from "./animations.module.scss";
 import {
   useScroll,
   useTransform,
   motion,
   useMotionTemplate,
-} from "framer-motion";
+} from "motion/react";
 import Image from "next/image";
 function ScrollingElement({
   src,

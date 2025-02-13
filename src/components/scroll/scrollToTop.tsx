@@ -1,7 +1,7 @@
 "use client";
 import style from "./scroll.module.scss";
 import { RxArrowUp } from "react-icons/rx";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 
 function ScrollTop() {

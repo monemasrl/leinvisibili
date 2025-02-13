@@ -1,9 +1,16 @@
 body {
   margin: 0;
-  @include title();
+  font-family: var(--font-text);
 }
 * {
   box-sizing: border-box;
+}
+h1,
+h2 {
+  font-family: var(--font-inter);
+  font-weight: 200;
+  margin-top: 0;
+  margin-bottom: $spacing1;
 }
 
 ul {
@@ -31,9 +38,10 @@ main {
   z-index: 400 !important;
 }
 p {
-  font-size: 1.3rem;
-  color: grey;
+  font-size: $size-p;
+  color: black;
   font-weight: 300;
+  line-height: 1.5;
 }
 button {
   border-radius: 0;

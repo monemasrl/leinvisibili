@@ -11,13 +11,19 @@ $black: #121212;
 $darkGrey: #3b3b3b;
 $grey: #c8c8c8;
 $gold: #7a4535;
+$lightGold: #d9d9d9;
+/*INGOMBRI*/
+$spacing1: 1rem;
+$spacing2: 2rem;
 
 /*FONTS*/
 $size-navbar: 15px;
-$size-p: 22px;
+$size-p: 18px;
 $pageSubtitle: 32px;
+$title-big: 60px; /* mixin per l'inclusione dei font */
 
-/* mixin per l'inclusione dei font */
+$title: var(--font-inter);
+$text: var(--font-text);
 @mixin title() {
   font-family: var(--font-inter);
   font-weight: 200;

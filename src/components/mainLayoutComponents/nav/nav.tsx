@@ -4,7 +4,7 @@ import Link from "next/link";
 import style from "./nav.module.scss";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import navigation from "../../../../public/data/navigation.json";
 import { useLenis } from "@studio-freight/react-lenis";

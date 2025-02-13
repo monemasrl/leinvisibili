@@ -1,7 +1,7 @@
 "use client";
 import style from "./splash.module.scss";
 import IconAnimation from "../svg/iconAnimation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 function Splash({}) {
   const [splash, setSplash] = useState(true);

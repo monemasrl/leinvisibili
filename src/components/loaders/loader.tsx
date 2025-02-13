@@ -1,6 +1,6 @@
 import style from "./loader.module.scss";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 function LoaderSite({ loading }: { loading?: boolean }) {
   return (

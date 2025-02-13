@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import style from "./form.module.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import generic from "../../../public/data/generic.json";
 
 function SuccessMessage({ status }: { status: string | null }) {

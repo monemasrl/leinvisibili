@@ -40,18 +40,26 @@ export default async function Home() {
       return a.Posizione - b.Posizione;
     })
     .map((item) => {
+      console.log(item);
+      const nascita = new Date(Date.parse(item.data_di_nascita));
+      const morte = new Date(Date.parse(item.data_di_morte));
+      const options: Intl.DateTimeFormatOptions = {
+        year: "numeric",
+        //month: "long",
+        //day: "numeric",
+      };
       return {
         nome: item.nome + " " + item.cognome || null,
-        descrizione: item.contenuto || null,
+        descrizione: item.abstract || null,
         image: item.immagine_principale || null,
-        data_nascita: item.data_di_nascita || null,
-        data_morte: item.data_di_morte || null,
+        data_nascita: nascita.toLocaleDateString("it-IT", options) || null,
+        data_morte: morte.toLocaleDateString("it-IT", options) || null,
         link: item.slug || null,
       };
     });
-  console.log(page);
+
   return (
-    <main className={styles.main}>
+    <main className={`${styles.home}`}>
       <HeroLei data={dataHero} assetsURL={process.env.ASSETS_URL} />{" "}
     </main>
   );

@@ -1,4 +1,4 @@
-import { Trirong } from "next/font/google";
+import { Cormorant, Open_Sans } from "next/font/google";
 import "@/sass/all.scss";
 import SmoothScrolling from "@/components/scroll/smoothScrolling";
 import JsonldMetaData from "@/components/metaData/jsonldmetadata";
@@ -9,12 +9,16 @@ import Footer from "@/components/mainLayoutComponents/footer/footer";
 import ScrollTop from "@/components/scroll/scrollToTop";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const inter = Trirong({
+const inter = Cormorant({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["200", "300", "400"],
+  weight: ["400"],
 });
-
+const text = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-text",
+  weight: ["300", "500", "600", "700"],
+});
 /** FUNZIONE NEXT PER INSERIRE I METADATA NELL' HEAD */
 export async function generateMetadata() {
   const data = meta["it"].metaHtml;
@@ -33,7 +37,7 @@ export default async function RootLayout({
         <JsonldMetaData metadata={meta} />
         <link rel="icon" href="/image/favicon.ico" />
       </head>
-      <body className={inter.variable}>
+      <body className={`${inter.variable} ${text.variable}`}>
         <CookieConsentBanner />
         <Nav />
         <SmoothScrolling>{children}</SmoothScrolling>

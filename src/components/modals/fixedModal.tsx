@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./modals.module.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 function FixedModal({
   children,
