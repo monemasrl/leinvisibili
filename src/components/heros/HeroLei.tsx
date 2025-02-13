@@ -4,6 +4,7 @@ import style from "./Hero.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import freccia from "../../../public/image/freccia.svg";
+import { motion, AnimatePresence } from "motion/react";
 type Tdata = {
   nome: string | null;
   descrizione: string | null;
@@ -41,45 +42,55 @@ function HeroLei({
           </div>
         );
       })}
-      {data && boxOpen != null && (
-        <div className={style.hero__content}>
-          <div
-            className={style.closeArea}
-            onClick={() => setBoxOpen(null)}
-          ></div>
-          <div className={style.hero__content__box}>
-            {assetsURL && (
-              <Image
-                src={assetsURL + data[boxOpen].image || ""}
-                width={485}
-                height={675}
-                alt={data[boxOpen].nome || ""}
-              />
-            )}
-            <div className={style.hero__content__box__text}>
-              <div className={style.data}>
-                {" "}
-                {data[boxOpen].data_nascita} - {data[boxOpen].data_morte}
-                <h2>{data[boxOpen].nome}</h2>
+      <AnimatePresence>
+        {data && boxOpen != null && (
+          <motion.div className={style.hero__content}>
+            <motion.div
+              className={style.closeArea}
+              onClick={() => setBoxOpen(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            ></motion.div>
+            <motion.div
+              className={style.hero__content__box}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+              exit={{ opacity: 0, y: 100, transition: { duration: 0.5 } }}
+            >
+              {assetsURL && (
+                <Image
+                  src={assetsURL + data[boxOpen].image || ""}
+                  width={485}
+                  height={675}
+                  alt={data[boxOpen].nome || ""}
+                />
+              )}
+              <div className={style.hero__content__box__text}>
+                <div className={style.data}>
+                  {" "}
+                  {data[boxOpen].data_nascita} - {data[boxOpen].data_morte}
+                  <h2>{data[boxOpen].nome}</h2>
+                </div>
+
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data[boxOpen].descrizione || "",
+                  }}
+                />
+
+                <Link
+                  className={style.link}
+                  href={`/autrice/${data[boxOpen].link}`}
+                >
+                  Scopri di più
+                  <Image src={freccia} width={200} height={3} alt="freccia" />
+                </Link>
               </div>
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data[boxOpen].descrizione || "",
-                }}
-              />
-
-              <Link
-                className={style.link}
-                href={`/autrice/${data[boxOpen].link}`}
-              >
-                Scopri di più
-                <Image src={freccia} width={200} height={3} alt="freccia" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}{" "}
+      </AnimatePresence>
     </div>
   );
 }

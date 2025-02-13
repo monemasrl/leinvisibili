@@ -46,6 +46,7 @@
       a {
         &:hover {
           color: white;
+          text-decoration: underline;
         }
       }
     }
@@ -61,13 +62,13 @@
   .mainNavBar {
     display: flex;
     justify-content: space-between;
-
+    font-family: var(--font-inter);
     padding: 0 2rem;
     color: white;
     font-size: $size-navbar;
     font-weight: 700;
 
-    align-items: flex-end;
+    align-items: center;
     gap: 2rem;
     padding-top: 1.5rem;
     padding-bottom: 1rem;
@@ -117,7 +118,9 @@
         background-color: $navyBlue;
       }
       ul li a {
-        color: $blue;
+        color: white;
+        font-size: 1.8rem;
+        letter-spacing: 0;
       }
       .mainNavBar__navBlock__topData {
         color: $navyBlue;
@@ -190,7 +193,8 @@
           font-weight: 700;
           letter-spacing: 1px;
           &:hover {
-            color: $navyBlue;
+            color: white;
+            text-decoration: underline;
           }
         }
         @media #{$landscape} {
