@@ -67,25 +67,49 @@ function HeroLei({
                 />
               )}
               <div className={style.hero__content__box__text}>
-                <div className={style.data}>
+                <motion.div
+                  className={style.data}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 0.2, duration: 0.5 },
+                  }}
+                  exit={{ opacity: 0 }}
+                >
                   {" "}
                   {data[boxOpen].data_nascita} - {data[boxOpen].data_morte}
                   <h2>{data[boxOpen].nome}</h2>
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   dangerouslySetInnerHTML={{
                     __html: data[boxOpen].descrizione || "",
                   }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 0.3, duration: 0.5 },
+                  }}
+                  exit={{ opacity: 0 }}
                 />
 
-                <Link
+                <motion.div
                   className={style.link}
-                  href={`/autrice/${data[boxOpen].link}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 0.4, duration: 0.5 },
+                  }}
+                  exit={{ opacity: 0 }}
                 >
-                  Scopri di più
+                  <Link href={`/autrice/${data[boxOpen].link}`}>
+                    Scopri di più
+                  </Link>
                   <Image src={freccia} width={200} height={3} alt="freccia" />
-                </Link>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>

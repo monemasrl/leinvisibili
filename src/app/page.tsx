@@ -7,6 +7,7 @@ import AnimatedSection from "../components/mainLayoutComponents/sections/animate
 import SimpleSlider from "@/components/sliders/simpleSlider";
 import type { tOpera, tAutrice, tOpereAutrici } from "@/type";
 import { getAutrici, getOpere, getOpereAutrici } from "@/utility/fetchdati";
+import { formatDataFromApi } from "@/utility/generic";
 /**
  * PAGINA
  * Utilizzare le pagine per fetchare i dati e passarli ai componenti
@@ -69,19 +70,19 @@ function datahero(data: tAutrice[]) {
       return a.Posizione - b.Posizione;
     })
     .map((item: any) => {
-      const nascita = new Date(Date.parse(item.data_di_nascita));
-      const morte = new Date(Date.parse(item.data_di_morte));
-      const options: Intl.DateTimeFormatOptions = {
+      const nascita = formatDataFromApi(item.data_di_nascita, {
         year: "numeric",
-        //month: "long",
-        //day: "numeric",
-      };
+      });
+      const morte = formatDataFromApi(item.data_di_morte, {
+        year: "numeric",
+      });
+
       return {
         nome: item.nome + " " + item.cognome || null,
         descrizione: item.abstract || null,
         image: item.immagine_principale || null,
-        data_nascita: nascita.toLocaleDateString("it-IT", options) || null,
-        data_morte: morte.toLocaleDateString("it-IT", options) || null,
+        data_nascita: nascita || null,
+        data_morte: morte || null,
         link: item.slug || null,
       };
     });

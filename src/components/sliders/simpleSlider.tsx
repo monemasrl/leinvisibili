@@ -39,6 +39,8 @@ function SimpleSlider({
         {data.map((item, index) => {
           console.log(item.autrice, "immagini");
           console.log(opereAutrici, "opereautrici");
+
+          /* trova l'id dell'autrice nella join opereautrici  */
           const idAutrice = opereAutrici?.find((opera) => {
             return item.autrice[0] === opera.id;
           });
