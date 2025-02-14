@@ -58,6 +58,15 @@ function SimpleSlider({
               )}
 
               {item.titolo}
+              {item.citazioni &&
+                item.citazioni.map(
+                  (
+                    citazione: { citazione: string; in_homepage: boolean },
+                    index: number
+                  ) => {
+                    return <div key={index}>{citazione.citazione}</div>;
+                  }
+                )[0]}
             </SwiperSlide>
           );
         })}
