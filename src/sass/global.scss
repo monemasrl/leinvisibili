@@ -12,6 +12,9 @@ h2 {
   margin-top: 0;
   margin-bottom: $spacing1;
 }
+h1 {
+  font-size: $title-big;
+}
 
 ul {
   list-style-type: none;
@@ -76,4 +79,8 @@ button {
     font-size: 40px;
     line-height: 40px;
   }
+}
+.mainwrapper {
+  max-width: 1200px;
+  margin: $spacing3 auto;
 }

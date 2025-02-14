@@ -50,19 +50,16 @@ function NavBar() {
       <nav className={`${style.mainNavBar}`}>
         <div className={style.mainNavBar__logo}>
           <Link href="/" className={style.title}>
-            {!scrolling ? (
-              <>
-                <div className={style.mainTitle}>Le Invisibili </div>
-                <span>web archive</span>
-              </>
-            ) : (
-              <img
-                src="/image/dott-vincenti-logo.png"
-                width={300}
-                height={58}
-                alt="logo"
-              />
-            )}
+            <>
+              <div
+                className={`${style.mainTitle} ${
+                  scrolling ? style.title__scrolling : ""
+                }`}
+              >
+                Le Invisibili{" "}
+              </div>
+              <span>web archive</span>
+            </>
           </Link>
         </div>
         <div
