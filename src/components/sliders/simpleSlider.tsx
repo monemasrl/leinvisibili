@@ -10,14 +10,16 @@ import "swiper/css/thumbs";
 import "./simpleSlider.scss";
 import type { tOpera, tOpereAutrici } from "@/type";
 import Image from "next/image";
-
+import Link from "next/link";
 function SimpleSlider({
-  immagini,
+  dataAutriciFromOpere,
   data,
   opereAutrici,
   id,
 }: {
-  immagini: { [key: number]: string };
+  dataAutriciFromOpere: {
+    [key: number]: { img: string; nome: string; cognome: string; slug: string };
+  };
   opereAutrici: tOpereAutrici[] | undefined;
   data: tOpera[];
   id: number;
@@ -48,27 +50,46 @@ function SimpleSlider({
           return (
             <SwiperSlide key={index}>
               {item.autrice[0] && (
-                <Image
-                  src={
-                    process.env.NEXT_PUBLIC_ASSETS_URL +
-                    immagini[idAutrice?.autrici_id || 0]
+                <Link
+                  href={
+                    "/autrici/" +
+                    dataAutriciFromOpere[idAutrice?.autrici_id].slug
                   }
-                  width={500}
-                  height={500}
-                  alt={item.titolo}
-                />
+                >
+                  <Image
+                    src={
+                      process.env.NEXT_PUBLIC_ASSETS_URL +
+                      dataAutriciFromOpere[idAutrice?.autrici_id || 0].img
+                    }
+                    width={500}
+                    height={500}
+                    alt={item.titolo}
+                  />
+                </Link>
               )}
 
-              {item.titolo}
-              {item.citazioni &&
-                item.citazioni.map(
-                  (
-                    citazione: { citazione: string; in_homepage: boolean },
-                    index: number
-                  ) => {
-                    return <div key={index}>{citazione.citazione}</div>;
-                  }
-                )[0]}
+              <div className="swiper__content">
+                {idAutrice?.autrici_id && (
+                  <div className="swiper__content__nome">
+                    <Link
+                      href={
+                        "/autrici/" +
+                        dataAutriciFromOpere[idAutrice?.autrici_id].slug
+                      }
+                    >
+                      {dataAutriciFromOpere[idAutrice?.autrici_id].nome +
+                        " " +
+                        dataAutriciFromOpere[idAutrice?.autrici_id].cognome}
+                    </Link>
+                  </div>
+                )}
+                {item.citazioni && (
+                  <div className="swiper__content__citazione">
+                    "{item.citazioni[0].citazione}"
+                  </div>
+                )}
+                <div className="swiper__content__titolo">{item.titolo}</div>
+              </div>
             </SwiperSlide>
           );
         })}

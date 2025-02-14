@@ -1,6 +1,4 @@
 import styles from "./page.module.scss";
-import directus from "@/lib/directus";
-import { readItems } from "@directus/sdk";
 import { notFound } from "next/navigation";
 import HeroLei from "@/components/heros/HeroLei";
 import AnimatedSection from "../components/mainLayoutComponents/sections/animatedSection";
@@ -19,7 +17,7 @@ export default async function Home() {
   const autrici = await getAutrici(notFound);
   const opere = await getOpere();
   const opereAutrici = await getOpereAutrici();
-  const immaginiAutrici = getImmaginiAutrici(autrici as tAutrice[]);
+  const dataAutrici = getDataiAutriciFromOpere(autrici as tAutrice[]);
   console.log(opere, "opereAutrici");
   return (
     <main className={`${styles.home}`}>
@@ -43,7 +41,7 @@ export default async function Home() {
       <AnimatedSection classname={styles.section2}>
         {opere?.length && (
           <SimpleSlider
-            immagini={immaginiAutrici}
+            dataAutriciFromOpere={dataAutrici}
             opereAutrici={opereAutrici as tOpereAutrici[]}
             data={opere as tOpera[]}
             id={0}
@@ -54,11 +52,16 @@ export default async function Home() {
   );
 }
 
-function getImmaginiAutrici(data: tAutrice[]) {
+function getDataiAutriciFromOpere(data: tAutrice[]) {
   return data.reduce((acc, item) => {
-    acc[item.id] = item.immagine_principale;
+    acc[item.id] = {
+      img: item.immagine_principale,
+      nome: item.nome,
+      cognome: item.cognome,
+      slug: item.slug,
+    };
     return acc;
-  }, {} as { [key: number]: string });
+  }, {} as { [key: number]: { img: string; nome: string; cognome: string; slug: string } });
 }
 /* struttura dati per la hero */
 function datahero(data: tAutrice[]) {
