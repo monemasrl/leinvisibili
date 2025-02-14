@@ -49,7 +49,7 @@ function SimpleSlider({
 
           return (
             <SwiperSlide key={index}>
-              {item.autrice[0] && (
+              {idAutrice?.autrici_id && (
                 <Link
                   href={
                     "/autrici/" +
