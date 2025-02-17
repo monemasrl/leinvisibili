@@ -43,10 +43,40 @@ async function getOpereAutrici() {
 
             })
         );
-        console.log(opere_autrici, "opere");
+
         return opere_autrici;
     } catch (error) {
         console.error("errori", error);
     }
 }
-export { getAutrici, getOpere, getOpereAutrici };
+async function getCitazioni() {
+    try {
+        const opere_autrici = await directus.request(
+            readItems("citazioni", {
+                filter: {
+
+                    in_homepage: true,
+                },
+
+            })
+        );
+
+        return opere_autrici;
+    } catch (error) {
+        console.error("errori", error);
+    }
+}
+async function getAutriciCitazioni() {
+    try {
+        const opere_autrici = await directus.request(
+            readItems("autrici_citazioni", {
+
+            })
+        );
+
+        return opere_autrici;
+    } catch (error) {
+        console.error("errori", error);
+    }
+}
+export { getAutrici, getOpere, getOpereAutrici, getCitazioni, getAutriciCitazioni };

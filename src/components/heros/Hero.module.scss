@@ -44,7 +44,7 @@
     }
     &__box {
       display: flex;
-      max-width: 1200px;
+      max-width: 1060px;
       width: 100%;
       background-color: $lightGold;
       z-index: 1;
@@ -73,7 +73,8 @@
         }
         .data {
           font-family: $title;
-          font-size: calc($title-big / 1.5);
+          font-size: calc($title-big / 1.25);
+          letter-spacing: -1px;
           color: $gold;
         }
         .link {

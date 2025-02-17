@@ -3,8 +3,20 @@ import { notFound } from "next/navigation";
 import HeroLei from "@/components/heros/HeroLei";
 import AnimatedSection from "../components/mainLayoutComponents/sections/animatedSection";
 import SimpleSlider from "@/components/sliders/simpleSlider";
-import type { tOpera, tAutrice, tOpereAutrici } from "@/type";
-import { getAutrici, getOpere, getOpereAutrici } from "@/utility/fetchdati";
+import type {
+  tOpera,
+  tAutrice,
+  tOpereAutrici,
+  tCitazioni,
+  tAutriciCitazioni,
+} from "@/type";
+import {
+  getAutrici,
+  getOpere,
+  getOpereAutrici,
+  getCitazioni,
+  getAutriciCitazioni,
+} from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
 /**
  * PAGINA
@@ -16,8 +28,9 @@ import { formatDataFromApi } from "@/utility/generic";
 export default async function Home() {
   const autrici = await getAutrici(notFound);
   const opere = await getOpere();
+  const citazioni = await getCitazioni();
   const opereAutrici = await getOpereAutrici();
-  const dataAutrici = getDataiAutriciFromOpere(autrici as tAutrice[]);
+  const autriciCitazioni = await getAutriciCitazioni();
   console.log(opere, "opereAutrici");
   return (
     <main className={`${styles.home}`}>
@@ -38,12 +51,14 @@ export default async function Home() {
           </p>
         </div>
       </AnimatedSection>
-      <AnimatedSection classname={styles.section2}>
+      <AnimatedSection classname={styles.section2} animateOnce={false}>
         {opere?.length && (
           <SimpleSlider
-            dataAutriciFromOpere={dataAutrici}
+            autrici={autrici as tAutrice[]}
             opereAutrici={opereAutrici as tOpereAutrici[]}
-            data={opere as tOpera[]}
+            data={citazioni as tCitazioni[]}
+            opere={opere as tOpera[]}
+            autriciCitazioni={autriciCitazioni}
             id={0}
           />
         )}

@@ -54,8 +54,13 @@ function HeroLei({
             ></motion.div>
             <motion.div
               className={style.hero__content__box}
-              initial={{ opacity: 0.5, x: -100 }}
-              animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
+              initial={{ opacity: 0.5, x: -1000, rotate: 20 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                rotate: -1,
+                transition: { duration: 1 },
+              }}
               exit={{ opacity: 0, x: -100, transition: { duration: 0.5 } }}
             >
               {assetsURL && (

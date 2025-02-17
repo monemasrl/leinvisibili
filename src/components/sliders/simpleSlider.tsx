@@ -8,20 +8,53 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "swiper/css/thumbs";
 import "./simpleSlider.scss";
-import type { tOpera, tOpereAutrici } from "@/type";
+import type {
+  tCitazioni,
+  tOpera,
+  tOpereAutrici,
+  tAutrice,
+  tAutriciCitazioni,
+} from "@/type";
 import Image from "next/image";
 import Link from "next/link";
+
+function getdata(
+  idOpera: number,
+  id: number,
+  autrici: tAutrice[],
+  opere: tOpera[],
+  opereAutrici: tOpereAutrici[] | undefined,
+  autriciCitazioni: tAutriciCitazioni[] | undefined
+) {
+  /* trova l'opera della citazione tra la collection opere */
+  const opera = opere.find((opera) => opera.id === idOpera);
+  /* trova l'ID dell'autrice nella tabella di relazione opereAutrici */
+  console.log(autriciCitazioni, "autriciCitazioni");
+
+  const idAutrice = autriciCitazioni?.find((item) => item.item === String(id));
+
+  /* trova i dati dell'autrice nella tebella autrici */
+  if (idAutrice) {
+    const autrice = autrici.find(
+      (autrice) => autrice.id === idAutrice.autrici_id
+    );
+
+    return { autrice: autrice, opera: opera };
+  }
+}
 function SimpleSlider({
-  dataAutriciFromOpere,
   data,
   opereAutrici,
+  autriciCitazioni,
+  autrici,
+  opere,
   id,
 }: {
-  dataAutriciFromOpere: {
-    [key: number]: { img: string; nome: string; cognome: string; slug: string };
-  };
+  autrici: tAutrice[];
   opereAutrici: tOpereAutrici[] | undefined;
-  data: tOpera[];
+  data: tCitazioni[];
+  autriciCitazioni: tAutriciCitazioni[] | undefined;
+  opere: tOpera[];
   id: number;
 }) {
   const [swiper, setSwiper] = useState<any>();
@@ -37,58 +70,61 @@ function SimpleSlider({
         loop={true}
         className="mySwiper"
         onSwiper={(swiper) => setSwiper(swiper)}
+        speed={1000}
       >
         {data.map((item, index) => {
-          console.log(item.autrice, "immagini");
-          console.log(opereAutrici, "opereautrici");
+          /*     console.log(item.opera, "immagini");
+          console.log(opereAutrici, "opereautrici"); */
 
-          /* trova l'id dell'autrice nella join opereautrici  */
+          /* trova l'id dell'autrice nella join opereautrici  */ /* 
           const idAutrice = opereAutrici?.find((opera) => {
             return item.autrice[0] === opera.id;
-          });
+          }); */
 
+          const mainData = getdata(
+            item.opera,
+            item.id,
+            autrici,
+            opere,
+            opereAutrici,
+            autriciCitazioni
+          );
+          console.log(mainData, "citazione");
           return (
             <SwiperSlide key={index}>
-              {idAutrice?.autrici_id && (
-                <Link
-                  href={
-                    "/autrici/" +
-                    dataAutriciFromOpere[idAutrice?.autrici_id].slug
-                  }
-                >
+              {mainData?.autrice?.id && (
+                <Link href={"/autrici/" + mainData?.autrice?.slug}>
                   <Image
                     src={
                       process.env.NEXT_PUBLIC_ASSETS_URL +
-                      dataAutriciFromOpere[idAutrice?.autrici_id || 0].img
+                      mainData?.autrice?.immagine_principale
                     }
                     width={500}
                     height={500}
-                    alt={item.titolo}
+                    alt={"item.titolo"}
                   />
                 </Link>
               )}
 
               <div className="swiper__content">
-                {idAutrice?.autrici_id && (
+                {mainData?.autrice?.id && (
                   <div className="swiper__content__nome">
-                    <Link
-                      href={
-                        "/autrici/" +
-                        dataAutriciFromOpere[idAutrice?.autrici_id].slug
-                      }
-                    >
-                      {dataAutriciFromOpere[idAutrice?.autrici_id].nome +
+                    <Link href={"/autrici/" + mainData?.autrice?.slug}>
+                      {mainData?.autrice?.nome +
                         " " +
-                        dataAutriciFromOpere[idAutrice?.autrici_id].cognome}
+                        mainData?.autrice?.cognome}
                     </Link>
                   </div>
                 )}
-                {item.citazioni && (
-                  <div className="swiper__content__citazione">
-                    "{item.citazioni[0].citazione}"
-                  </div>
+                {item.citazione && (
+                  <div
+                    className="swiper__content__citazione"
+                    dangerouslySetInnerHTML={{ __html: item.citazione }}
+                  />
                 )}
-                <div className="swiper__content__titolo">{item.titolo}</div>
+                <div className="swiper__content__titolo">
+                  {mainData?.opera?.titolo}
+                </div>
               </div>
             </SwiperSlide>
           );

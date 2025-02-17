@@ -44,4 +44,23 @@ type tOpereAutrici = {
     autrici_id: number;
 };
 
-export type { tOpera, tAutrice, tOpereAutrici }
+type tCitazioni = {
+    id: number;
+    status: string;
+    sort: number | null;
+    user_created: string;
+    date_created: string;
+    user_updated: string | null;
+    date_updated: string | null;
+    citazione: string;
+    opera: number;
+    in_homepage: boolean;
+};
+type tAutriciCitazioni = {
+    id: number;
+    autrici_id: number | null;
+    item: string;
+    collection: string;
+};
+
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni };
