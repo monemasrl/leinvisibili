@@ -29,7 +29,6 @@ function getdata(
   /* trova l'opera della citazione tra la collection opere */
   const opera = opere.find((opera) => opera.id === idOpera);
   /* trova l'ID dell'autrice nella tabella di relazione opereAutrici */
-  console.log(autriciCitazioni, "autriciCitazioni");
 
   const idAutrice = autriciCitazioni?.find((item) => item.item === String(id));
 
@@ -61,7 +60,7 @@ function SimpleSlider({
   useEffect(() => {
     swiper?.slideTo(id);
   }, [swiper]);
-  console.log(data, "data");
+
   return (
     <div>
       <Swiper
@@ -73,14 +72,6 @@ function SimpleSlider({
         speed={1000}
       >
         {data.map((item, index) => {
-          /*     console.log(item.opera, "immagini");
-          console.log(opereAutrici, "opereautrici"); */
-
-          /* trova l'id dell'autrice nella join opereautrici  */ /* 
-          const idAutrice = opereAutrici?.find((opera) => {
-            return item.autrice[0] === opera.id;
-          }); */
-
           const mainData = getdata(
             item.opera,
             item.id,
@@ -89,7 +80,7 @@ function SimpleSlider({
             opereAutrici,
             autriciCitazioni
           );
-          console.log(mainData, "citazione");
+
           return (
             <SwiperSlide key={index}>
               {mainData?.autrice?.id && (

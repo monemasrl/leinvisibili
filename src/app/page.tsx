@@ -9,6 +9,8 @@ import type {
   tOpereAutrici,
   tCitazioni,
   tAutriciCitazioni,
+  tTemi,
+  tAutriciTemi,
 } from "@/type";
 import {
   getAutrici,
@@ -16,8 +18,11 @@ import {
   getOpereAutrici,
   getCitazioni,
   getAutriciCitazioni,
+  getTemi,
+  getTemiAutrici,
 } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
+import Temi from "@/components/temi/temi";
 /**
  * PAGINA
  * Utilizzare le pagine per fetchare i dati e passarli ai componenti
@@ -31,7 +36,9 @@ export default async function Home() {
   const citazioni = await getCitazioni();
   const opereAutrici = await getOpereAutrici();
   const autriciCitazioni = await getAutriciCitazioni();
-  console.log(opere, "opereAutrici");
+  const temi = await getTemi();
+  const temiautrici = await getTemiAutrici();
+  console.log(temi, "temi");
   return (
     <main className={`${styles.home}`}>
       <HeroLei
@@ -58,8 +65,17 @@ export default async function Home() {
             opereAutrici={opereAutrici as tOpereAutrici[]}
             data={citazioni as tCitazioni[]}
             opere={opere as tOpera[]}
-            autriciCitazioni={autriciCitazioni}
+            autriciCitazioni={autriciCitazioni as tAutriciCitazioni[]}
             id={0}
+          />
+        )}
+      </AnimatedSection>
+      <AnimatedSection classname={styles.section3} animateOnce={false}>
+        {temi?.length && (
+          <Temi
+            data={temi as tTemi[]}
+            temiAutrici={temiautrici as tAutriciTemi[]}
+            autrici={autrici as tAutrice[]}
           />
         )}
       </AnimatedSection>
@@ -67,17 +83,6 @@ export default async function Home() {
   );
 }
 
-function getDataiAutriciFromOpere(data: tAutrice[]) {
-  return data.reduce((acc, item) => {
-    acc[item.id] = {
-      img: item.immagine_principale,
-      nome: item.nome,
-      cognome: item.cognome,
-      slug: item.slug,
-    };
-    return acc;
-  }, {} as { [key: number]: { img: string; nome: string; cognome: string; slug: string } });
-}
 /* struttura dati per la hero */
 function datahero(data: tAutrice[]) {
   return data
@@ -104,11 +109,4 @@ function datahero(data: tAutrice[]) {
         link: item.slug || null,
       };
     });
-}
-function dataCitazioni(opere: tOpera[]) {
-  return opere?.filter((item, index) => {
-    return item.citazioni.some((item: any) => {
-      return item.in_home === true;
-    });
-  });
 }

@@ -79,4 +79,32 @@ async function getAutriciCitazioni() {
         console.error("errori", error);
     }
 }
-export { getAutrici, getOpere, getOpereAutrici, getCitazioni, getAutriciCitazioni };
+async function getTemi() {
+    try {
+        const opere_autrici = await directus.request(
+            readItems("temi", {
+                filter: {
+                    in_homepage: true
+                }
+            })
+        );
+
+        return opere_autrici;
+    } catch (error) {
+        console.error("errori", error);
+    }
+}
+async function getTemiAutrici() {
+    try {
+        const opere_autrici = await directus.request(
+            readItems("temi_autrici", {
+
+            })
+        );
+
+        return opere_autrici;
+    } catch (error) {
+        console.error("errori", error);
+    }
+}
+export { getAutrici, getOpere, getOpereAutrici, getCitazioni, getAutriciCitazioni, getTemi, getTemiAutrici };

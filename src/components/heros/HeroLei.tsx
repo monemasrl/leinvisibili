@@ -54,12 +54,12 @@ function HeroLei({
             ></motion.div>
             <motion.div
               className={style.hero__content__box}
-              initial={{ opacity: 0.5, x: -1000, rotate: 20 }}
               animate={{
-                opacity: 1,
-                x: 0,
-                rotate: -1,
-                transition: { duration: 1 },
+                opacity: [0, 1],
+                x: [-1000, 0],
+                rotate: [20, 0],
+
+                transition: { duration: 1.5 },
               }}
               exit={{ opacity: 0, x: -100, transition: { duration: 0.5 } }}
             >
@@ -78,7 +78,7 @@ function HeroLei({
                   animate={{
                     opacity: 1,
                     y: 0,
-                    transition: { delay: 0.2, duration: 0.5 },
+                    transition: { delay: 0.6, duration: 0.5 },
                   }}
                   exit={{ opacity: 0 }}
                 >
@@ -95,7 +95,7 @@ function HeroLei({
                   animate={{
                     opacity: 1,
                     y: 0,
-                    transition: { delay: 0.3, duration: 0.5 },
+                    transition: { delay: 0.8, duration: 0.5 },
                   }}
                   exit={{ opacity: 0 }}
                 />
@@ -106,7 +106,7 @@ function HeroLei({
                   animate={{
                     opacity: 1,
                     y: 0,
-                    transition: { delay: 0.4, duration: 0.5 },
+                    transition: { delay: 2, duration: 0.5 },
                   }}
                   exit={{ opacity: 0 }}
                 >

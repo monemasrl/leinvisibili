@@ -62,5 +62,22 @@ type tAutriciCitazioni = {
     item: string;
     collection: string;
 };
-
-export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni };
+type tTemi = {
+    id: number;
+    status: string;
+    sort: number | null;
+    user_created: string;
+    date_created: string;
+    user_updated: string;
+    date_updated: string;
+    titolo: string;
+    testo: string;
+    in_homepage: boolean;
+    autrici: number[];
+};
+type tAutriciTemi = {
+    id: number;
+    temi_id: number | null;
+    autrici_id: number;
+};
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi };
