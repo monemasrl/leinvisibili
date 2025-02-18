@@ -1,9 +1,15 @@
 .home {
   margin-top: 0;
+  &__content {
+    margin: $spacing4 auto;
+  }
 }
 .section1 {
   text-align: center;
   h1 {
     color: $gold;
   }
+}
+.section4 {
+  background-color: $lightGrey;
 }

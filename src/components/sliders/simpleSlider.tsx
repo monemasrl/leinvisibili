@@ -62,7 +62,7 @@ function SimpleSlider({
   }, [swiper]);
 
   return (
-    <div>
+    <div className="swiper__container">
       <Swiper
         navigation={true}
         modules={[Navigation]}

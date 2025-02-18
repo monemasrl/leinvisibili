@@ -1,0 +1,48 @@
+.news {
+  max-width: 1200px;
+  margin: $spacing2 auto;
+  > h2 {
+    font-size: $size-title;
+    letter-spacing: -1;
+    color: $gold;
+    margin-bottom: 0;
+  }
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing3;
+    justify-content: space-between;
+    padding: 0 $spacing1;
+    &__box {
+      max-width: 500px;
+      a {
+        color: $gold;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      h3 {
+        font-family: $title;
+        font-size: $size-title/1.5;
+        color: $gold;
+        margin-top: $spacing1;
+        margin-bottom: 0;
+      }
+      ul {
+        display: flex;
+        gap: $spacing1/2;
+        li {
+          font-weight: lighter;
+          &:first-child::after {
+            content: "-";
+            margin-left: $spacing1/2;
+          }
+        }
+      }
+      p {
+        margin-top: $spacing1;
+      }
+    }
+  }
+}

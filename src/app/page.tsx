@@ -1,5 +1,4 @@
 import styles from "./page.module.scss";
-import { notFound } from "next/navigation";
 import HeroLei from "@/components/heros/HeroLei";
 import AnimatedSection from "../components/mainLayoutComponents/sections/animatedSection";
 import SimpleSlider from "@/components/sliders/simpleSlider";
@@ -11,18 +10,13 @@ import type {
   tAutriciCitazioni,
   tTemi,
   tAutriciTemi,
+  tLuoghi,
+  tBlog,
 } from "@/type";
-import {
-  getAutrici,
-  getOpere,
-  getOpereAutrici,
-  getCitazioni,
-  getAutriciCitazioni,
-  getTemi,
-  getTemiAutrici,
-} from "@/utility/fetchdati";
+import { getDataFromApi } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
 import Temi from "@/components/temi/temi";
+import News from "@/components/news/news";
 /**
  * PAGINA
  * Utilizzare le pagine per fetchare i dati e passarli ai componenti
@@ -31,14 +25,35 @@ import Temi from "@/components/temi/temi";
  */
 
 export default async function Home() {
-  const autrici = await getAutrici(notFound);
-  const opere = await getOpere();
-  const citazioni = await getCitazioni();
-  const opereAutrici = await getOpereAutrici();
-  const autriciCitazioni = await getAutriciCitazioni();
-  const temi = await getTemi();
-  const temiautrici = await getTemiAutrici();
-  console.log(temi, "temi");
+  const autrici = await getDataFromApi("autrici", {
+    status: "published",
+  });
+  const opere = await getDataFromApi("opere", {
+    status: "published",
+    in_homepage: true,
+  });
+  const citazioni = await getDataFromApi("citazioni", {
+    in_homepage: true,
+  });
+  const opereAutrici = await getDataFromApi("opere_autrici");
+  const autriciCitazioni = await getDataFromApi("autrici_citazioni");
+  const temi = await getDataFromApi("temi", {
+    status: "published",
+    in_homepage: true,
+  });
+  const temiautrici = await getDataFromApi("temi_autrici");
+  const luoghi = await getDataFromApi("luoghi", {
+    status: "published",
+  });
+  const blog = await getDataFromApi(
+    "blog",
+    {
+      status: "published",
+      in_homepage: true,
+    },
+    2
+  );
+
   return (
     <main className={`${styles.home}`}>
       <HeroLei
@@ -58,6 +73,9 @@ export default async function Home() {
           </p>
         </div>
       </AnimatedSection>
+      <AnimatedSection classname={styles.section4} animateOnce={false}>
+        {blog && <News data={blog as tBlog[]} />}
+      </AnimatedSection>
       <AnimatedSection classname={styles.section2} animateOnce={false}>
         {opere?.length && (
           <SimpleSlider
@@ -73,9 +91,11 @@ export default async function Home() {
       <AnimatedSection classname={styles.section3} animateOnce={false}>
         {temi?.length && (
           <Temi
+            mainTitle="Tema in evidenza:"
             data={temi as tTemi[]}
             temiAutrici={temiautrici as tAutriciTemi[]}
             autrici={autrici as tAutrice[]}
+            luoghi={luoghi as tLuoghi[]}
           />
         )}
       </AnimatedSection>

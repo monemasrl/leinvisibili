@@ -74,10 +74,39 @@ type tTemi = {
     testo: string;
     in_homepage: boolean;
     autrici: number[];
+    slug: string;
 };
 type tAutriciTemi = {
     id: number;
     temi_id: number | null;
     autrici_id: number;
 };
-export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi };
+type tLuoghi = {
+    id: number;
+    status: string;
+    sort: number | null;
+    user_created: string;
+    date_created: string;
+    user_updated: string;
+    date_updated: string;
+    Nome: string;
+    stato: string | null;
+};
+type tBlog = {
+    id: number;
+    status: string;
+    sort: number | null;
+    user_created: string;
+    date_created: string;
+    user_updated: string;
+    date_updated: string;
+    titolo: string;
+    data_inizio: string;
+    data_fine: string;
+    testo: string;
+    evento: boolean;
+    immagine_principale: string;
+    abstract: string;
+    slug: string;
+};
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog };

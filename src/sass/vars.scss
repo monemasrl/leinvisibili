@@ -6,7 +6,7 @@ $navyBlue: #092b51;
 $green: #7dbc77;
 $red: #ed0423;
 $lightBlue: #c7e4f5;
-$lightGrey: #f8f8f8;
+$lightGrey: #f7f7f7;
 $black: #121212;
 $darkGrey: #3b3b3b;
 $grey: #c8c8c8;
@@ -23,8 +23,8 @@ $spacing4: 8rem;
 $size-navbar: 15px;
 $size-p: 18px;
 $pageSubtitle: 32px;
-$title-big: 60px; /* mixin per l'inclusione dei font */
-
+$size-title-big: 60px; /* mixin per l'inclusione dei font */
+$size-title: 50px;
 $title: var(--font-inter);
 $text: var(--font-text);
 @mixin title() {

@@ -1,3 +1,6 @@
+.swiper__container {
+  margin: $spacing4 auto;
+}
 .swiper {
   width: 100%;
   max-width: 1200px;
@@ -9,6 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 500px;
 
     &__citazione {
       font-size: 1.3rem;
@@ -40,14 +44,14 @@
 
 .swiper-slide {
   display: flex;
-  gap: $spacing3;
+  gap: $spacing2;
   justify-content: center;
 }
 
 .swiper-slide img {
   display: block;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -78,4 +82,5 @@
   letter-spacing: 0;
   font-variant: initial;
   line-height: 1;
+  font-weight: 100;
 }
