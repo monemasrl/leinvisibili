@@ -27,9 +27,9 @@ function Temi({
     target: scrollRef,
     offset: ["start end", "end end"],
   });
-  const rotation = useTransform(scrollYProgress, [0.2, 0.9], [60, 0]);
+  const rotation = useTransform(scrollYProgress, [0.1, 1], [50, -2]);
 
-  const opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0.2, 1]);
 
   const [motionValueOpacity, setMotionvalueOpacity] = useState<number>(0);
 
@@ -43,9 +43,9 @@ function Temi({
       <motion.div
         className={style.temi}
         style={{
-          rotateY: rotation,
+          rotateZ: rotation,
           //boxShadow: `5px 0 23px rgba(192, 192, 192, ${motionvalue})`,
-          background: `linear-gradient(90deg, rgb(236 236 236) 0%, rgba(247,247,247,1) 10%)`,
+          background: `linear-gradient(90deg, rgb(240, 217, 207) 0%, rgb(242 228 218) 20%)`,
           opacity: motionValueOpacity,
         }}
       >
@@ -59,7 +59,7 @@ function Temi({
           className={style.temi__box}
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
+          transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: false }}
         >
           <h2>{data[0].titolo}</h2>

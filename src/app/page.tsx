@@ -88,16 +88,17 @@ export default async function Home() {
           />
         )}
       </AnimatedSection>
-
-      {temi?.length && (
-        <Temi
-          mainTitle="Tema in evidenza:"
-          data={temi as tTemi[]}
-          temiAutrici={temiautrici as tAutriciTemi[]}
-          autrici={autrici as tAutrice[]}
-          luoghi={luoghi as tLuoghi[]}
-        />
-      )}
+      <section className="sectionTemi">
+        {temi?.length && (
+          <Temi
+            mainTitle="Tema in evidenza:"
+            data={temi as tTemi[]}
+            temiAutrici={temiautrici as tAutriciTemi[]}
+            autrici={autrici as tAutrice[]}
+            luoghi={luoghi as tLuoghi[]}
+          />
+        )}
+      </section>
     </main>
   );
 }
