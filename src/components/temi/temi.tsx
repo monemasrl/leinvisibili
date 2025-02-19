@@ -44,7 +44,7 @@ function Temi({
         className={style.temi}
         style={{
           rotateZ: rotation,
-          //boxShadow: `5px 0 23px rgba(192, 192, 192, ${motionvalue})`,
+          boxShadow: "0px 0px 10px #220303",
           background: `linear-gradient(90deg, rgb(240, 217, 207) 0%, rgb(242 228 218) 20%)`,
           opacity: motionValueOpacity,
         }}

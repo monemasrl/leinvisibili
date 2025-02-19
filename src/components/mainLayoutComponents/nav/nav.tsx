@@ -16,8 +16,8 @@ function NavBar() {
   // funzione per gestire lo scroll con smooth scroll LENIS
   const scroll = useLenis();
 
-  const t = navigation["it"];
-
+  const t = navigation.navigation;
+  console.log(t);
   function isHome() {
     if (pathN === "/") {
       return true;
@@ -42,7 +42,7 @@ function NavBar() {
   useEffect(() => {
     setMobile(false);
   }, [pathN]);
-
+  console.log(t);
   return (
     <header
       className={`${style.header}  ${scrolling ? style.scrolling : null}`}
@@ -56,9 +56,8 @@ function NavBar() {
                   scrolling ? style.title__scrolling : ""
                 }`}
               >
-                Le Invisibili{" "}
+                Le Invisibili <span>web archive</span>
               </div>
-              <span>web archive</span>
             </>
           </Link>
         </div>

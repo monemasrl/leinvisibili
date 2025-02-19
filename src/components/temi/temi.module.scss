@@ -14,7 +14,7 @@
   position: relative;
   display: inline-block;
   transform-origin: left;
-  margin-top: $spacing2;
+  margin-top: $spacing3;
   p {
     font-size: 16px;
   }
@@ -55,7 +55,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      flex: 1 1;
+      flex: 1 0 300px;
       gap: 1rem;
       align-items: center;
       img {
