@@ -1,36 +1,38 @@
-.temi {
-  max-width: 1200px;
+.wrappertemi {
+  max-width: 1040px;
   margin: 0 auto $spacing4 auto;
-  border-radius: 20px;
-  background-color: rgba(247, 247, 247, 0.625);
   position: relative;
-
-  overflow: hidden;
-  &::after {
-    content: "";
+  > img {
+    display: block;
+    position: relative;
+    top: 3px;
+  }
+}
+.temi {
+  border-radius: 20px;
+  background-color: rgba(247, 247, 247, 1);
+  position: relative;
+  display: inline-block;
+  transform-origin: left;
+  .anelli {
     position: absolute;
-    background-image: url("/image/paper2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    background-color: rgb(185, 185, 185);
-
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: -15px;
+    z-index: 100;
+    width: 60px;
+    height: auto;
+    transform: translateY(-50%);
   }
   > h2 {
     font-size: $size-p * 1.3;
 
     color: #7a4535;
-    margin: 2rem 3rem 0;
+    margin: 2rem 3rem 0 4rem;
 
     font-family: $text;
   }
   &__box {
-    padding: 0 3rem;
+    padding: 0 3rem 0 4rem;
 
     > h2 {
       font-size: $size-title;

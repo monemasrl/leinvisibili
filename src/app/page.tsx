@@ -88,17 +88,16 @@ export default async function Home() {
           />
         )}
       </AnimatedSection>
-      <AnimatedSection classname={styles.section3} animateOnce={false}>
-        {temi?.length && (
-          <Temi
-            mainTitle="Tema in evidenza:"
-            data={temi as tTemi[]}
-            temiAutrici={temiautrici as tAutriciTemi[]}
-            autrici={autrici as tAutrice[]}
-            luoghi={luoghi as tLuoghi[]}
-          />
-        )}
-      </AnimatedSection>
+
+      {temi?.length && (
+        <Temi
+          mainTitle="Tema in evidenza:"
+          data={temi as tTemi[]}
+          temiAutrici={temiautrici as tAutriciTemi[]}
+          autrici={autrici as tAutrice[]}
+          luoghi={luoghi as tLuoghi[]}
+        />
+      )}
     </main>
   );
 }
