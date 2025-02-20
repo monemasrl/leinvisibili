@@ -1,3 +1,13 @@
+/*MEDIA QUERY*/
+$phone: "only screen and (max-width : 460px)";
+$tablet: "only screen and (max-width : 720px)";
+$landscape: "only screen and (max-width : 1024px)";
+$desktop: "only screen and (max-width : 1200px)";
+$large: "only screen and (max-width: 1340px)";
+$laptop: "only screen and (max-width : 1460px)";
+$wide: "only screen and (max-width : 1620px)";
+$big: "only screen and (max-width : 1920px)";
+
 /*COLORI*/
 $orange: #e5794b;
 $blue: rgb(0, 96, 141);
@@ -14,6 +24,7 @@ $grey: #c8c8c8;
 $gold: #7a4535;
 $goldTransparent: rgb(122 69 53 / 88%);
 $lightGold: #d9d9d9;
+
 /*INGOMBRI*/
 $spacing1: 1rem;
 $spacing2: 2rem;
@@ -32,16 +43,6 @@ $text: var(--font-text);
   font-family: var(--font-inter);
   font-weight: 200;
 }
-
-/*MEDIA QUERY*/
-$phone: "only screen and (max-width : 460px)";
-$tablet: "only screen and (max-width : 720px)";
-$landscape: "only screen and (max-width : 1024px)";
-$desktop: "only screen and (max-width : 1200px)";
-$large: "only screen and (max-width: 1340px)";
-$laptop: "only screen and (max-width : 1460px)";
-$wide: "only screen and (max-width : 1620px)";
-$big: "only screen and (max-width : 1920px)";
 
 $container: 1610px;
 

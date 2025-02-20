@@ -1,7 +1,10 @@
 .home {
   margin-top: 0;
   &__content {
-    margin: $spacing4 auto;
+    margin: $spacing1 auto $spacing4 auto;
+    @media #{$landscape} {
+      margin: $spacing4/2 auto;
+    }
   }
 }
 .section1 {
@@ -12,4 +15,7 @@
 }
 .section4 {
   background-color: $lightGrey;
+  @media #{$tablet} {
+    background-color: white;
+  }
 }

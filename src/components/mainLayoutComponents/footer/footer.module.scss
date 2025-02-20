@@ -24,6 +24,12 @@
       font-size: $size-title;
       color: $gold;
     }
+    img {
+      width: 100%;
+      max-width: 1050px;
+      margin: 0 auto;
+      height: auto;
+    }
   }
   &__nav {
     font-family: $title;
@@ -35,9 +41,15 @@
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     max-width: 1200px;
     padding: $spacing3 $spacing1;
+    @media #{$tablet} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media #{$phone} {
+      grid-template-columns: 1fr;
+    }
     p {
       color: white;
       font-size: 1rem;

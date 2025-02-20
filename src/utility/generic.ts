@@ -1,3 +1,4 @@
+
 function formatDataFromApi(data: string, optionsObject: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
@@ -8,4 +9,6 @@ function formatDataFromApi(data: string, optionsObject: Intl.DateTimeFormatOptio
     return nascita.toLocaleDateString("it-IT", options)
 }
 
+
 export { formatDataFromApi }
+

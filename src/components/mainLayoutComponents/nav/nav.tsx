@@ -8,7 +8,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import navigation from "../../../../public/data/navigation.json";
 import { useLenis } from "@studio-freight/react-lenis";
+import { useMediaQuery } from "react-responsive";
 function NavBar() {
+  const landscape = useMediaQuery({ query: "(min-width: 1024px)" });
   const pathN = usePathname();
   const [mobile, setMobile] = useState(false);
   const [scrolling, setScrolling] = useState(false);
@@ -25,10 +27,12 @@ function NavBar() {
     return false;
   }
   function handleScroll() {
-    if (window.scrollY > 100) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
+    if (landscape) {
+      if (window.scrollY > 100) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
     }
   }
 

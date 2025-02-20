@@ -6,6 +6,22 @@
     display: block;
     position: relative;
     top: 3px;
+    max-width: 830px;
+    width: 100%;
+    @media #{$tablet} {
+      display: none;
+    }
+  }
+}
+.temiBackground {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #954a36;
+  height: 60%;
+  img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 .temi {
@@ -15,6 +31,16 @@
   display: inline-block;
   transform-origin: left;
   margin-top: $spacing3;
+  background: linear-gradient(
+    90deg,
+    rgb(240, 217, 207) 9%,
+    rgb(242, 228, 218) 70%
+  );
+  box-shadow: 0px 0px 5px #5119197a;
+  @media #{$landscape} {
+    margin-top: 0;
+    box-shadow: none;
+  }
   p {
     font-size: 16px;
   }
@@ -37,9 +63,13 @@
   }
   &__box {
     padding: 0 3rem 0 4rem;
+    @media #{$tablet} {
+      padding-left: 2rem;
+    }
 
     > h2 {
       font-size: $size-title;
+      line-height: 1;
     }
   }
   &__autrici {
@@ -51,6 +81,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    @media #{$tablet} {
+      padding-left: 0;
+    }
     &__box {
       display: flex;
       flex-wrap: wrap;

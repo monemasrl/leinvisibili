@@ -17,9 +17,10 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
 import Temi from "@/components/temi/temi";
 import News from "@/components/news/news";
+
 /**
  * PAGINA
- * Utilizzare le pagine per fetchare i dati e passarli ai componenti
+ * Utilizzare le pagine per fetch dei dati e passarli ai componenti
  * Mantenere le pagine componenti server-side
  * Passare i dati ai componenti tramite props
  */
@@ -60,6 +61,7 @@ export default async function Home() {
         data={autrici && datahero(autrici as tAutrice[])}
         assetsURL={process.env.NEXT_PUBLIC_ASSETS_URL}
       />
+      <div className="divider"></div>
       <AnimatedSection classname={styles.section1} animateOnce={false}>
         <div className={`${styles.home__content} mainwrapper`}>
           <h1>Le Invisibili</h1>

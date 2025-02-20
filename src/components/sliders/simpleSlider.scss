@@ -1,13 +1,12 @@
 .swiper__container {
   margin: $spacing4 auto;
+  @media #{$landscape} {
+    margin: $spacing1 auto;
+  }
 }
 .swiper {
   width: 100%;
   max-width: 1200px;
-
-  @media #{$tablet} {
-    max-width: 350px;
-  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -17,17 +16,24 @@
       font-size: 20px;
     }
     &__citazione {
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-bottom: 1rem;
-      max-width: 600px;
-      font-style: italic;
-      line-height: 1.5;
+      p {
+        text-align: justify;
+        font-size: 1.3rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        max-width: 600px;
+        font-style: italic;
+        line-height: 1.5;
+        @media #{$tablet} {
+          font-size: 1.2rem;
+        }
+      }
     }
     &__nome {
       font-size: 3rem;
       font-family: var(--font-inter);
       color: $gold;
+      line-height: 1;
       a {
         color: $gold;
         text-decoration: none;
@@ -48,6 +54,13 @@
   display: flex;
   gap: $spacing2;
   justify-content: center;
+  @media #{$tablet} {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 $spacing2;
+    gap: 0;
+    text-align: center;
+  }
 }
 
 .swiper-slide img {
@@ -57,9 +70,9 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  @media #{$tablet} {
-    max-width: 330px;
-    height: auto;
+  @media #{$desktop} {
+    width: 250px;
+    height: 250px;
   }
 }
 .swiper-button-prev,

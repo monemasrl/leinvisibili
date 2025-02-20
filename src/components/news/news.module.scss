@@ -15,6 +15,9 @@
     padding: 0 $spacing1;
     &__box {
       max-width: 500px;
+      @media #{$desktop} {
+        max-width: 440px;
+      }
       a {
         color: $gold;
         text-decoration: none;

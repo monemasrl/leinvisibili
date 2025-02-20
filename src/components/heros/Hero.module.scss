@@ -30,7 +30,9 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-
+    @media #{$laptop} {
+      align-items: flex-end;
+    }
     .closeArea {
       position: absolute;
       top: 0;
@@ -46,13 +48,25 @@
       display: flex;
       max-width: 1060px;
       width: 100%;
-
       z-index: 1;
       max-height: 590px;
       overflow: hidden;
+      @media #{$laptop} {
+        margin-bottom: 2rem;
+      }
+      @media #{$large} {
+        max-width: 1000px;
+        max-height: 400px;
+        margin-bottom: 2rem;
+      }
+
       img {
         object-fit: cover;
         object-position: top;
+        @media #{$large} {
+          width: 200px;
+          height: 200px;
+        }
       }
       &__text {
         padding: $spacing2 + 1;
@@ -62,7 +76,10 @@
         justify-content: center;
         gap: $spacing1;
         background-color: $lightGold;
-
+        @media #{$large} {
+          padding: 1rem;
+          justify-content: flex-start;
+        }
         h2 {
           color: $gold;
           font-size: $size-title-big;

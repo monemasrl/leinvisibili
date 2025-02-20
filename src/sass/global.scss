@@ -85,6 +85,17 @@ button {
   margin: $spacing3 auto;
 }
 .sectionTemi {
-  background-color: #954a36;
+  position: relative;
   padding: $spacing3 0;
+  @media #{$landscape} {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+.divider {
+  width: 1px;
+  height: 150px;
+  background-color: $gold;
+
+  margin: $spacing1 auto;
 }
