@@ -9,6 +9,25 @@
   @media #{$landscape} {
     position: relative;
   }
+  &.page {
+    position: relative;
+    .navMobile {
+      .burger {
+        color: $gold;
+      }
+    }
+    div ul li a {
+      color: $gold;
+      &:hover {
+        color: $gold;
+      }
+    }
+    .title {
+      .mainTitle {
+        color: $gold;
+      }
+    }
+  }
   &.scrolling {
     background-color: $goldTransparent;
     position: fixed;

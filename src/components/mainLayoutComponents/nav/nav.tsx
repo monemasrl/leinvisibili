@@ -49,7 +49,11 @@ function NavBar() {
   console.log(t);
   return (
     <header
-      className={`${style.header}  ${scrolling ? style.scrolling : null}`}
+      className={`
+        ${style.header} 
+        ${scrolling ? style.scrolling : ""} 
+        ${!isHome() ? style.page : ""}
+        `}
     >
       <nav className={`${style.mainNavBar}`}>
         <div className={style.mainNavBar__logo}>
@@ -84,24 +88,7 @@ function NavBar() {
                   }`}
                   key={index}
                 >
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scroll?.scrollTo(item.url || "", { offset: -100 });
-                    }}
-                    href={item.url || ""}
-                  >
-                    {item.name}
-                  </a>
-                  {item.sub && (
-                    <ul className={style.subNav}>
-                      {item.sub?.map((subItem, index) => (
-                        <li key={index}>
-                          <Link href={subItem.url || ""}>{subItem.name}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <Link href={item.url || "/"}>{item.name}</Link>
                 </li>
               )
             )}

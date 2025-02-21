@@ -36,6 +36,7 @@
         display: flex;
         gap: $spacing1/2;
         li {
+          font-size: $size-p;
           font-weight: lighter;
           &:first-child::after {
             content: "-";

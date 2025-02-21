@@ -2,7 +2,7 @@
     "navigation": [
         {
             "name": "Archivio",
-            "url": "#studio"
+            "url": "/archivio"
         },
         {
             "name": "Temi",
