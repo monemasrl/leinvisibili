@@ -2,9 +2,9 @@
 
 import React, { FormEvent, useEffect, useState } from "react";
 import style from "./page.module.scss";
-import { getDataFromApi } from "@/utility/fetchdati";
+import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
 import Link from "next/link";
-
+import { tOpereAutrici } from "@/type";
 function page() {
   const [searchField, setSearchField] = useState("");
   const [filter, setFilter] = useState<Record<string, any>>({
@@ -14,37 +14,57 @@ function page() {
   const [searchData, setSearchData] = useState<any>(null);
   const [result, setResult] = useState<any>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [opereAutrici, setOpereAutrici] = useState<tOpereAutrici[] | undefined>(
+    undefined
+  );
+
+  async function fetchData() {
+    try {
+      const data = await getDataFromApi(filter.collection, searchData);
+      /*    if (filter.collection === "opere" && opereAutrici) {
+        let dataOpere = []
+        const opereData = data.forEach((item, index)=>{
+          
+        })
+        
+      } */
+      if (data) {
+        setResult(data);
+      } else {
+        throw new Error("errore collegamento al database");
+      }
+    } catch (e: any) {
+      console.log(e);
+      setError(e.message);
+    }
+  }
+
+  async function setDataAutriciOpere() {
+    // funzione che crea l'array di opere e autrici
+    const data = await getDataAutriciOpere();
+    // se ci sono dati li setta nella variabile di stato
+    if (data) return setOpereAutrici(data);
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     let res;
-
     res = {
       [filter.campo]: { _contains: searchField },
     };
-
     setSearchData(res);
   }
 
   useEffect(() => {
-    console.log(searchData);
-    const fetchData = async () => {
-      try {
-        const data = await getDataFromApi(filter.collection, searchData);
-        if (data) {
-          setResult(data);
-        } else {
-          throw new Error("errore collegamento al database");
-        }
-      } catch (e: any) {
-        console.log(e);
-        setError(e.message);
-      }
-    };
     if (searchField) {
       fetchData();
     }
-  }, [searchData]);
 
+    // funzione asincrona che setta i dati delle autrici e delle opere
+    setDataAutriciOpere();
+  }, [searchData]);
+  console.log(opereAutrici);
   return (
     <div className={style.container}>
       <form onSubmit={(e) => handleSubmit(e)}>

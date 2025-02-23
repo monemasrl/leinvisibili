@@ -109,4 +109,10 @@ type tBlog = {
     abstract: string;
     slug: string;
 };
-export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog };
+type tAutriciOpere = {
+    id: number;
+    autrici_id: number;
+    opere_id: number;
+    sort: number | null;
+};
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog, tAutriciOpere };

@@ -19,7 +19,7 @@ function NavBar() {
   const scroll = useLenis();
 
   const t = navigation.navigation;
-  console.log(t);
+
   function isHome() {
     if (pathN === "/") {
       return true;
@@ -46,7 +46,7 @@ function NavBar() {
   useEffect(() => {
     setMobile(false);
   }, [pathN]);
-  console.log(t);
+
   return (
     <header
       className={`
