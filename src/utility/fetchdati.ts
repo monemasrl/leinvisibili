@@ -4,29 +4,32 @@ import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
 
 async function getDataFromApi(type: string, filter: object = {}, limit: number = -1, offset: number = 0) {
-    try {
-        const opere = await directus.request(
-            readItems(type, {
-                filter: filter || {},
-                limit: limit,
-                offset: offset,
-            })
-        );
-        return opere;
-    } catch (error: any) {
-        console.error("errori", error);
-        return error
+
+    const opere = await directus.request(
+        readItems(type, {
+            filter: filter || {},
+            limit: limit,
+            offset: offset,
+        })
+    );
+
+    if (!opere) {
+        console.error("errore collegamento al database");
     }
+    else { return opere; }
+
+
 }
-async function getDataAutriciOpere() {
+async function getDataAutriciOpere(operaTitolo: string) {
     // dati autrici
     const autriciData = await getDataFromApi("autrici", {
         status: "published",
     });
-    // dati opere
-    const opereData = await getDataFromApi("opere", {
+    // dati opere per titolo ricercato
+    const dataOpere: tOpera[] = (await getDataFromApi("opere", {
         status: "published",
-    });
+        titolo: { _contains: operaTitolo },
+    }) as tOpera[]) || [];
     // dati autrici_opere
     const autriciOpere = await getDataFromApi("autrici_opere_1", {});
 
@@ -38,10 +41,10 @@ async function getDataAutriciOpere() {
      * cilca l'array autriciId e fa un find sull' array autriciData per trovare i dati dell'autrice
      * ritorna un array con le opere e i dati delle autrici
      */
-    const autriciIdPerOpere = opereData.map((opera: tOpera) => {
-        const autriceId = autriciOpere.filter((autriceOpere: tAutriciOpere) => autriceOpere.opere_id === opera.id).map((autriceOpere: tAutriciOpere) => autriceOpere.autrici_id)
-        const datiAutrice = autriceId.map((id: number) => { return autriciData.find((autrice: tAutrice) => autrice.id === id) })
-        return { opera: opera.titolo, autriceId: datiAutrice && datiAutrice }
+    const autriciIdPerOpere = dataOpere?.map((opera) => {
+        const autriceId = (autriciOpere as tAutriciOpere[])?.filter((autriceOpere: tAutriciOpere) => autriceOpere.opere_id === opera.id).map((autriceOpere) => autriceOpere.autrici_id)
+        const datiAutrice = autriceId?.map((id) => { return autriciData?.find((autrice) => autrice.id === id) })
+        return { opera: opera.titolo, autrice: datiAutrice && datiAutrice }
     })
     return autriciIdPerOpere
 }

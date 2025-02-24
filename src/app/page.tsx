@@ -17,7 +17,7 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
 import Temi from "@/components/temi/temi";
 import News from "@/components/news/news";
-import { notFound } from "next/navigation";
+export const dynamic = "force-dynamic";
 /**
  * PAGINA
  * Utilizzare le pagine per fetch dei dati e passarli ai componenti

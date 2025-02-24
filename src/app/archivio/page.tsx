@@ -4,10 +4,10 @@ import React, { FormEvent, useEffect, useState } from "react";
 import style from "./page.module.scss";
 import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
 import Link from "next/link";
-import { tOpereAutrici } from "@/type";
+import { tAutrice, tOpereAutrici } from "@/type";
 function page() {
   const [searchField, setSearchField] = useState("");
-  const [filter, setFilter] = useState<Record<string, any>>({
+  const [filter, setFilter] = useState<{ collection: string; campo: string }>({
     collection: "autrici",
     campo: "nome",
   });
@@ -22,13 +22,6 @@ function page() {
   async function fetchData() {
     try {
       const data = await getDataFromApi(filter.collection, searchData);
-      /*    if (filter.collection === "opere" && opereAutrici) {
-        let dataOpere = []
-        const opereData = data.forEach((item, index)=>{
-          
-        })
-        
-      } */
       if (data) {
         setResult(data);
       } else {
@@ -40,11 +33,19 @@ function page() {
     }
   }
 
-  async function setDataAutriciOpere() {
-    // funzione che crea l'array di opere e autrici
-    const data = await getDataAutriciOpere();
-    // se ci sono dati li setta nella variabile di stato
-    if (data) return setOpereAutrici(data);
+  async function dataAutriciOpere(operaTitolo: string) {
+    try {
+      const data = await getDataAutriciOpere(operaTitolo);
+      // se ci sono dati li setta nella variabile di stato
+      if (data) {
+        setResult(data);
+      } else {
+        throw new Error("errore collegamento al database");
+      }
+    } catch (e: any) {
+      console.log(e);
+      setError(e.message);
+    }
   }
 
   function handleSubmit(e: FormEvent) {
@@ -57,14 +58,17 @@ function page() {
   }
 
   useEffect(() => {
-    if (searchField) {
+    if (searchField && filter.collection !== "opere") {
       fetchData();
     }
 
-    // funzione asincrona che setta i dati delle autrici e delle opere
-    setDataAutriciOpere();
+    // se si ricercano delle opere esegue funzione asincrona per dati delle autrici e delle opere
+    if (searchField && filter.collection === "opere") {
+      console.log("fetchData");
+      dataAutriciOpere(searchField);
+    }
   }, [searchData]);
-  console.log(opereAutrici);
+  console.log(result);
   return (
     <div className={style.container}>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -120,10 +124,10 @@ function page() {
       {result?.length && (
         <div className={style.results}>
           {result.map((item: any) => {
-            if (item.titolo) {
+            if (item.opera) {
               return (
-                <div key={item.id}>
-                  <Link href={`/opere/${item.slug}`}>
+                <div key={item.opera}>
+                  <Link href={`/autrici/${item.slug}`}>
                     <h2>{item.titolo}</h2>
                   </Link>
                 </div>

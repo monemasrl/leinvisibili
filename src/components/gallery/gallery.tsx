@@ -11,9 +11,9 @@ function Gallery({ type, images }: { type: string; images: string[] }) {
   if (type === "one") {
     return (
       <div className={style.galleryGrid}>
-        <FixedModal modalState={modalState} closeModal={setModalState}>
+        {/*      <FixedModal modalState={modalState} closeModal={setModalState}>
           <SimpleSlider data={images} id={currentImage} />
-        </FixedModal>
+        </FixedModal> */}
         <div className={style.galleryGrid__colBig}>
           <button
             onClick={() => {
@@ -110,9 +110,9 @@ function Gallery({ type, images }: { type: string; images: string[] }) {
   if (type === "two") {
     return (
       <div className={style.galleryGrid2}>
-        <FixedModal modalState={modalState} closeModal={setModalState}>
+        {/*  <FixedModal modalState={modalState} closeModal={setModalState}>
           <SimpleSlider data={images} id={currentImage} />
-        </FixedModal>
+        </FixedModal> */}
         {images.map((item, index) => {
           return (
             <div key={index} className={style.galleryGrid2__col}>

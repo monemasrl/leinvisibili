@@ -173,9 +173,9 @@ function Form() {
       <p className={style.privacy}>
         <label htmlFor="privacy" className={style.privacy__label}>
           Accetto i termini sulla&nbsp;
-          <a href={t.privacy_url} target="_blank">
+          {/*     <a href={t.privacy_url} target="_blank">
             {t.privacy}
-          </a>
+          </a> */}
         </label>
         <input
           onChange={(e) => setPrivacy(e.target.checked)}
