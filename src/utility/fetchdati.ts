@@ -21,6 +21,7 @@ async function getDataFromApi(type: string, filter: object = {}, limit: number =
 
 }
 async function getDataAutriciOpere(operaTitolo: string) {
+
     // dati autrici
     const autriciData = await getDataFromApi("autrici", {
         status: "published",
@@ -41,11 +42,15 @@ async function getDataAutriciOpere(operaTitolo: string) {
      * cilca l'array autriciId e fa un find sull' array autriciData per trovare i dati dell'autrice
      * ritorna un array con le opere e i dati delle autrici
      */
-    const autriciIdPerOpere = dataOpere?.map((opera) => {
-        const autriceId = (autriciOpere as tAutriciOpere[])?.filter((autriceOpere: tAutriciOpere) => autriceOpere.opere_id === opera.id).map((autriceOpere) => autriceOpere.autrici_id)
-        const datiAutrice = autriceId?.map((id) => { return autriciData?.find((autrice) => autrice.id === id) })
-        return { opera: opera.titolo, autrice: datiAutrice && datiAutrice }
-    })
-    return autriciIdPerOpere
+
+    if (dataOpere) {
+        const autriciIdPerOpere = dataOpere?.map((opera) => {
+            const autriceId = (autriciOpere as tAutriciOpere[])?.filter((autriceOpere: tAutriciOpere) => autriceOpere.opere_id === opera.id).map((autriceOpere) => autriceOpere.autrici_id)
+            const datiAutrice = autriceId?.map((id) => { return autriciData?.find((autrice) => autrice.id === id) })
+            return { opera: opera.titolo, autrice: datiAutrice && datiAutrice }
+        })
+        return autriciIdPerOpere
+    }
+
 }
 export { getDataFromApi, getDataAutriciOpere };
