@@ -17,6 +17,7 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
 import Temi from "@/components/temi/temi";
 import News from "@/components/news/news";
+import Image from "next/image";
 export const dynamic = "force-dynamic";
 /**
  * PAGINA
@@ -61,7 +62,9 @@ export default async function Home() {
         data={autrici && datahero(autrici as tAutrice[])}
         assetsURL={process.env.NEXT_PUBLIC_ASSETS_URL}
       />
-      <div className="divider"></div>
+      <div className="divider">
+        <Image src="/image/linea.svg" width={3} height={150} alt="divider" />
+      </div>
       <AnimatedSection classname={styles.section1} animateOnce={false}>
         <div className={`${styles.home__content} mainwrapper`}>
           <h1>Le Invisibili</h1>

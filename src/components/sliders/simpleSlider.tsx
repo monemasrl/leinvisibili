@@ -90,6 +90,7 @@ function SimpleSlider({
                       process.env.NEXT_PUBLIC_ASSETS_URL +
                       mainData?.autrice?.immagine_principale
                     }
+                    sizes="(max-width: 460px) 40vw"
                     width={500}
                     height={500}
                     alt={"item.titolo"}

@@ -16,11 +16,17 @@ function Footer() {
     <footer className={style.footer}>
       <div className={style.patrocinio}>
         <h2>Realizzato grazie al patrocinio di:</h2>
-        <Image src={immaginePatrocinio} width={1055} height={160} alt="logo" />
+        <Image
+          src={immaginePatrocinio}
+          width={1055}
+          height={160}
+          alt="logo"
+          loading="lazy"
+        />
       </div>
       <div className={style.footer__first}>
         <div>
-          <Image src={logo} width={300} height={91} alt="logo" />
+          <Image src={logo} width={300} height={91} alt="logo" loading="lazy" />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
             voluptates optio. Aliquam praesentium voluptatum illo quia vitae.

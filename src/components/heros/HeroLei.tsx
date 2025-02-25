@@ -44,8 +44,10 @@ function HeroLei({
               <Image
                 src={assetsURL + item.image || ""}
                 width={566}
-                height={1080}
+                height={1050}
                 alt={item.nome || ""}
+                sizes="(max-width: 460px) 30vw"
+                priority={true}
               />
             )}
           </div>
@@ -120,7 +122,7 @@ function HeroLei({
                     }}
                     exit={{ opacity: 0 }}
                   >
-                    <Link href={`/autrice/${data[boxOpen].link}`}>
+                    <Link href={`/autrici/${data[boxOpen].link}`}>
                       Scopri di più
                     </Link>
                     <Image src={freccia} width={200} height={3} alt="freccia" />
