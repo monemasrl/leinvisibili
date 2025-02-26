@@ -3,9 +3,7 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import style from "./page.module.scss";
 import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
-import Link from "next/link";
-import { tAutrice, tOpereAutrici } from "@/type";
-import { formatDataFromApi } from "@/utility/generic";
+import ArchivioLista from "@/components/archivio/archivioLista";
 function page() {
   const [searchField, setSearchField] = useState<{
     opera?: string;
@@ -19,9 +17,29 @@ function page() {
   const [searchData, setSearchData] = useState<any>(null);
   const [result, setResult] = useState<any>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [defaultData, setDefaultData] = useState<any>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
 
-  async function fetchData() {
+  /* funzione SUBMIT del form */
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    let res;
+
+    if (filter.collection === "opere" && searchField.opera) {
+      res = { opera: searchField.opera };
+      setSearchData(res);
+    } else if (
+      filter.collection === "autrici" &&
+      (searchField.nome || searchField.cognome)
+    ) {
+      res = { nome: searchField.nome, cognome: searchField.cognome };
+      setSearchData(res);
+    } else {
+      setSearchData(null);
+    }
+  }
+  /* funzione Fetch che scarica i dati e setta lo stato Result */
+  async function fetchData(type: string, searchData: any) {
     try {
       const data = await getDataFromApi(filter.collection, searchData);
       if (data) {
@@ -35,6 +53,20 @@ function page() {
     }
   }
 
+  /* funzione Fetch che scarica i dati AUTRICI DEFAULT e setta lo stato Result */
+  async function fetchDefaultData() {
+    try {
+      const data = await getDataFromApi("autrici", { status: "published" }, 2);
+      if (data) {
+        setDefaultData(data);
+      } else {
+        throw new Error("errore collegamento al database");
+      }
+    } catch (e: any) {
+      console.log(e);
+      setError(e.message);
+    }
+  }
   async function dataAutriciOpere(datiPerRicerca: {
     opera?: string;
     nome?: string;
@@ -54,31 +86,22 @@ function page() {
     }
   }
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    let res;
-    if (filter.collection === "opere") {
-      res = { opera: searchField.opera };
-    } else {
-      res = { nome: searchField.nome, cognome: searchField.cognome };
-    }
-    setSearchData(res);
-  }
-
   useEffect(() => {
     if (
       (searchField.nome?.length || searchField.cognome?.length) &&
       filter.collection !== "opere"
     ) {
-      fetchData();
+      fetchData(filter.collection, searchData);
     }
 
     // se si ricercano delle opere esegue funzione asincrona per dati delle autrici e delle opere
     if (searchField.opera?.length && filter.collection === "opere") {
       dataAutriciOpere(searchField);
     }
-  }, [searchData]);
 
+    fetchDefaultData();
+  }, [searchData]);
+  console.log("searchData", searchData);
   return (
     <div className={style.container}>
       <h1>Archivio autrici</h1>
@@ -89,27 +112,30 @@ function page() {
               type="text"
               id="search"
               name="search"
+              placeholder="titolo"
               onChange={(e) => {
                 setSearchField({ opera: e.target.value });
               }}
             />
           ) : (
-            <div className={style.fieldNomeCognome}>
+            <div className={style.searchNome}>
               <input
                 type="text"
                 name="nome"
+                placeholder="nome"
                 onChange={(e) => {
                   setSearchField((prev) => {
-                    return { ...prev, nome: e.target.value };
+                    return { ...prev, opera: "", nome: e.target.value };
                   });
                 }}
               />
               <input
                 type="text"
                 name="cognome"
+                placeholder="cognome"
                 onChange={(e) => {
                   setSearchField((prev) => {
-                    return { ...prev, cognome: e.target.value };
+                    return { ...prev, opera: "", cognome: e.target.value };
                   });
                 }}
               />
@@ -117,7 +143,7 @@ function page() {
           )}
           <div className={style.filterBox}>
             <div className={style.filter}>
-              <label htmlFor="nome">Nome</label>
+              <label htmlFor="nome">Autrice</label>
               <input
                 type="radio"
                 id="nome"
@@ -147,68 +173,20 @@ function page() {
         <button type="submit">cerca</button>
       </form>
 
-      {Boolean(result?.length) && (
-        <div className={style.results}>
-          {result.map((item: any) => {
-            if (item.opera) {
-              return (
-                <div className={style.result} key={item.opera}>
-                  <h2>{item.opera}</h2>
-                  <ul className={style.boxAutrice}>
-                    {item.autrice.map((autrice: tAutrice) => {
-                      return (
-                        <li key={autrice.id}>
-                          <Link href={`/autrici/${autrice.slug}`}>
-                            <h3>
-                              {autrice.nome} {autrice.cognome}
-                            </h3>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            } else {
-              return (
-                <div className={style.result} key={item.id}>
-                  <div className={style.autrice}>
-                    <Link href={`/autrici/${item.slug}`}>
-                      <h2>
-                        {item.nome} {item.cognome}
-                      </h2>
-                    </Link>
-                    <ul className={style.data}>
-                      <li>
-                        {item.data_di_nascita
-                          ? formatDataFromApi(item.data_di_nascita, {
-                              year: "numeric",
-                            })
-                          : ""}
-                      </li>
-                      <li>
-                        {item.data_di_morte
-                          ? formatDataFromApi(item.data_di_morte, {
-                              year: "numeric",
-                            })
-                          : ""}
-                      </li>
-                    </ul>
-                    <div
-                      className={style.abstract}
-                      dangerouslySetInnerHTML={{ __html: item.abstract }}
-                    />
-                  </div>
-                </div>
-              );
-            }
-          })}
-        </div>
+      {Boolean(result?.length && searchData) && (
+        <ArchivioLista result={result} abstract />
       )}
-      {Boolean(result?.length <= 0 && searchData) && (
+      {Boolean(result?.length <= 0) && (
         <div className={style.noResults}>
           <p>nessun risultato</p>
         </div>
+      )}
+
+      {defaultData && (
+        <section className={style.defaultData}>
+          <h2>Ultime Autrici</h2>
+          <ArchivioLista result={defaultData} />
+        </section>
       )}
       {error && (
         <div className={style.error}>

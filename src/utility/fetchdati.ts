@@ -5,7 +5,7 @@ import { readItems } from "@directus/sdk";
 
 async function getDataFromApi(type: string, filter: { opera?: string, nome?: string, cognome?: string, status?: string } = {}, limit: number = -1, offset: number = 0) {
     console.log(type, filter, limit, offset)
-    if (type === 'opere') {
+    if (type === 'opere' && filter.opera) {
         const data = await directus.request(
             readItems(type, {
                 filter: {
@@ -24,8 +24,7 @@ async function getDataFromApi(type: string, filter: { opera?: string, nome?: str
         const data = await directus.request(
             readItems(type, {
                 filter: {
-
-                    "_or": [
+                    "_and": [
                         { "nome": { _contains: filter.nome?.length ? filter.nome : undefined } },
                         { "cognome": { _contains: filter.cognome?.length ? filter.cognome : undefined } }
                     ]
