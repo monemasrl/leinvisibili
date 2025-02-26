@@ -2,8 +2,8 @@
 import directus from "@/lib/directus";
 import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
-
-async function getDataFromApi(type: string, filter: { opera?: string, nome?: string, cognome?: string, status?: string } = {}, limit: number = -1, offset: number = 0) {
+type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string }
+async function getDataFromApi(type: string, filter: tFilter = {}, limit: number = -1, offset: number = 0) {
     console.log(type, filter, limit, offset)
     if (type === 'opere' && filter.opera) {
         const data = await directus.request(
@@ -75,4 +75,49 @@ async function getDataAutriciOpere(datiPerRicerca: { opera?: string, nome?: stri
     }
 
 }
-export { getDataFromApi, getDataAutriciOpere };
+
+async function getDataAutriciPage(slug: string) {
+
+    const data = await directus.request(
+        readItems('autrici', {
+            filter: {
+                "slug": { "_eq": slug }
+            }
+        })
+    );
+
+    if (!data) {
+        console.error("errore collegamento al database");
+    }
+    else { return data; }
+}
+
+async function getDataLuoghi() {
+    const data = await directus.request(
+        readItems('luoghi', {
+            filter: {
+                status: "published",
+            }
+        })
+    );
+
+    if (!data) {
+        console.error("errore collegamento al database");
+    }
+    else { return data; }
+}
+async function getOpere() {
+    const data = await directus.request(
+        readItems('opere', {
+            filter: {
+                status: "published",
+            }
+        })
+    );
+
+    if (!data) {
+        console.error("errore collegamento al database");
+    }
+    else { return data; }
+}
+export { getDataFromApi, getDataAutriciOpere, getDataAutriciPage, getDataLuoghi, getOpere };

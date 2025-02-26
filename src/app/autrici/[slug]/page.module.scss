@@ -1,0 +1,67 @@
+.container {
+  max-width: 1200px;
+  margin: 180px auto 0 auto;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: minmax(500px, 759px) minmax(300px, 450px);
+  gap: $spacing2;
+  .header {
+    padding-bottom: $spacing1;
+    padding-right: $spacing2;
+  }
+  h1 {
+    color: $gold;
+    text-align: right;
+    margin-bottom: 0;
+    font-size: $size-title-big;
+  }
+  .data {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    font-family: $title;
+    font-size: $size-title;
+    color: $gold;
+    line-height: 0.5;
+    li:first-child::after {
+      content: " - ";
+    }
+  }
+  .mainText {
+    hyphens: auto;
+  }
+  .dividerH {
+    text-align: center;
+    margin-top: $spacing2;
+    img {
+      width: 150px;
+    }
+  }
+  .right {
+    img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .datiPersonali {
+    margin-top: $spacing2;
+    li {
+      margin-bottom: $spacing1;
+    }
+    &__titolo {
+      font-size: $size-title/1.5;
+      color: $gold;
+      font-family: $title;
+      margin-bottom: 0;
+    }
+    &__dato {
+      font-size: $size-title/2.2;
+      color: black;
+      font-family: $text;
+      font-weight: 200;
+      margin-bottom: 0;
+    }
+  }
+}
