@@ -3,25 +3,48 @@ import directus from "@/lib/directus";
 import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
 
-async function getDataFromApi(type: string, filter: object = {}, limit: number = -1, offset: number = 0) {
+async function getDataFromApi(type: string, filter: { opera?: string, nome?: string, cognome?: string, status?: string } = {}, limit: number = -1, offset: number = 0) {
+    console.log(type, filter, limit, offset)
+    if (type === 'opere') {
+        const data = await directus.request(
+            readItems(type, {
+                filter: {
+                    "titolo": { _contains: filter.opera },
+                },
+                limit: limit,
+                offset: offset,
+            })
+        );
 
-    const opere = await directus.request(
-        readItems(type, {
-            filter: filter || {},
-            limit: limit,
-            offset: offset,
-        })
-    );
+        if (!data) {
+            console.error("errore collegamento al database");
+        }
+        else { return data; }
+    } else if (type === 'autrici' || type === 'autrici_opere_1') {
+        const data = await directus.request(
+            readItems(type, {
+                filter: {
 
-    if (!opere) {
-        console.error("errore collegamento al database");
+                    "_or": [
+                        { "nome": { _contains: filter.nome?.length ? filter.nome : undefined } },
+                        { "cognome": { _contains: filter.cognome?.length ? filter.cognome : undefined } }
+                    ]
+                },
+                limit: limit,
+                offset: offset,
+            })
+        );
+
+        if (!data) {
+            console.error("errore collegamento al database");
+        }
+        else { return data; }
     }
-    else { return opere; }
 
 
 }
-async function getDataAutriciOpere(operaTitolo: string) {
-
+async function getDataAutriciOpere(datiPerRicerca: { opera?: string, nome?: string, titolo?: string }) {
+    console.log('autrici opere')
     // dati autrici
     const autriciData = await getDataFromApi("autrici", {
         status: "published",
@@ -29,7 +52,7 @@ async function getDataAutriciOpere(operaTitolo: string) {
     // dati opere per titolo ricercato
     const dataOpere: tOpera[] = (await getDataFromApi("opere", {
         status: "published",
-        titolo: { _contains: operaTitolo },
+        opera: datiPerRicerca.opera,
     }) as tOpera[]) || [];
     // dati autrici_opere
     const autriciOpere = await getDataFromApi("autrici_opere_1", {});

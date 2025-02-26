@@ -7,7 +7,11 @@ import Link from "next/link";
 import { tAutrice, tOpereAutrici } from "@/type";
 import { formatDataFromApi } from "@/utility/generic";
 function page() {
-  const [searchField, setSearchField] = useState("");
+  const [searchField, setSearchField] = useState<{
+    opera?: string;
+    nome?: string;
+    cognome?: string;
+  }>({});
   const [filter, setFilter] = useState<{ collection: string; campo: string }>({
     collection: "autrici",
     campo: "nome",
@@ -31,9 +35,13 @@ function page() {
     }
   }
 
-  async function dataAutriciOpere(operaTitolo: string) {
+  async function dataAutriciOpere(datiPerRicerca: {
+    opera?: string;
+    nome?: string;
+    cognome?: string;
+  }) {
     try {
-      const data = await getDataAutriciOpere(operaTitolo);
+      const data = await getDataAutriciOpere(datiPerRicerca);
       // se ci sono dati li setta nella variabile di stato
       if (data) {
         setResult(data);
@@ -49,19 +57,24 @@ function page() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     let res;
-    res = {
-      [filter.campo]: { _contains: searchField },
-    };
+    if (filter.collection === "opere") {
+      res = { opera: searchField.opera };
+    } else {
+      res = { nome: searchField.nome, cognome: searchField.cognome };
+    }
     setSearchData(res);
   }
 
   useEffect(() => {
-    if (searchField && filter.collection !== "opere") {
+    if (
+      (searchField.nome?.length || searchField.cognome?.length) &&
+      filter.collection !== "opere"
+    ) {
       fetchData();
     }
 
     // se si ricercano delle opere esegue funzione asincrona per dati delle autrici e delle opere
-    if (searchField && filter.collection === "opere") {
+    if (searchField.opera?.length && filter.collection === "opere") {
       dataAutriciOpere(searchField);
     }
   }, [searchData]);
@@ -71,18 +84,37 @@ function page() {
       <h1>Archivio autrici</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className={style.searchField}>
-          <input
-            type="text"
-            id="search"
-            name="search"
-            onChange={(e) => {
-              if (filter.campo === "nome") {
-                setSearchField(e.target.value);
-              } else {
-                setSearchField(e.target.value);
-              }
-            }}
-          />
+          {filter.collection === "opere" ? (
+            <input
+              type="text"
+              id="search"
+              name="search"
+              onChange={(e) => {
+                setSearchField({ opera: e.target.value });
+              }}
+            />
+          ) : (
+            <div className={style.fieldNomeCognome}>
+              <input
+                type="text"
+                name="nome"
+                onChange={(e) => {
+                  setSearchField((prev) => {
+                    return { ...prev, nome: e.target.value };
+                  });
+                }}
+              />
+              <input
+                type="text"
+                name="cognome"
+                onChange={(e) => {
+                  setSearchField((prev) => {
+                    return { ...prev, cognome: e.target.value };
+                  });
+                }}
+              />
+            </div>
+          )}
           <div className={style.filterBox}>
             <div className={style.filter}>
               <label htmlFor="nome">Nome</label>
@@ -97,18 +129,7 @@ function page() {
                 }
               />
             </div>
-            <div className={style.filter}>
-              <label htmlFor="cognome">Cognome</label>
-              <input
-                type="radio"
-                id="cognome"
-                name="filter"
-                value="cognome"
-                onChange={() =>
-                  setFilter({ collection: "autrici", campo: "cognome" })
-                }
-              />
-            </div>
+
             <div className={style.filter}>
               <label htmlFor="opere">Opera</label>
               <input

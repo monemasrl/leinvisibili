@@ -9,7 +9,7 @@ export default function Loading() {
         width={350}
         height={110}
       />
-      <h1 style={{ fontSize: "2rem" }}>...Caricamento...</h1>
+      <h1 style={{ fontSize: "1.5rem" }}>...Caricamento dati...</h1>
     </div>
   );
 }
