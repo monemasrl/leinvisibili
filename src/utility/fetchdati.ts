@@ -2,9 +2,9 @@
 import directus from "@/lib/directus";
 import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
-type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string }
+type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string, in_homepage?: boolean }
 async function getDataFromApi(type: string, filter: tFilter = {}, limit: number = -1, offset: number = 0) {
-    console.log(type, filter, limit, offset)
+
     if (type === 'opere' && filter.opera) {
         const data = await directus.request(
             readItems(type, {
@@ -29,6 +29,19 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                         { "cognome": { _contains: filter.cognome?.length ? filter.cognome : undefined } }
                     ]
                 },
+                limit: limit,
+                offset: offset,
+            })
+        );
+
+        if (!data) {
+            console.error("errore collegamento al database");
+        }
+        else { return data; }
+    } else {
+        const data = await directus.request(
+            readItems(type, {
+                filter: filter || {},
                 limit: limit,
                 offset: offset,
             })
