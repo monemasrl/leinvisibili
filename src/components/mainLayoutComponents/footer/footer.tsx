@@ -10,13 +10,7 @@ function Footer() {
 
   return (
     <footer className={style.footer}>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam officiis
-        sint consectetur vel ipsum provident inventore repellendus libero quasi
-        recusandae laboriosam dignissimos qui quibusdam, hic et totam, omnis
-        placeat dolore!
-      </div>
-      {/*     <div className={style.patrocinio}>
+      <div className={style.patrocinio}>
         <h2>Realizzato grazie al patrocinio di:</h2>
         <Image
           src={immaginePatrocinio}
@@ -60,7 +54,7 @@ function Footer() {
           </ul>
           <p>{t.generics.footer_credit}</p>
         </div>
-      </div> */}
+      </div>
     </footer>
   );
 }
