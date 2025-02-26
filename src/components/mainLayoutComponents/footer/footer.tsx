@@ -1,20 +1,22 @@
-"use client";
-
 import style from "./footer.module.scss";
-import generic from "../../../../public/data/generic.json";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 import navigation from "../../../../public/data/navigation.json";
+import generic from "../../../../public/data/generic.json";
 
 const immaginePatrocinio = "/image/patrocinio-mockup.png";
 const logo = "/image/logo_footer.svg";
 function Footer() {
-  const pathN = usePathname();
   const t = generic;
 
   return (
     <footer className={style.footer}>
-      <div className={style.patrocinio}>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam officiis
+        sint consectetur vel ipsum provident inventore repellendus libero quasi
+        recusandae laboriosam dignissimos qui quibusdam, hic et totam, omnis
+        placeat dolore!
+      </div>
+      {/*     <div className={style.patrocinio}>
         <h2>Realizzato grazie al patrocinio di:</h2>
         <Image
           src={immaginePatrocinio}
@@ -58,7 +60,7 @@ function Footer() {
           </ul>
           <p>{t.generics.footer_credit}</p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 }
