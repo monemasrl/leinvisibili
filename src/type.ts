@@ -22,7 +22,7 @@ type tAutrice = {
     date_created: string;
     nome: string;
     cognome: string;
-    pseudonimi: string | null;
+    pseudonimi: { pseudonimo: string }[] | null;
     data_di_nascita: string;
     data_di_morte: string;
     immagine_principale: string;
@@ -30,7 +30,7 @@ type tAutrice = {
     luogo_nascita: number;
     luogo_morte: number | null;
     Contenuto: string;
-    fonti: string | null;
+    fonti: { link: string, titolo: string }[] | null;
     in_homepage: boolean;
     citazioni: string | null;
     Posizione: number;
@@ -72,6 +72,7 @@ type tTemi = {
     date_updated: string;
     titolo: string;
     testo: string;
+    abstract: string;
     in_homepage: boolean;
     autrici: number[];
     slug: string;

@@ -1,0 +1,17 @@
+.container {
+  max-width: 1140px;
+  margin: 180px auto 0 auto;
+  min-height: 400px;
+  h1 {
+    color: $gold;
+  }
+  .section1 {
+    background: linear-gradient(
+      90deg,
+      rgb(207 212 240) 9%,
+      rgb(218 224 242) 70%
+    );
+    padding: $spacing2;
+    border-radius: 10px;
+  }
+}

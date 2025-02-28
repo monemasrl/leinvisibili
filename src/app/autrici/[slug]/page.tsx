@@ -9,6 +9,7 @@ import {
 import { formatDataFromApi } from "@/utility/generic";
 import { tAutrice } from "../../../type";
 import Image from "next/image";
+import Link from "next/link";
 
 async function Page({ params }: { params: any }) {
   try {
@@ -53,27 +54,64 @@ async function Page({ params }: { params: any }) {
                   })}
                 </li>
               </ul>{" "}
-              <div className={style.dividerH}>
-                <Image
-                  src={"/image/hrule.svg"}
-                  width={250}
-                  height={15}
-                  alt="divider"
-                />
-              </div>
             </section>
-
+            <div className={style.dividerH}>
+              <Image
+                src={"/image/hrule.svg"}
+                width={250}
+                height={15}
+                alt="divider"
+              />
+            </div>
             <section
               className={style.mainText}
               dangerouslySetInnerHTML={{ __html: autrice.Contenuto }}
             />
-            <section>
-              <h2>Opere</h2>
+            <div className={style.dividerH}>
+              <Image
+                src={"/image/hrule.svg"}
+                width={250}
+                height={15}
+                alt="divider"
+              />
+            </div>
+            <section className={style.opere}>
+              <h2>Bibliografia</h2>
               <ul>
                 {opere()?.map((opera) => {
                   return (
                     <li key={opera?.id}>
-                      <a href={"/opere/" + opera?.slug}>{opera?.titolo}</a>
+                      {opera?.file ? (
+                        <Link
+                          target="_blank"
+                          href={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${opera?.file}`}
+                        >
+                          <h3>{opera?.titolo}</h3>
+                        </Link>
+                      ) : (
+                        <a target="_blank" href={opera?.link}>
+                          <h3>{opera?.titolo}</h3>
+                        </a>
+                      )}
+                      <p>{opera?.info}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+            <section className={style.opere}>
+              <h2>Fonti</h2>
+              <ul>
+                {autrice.fonti?.map((fonte, index) => {
+                  return (
+                    <li key={index}>
+                      {fonte?.link ? (
+                        <Link target="_blank" href={`${fonte.link}`}>
+                          <h3>{fonte?.titolo}</h3>
+                        </Link>
+                      ) : (
+                        <h3>{fonte?.titolo}</h3>
+                      )}
                     </li>
                   );
                 })}
@@ -102,7 +140,10 @@ async function Page({ params }: { params: any }) {
                 <li>
                   <div className={style.datiPersonali__titolo}>Pseudonimi</div>
                   <div className={style.datiPersonali__dato}>
-                    {autrice.pseudonimi}
+                    {autrice.pseudonimi &&
+                      autrice.pseudonimi
+                        .map((item) => item.pseudonimo)
+                        .join(", ")}
                   </div>
                 </li>
               )}

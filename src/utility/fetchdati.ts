@@ -133,4 +133,20 @@ async function getOpere() {
     }
     else { return data; }
 }
-export { getDataFromApi, getDataAutriciOpere, getDataAutriciPage, getDataLuoghi, getOpere };
+async function getTemi(slug: string) {
+    const data = await directus.request(
+        readItems('temi', {
+            filter: {
+                status: "published",
+                slug: slug
+            }
+        })
+    );
+    if (data) {
+        return data
+    }
+    else {
+        console.error("errore collegamento al database");
+    }
+}
+export { getDataFromApi, getDataAutriciOpere, getDataAutriciPage, getDataLuoghi, getOpere, getTemi };

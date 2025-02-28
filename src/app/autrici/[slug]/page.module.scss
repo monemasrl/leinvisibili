@@ -1,9 +1,9 @@
 .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 180px auto 0 auto;
   min-height: 400px;
   display: grid;
-  grid-template-columns: minmax(500px, 759px) minmax(300px, 450px);
+  grid-template-columns: minmax(500px, 759px) minmax(300px, 350px);
   gap: $spacing2;
   .header {
     padding-bottom: $spacing1;
@@ -45,19 +45,46 @@
       object-fit: cover;
     }
   }
+  .opere {
+    h2 {
+      font-size: $size-title/1.2;
+    }
+    ul {
+      li {
+        margin: $spacing1 0;
+        a {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+            color: $gold;
+          }
+        }
+      }
+    }
+    h3 {
+      margin: 0;
+      font-weight: normal;
+
+      color: $gold;
+    }
+    p {
+      margin: 0;
+    }
+  }
   .datiPersonali {
     margin-top: $spacing2;
     li {
       margin-bottom: $spacing1;
     }
     &__titolo {
-      font-size: $size-title/1.5;
+      font-size: $size-title/1.7;
       color: $gold;
       font-family: $title;
       margin-bottom: 0;
     }
     &__dato {
-      font-size: $size-title/2.2;
+      font-size: $size-title/2.4;
       color: black;
       font-family: $text;
       font-weight: 200;

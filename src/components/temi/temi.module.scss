@@ -32,11 +32,7 @@
   display: inline-block;
   transform-origin: left;
   margin-top: $spacing3;
-  background: linear-gradient(
-    90deg,
-    rgb(240, 217, 207) 9%,
-    rgb(242, 228, 218) 70%
-  );
+  background: linear-gradient(90deg, rgb(207 212 240) 9%, rgb(218 224 242) 70%);
   box-shadow: 0px 0px 5px #5119197a;
   @media #{$landscape} {
     margin-top: 0;
@@ -74,11 +70,10 @@
     }
   }
   &__autrici {
-    margin-top: $spacing2;
-    padding-top: $spacing2;
+    margin-top: $spacing1;
     padding-left: $spacing2;
     padding-right: $spacing2;
-    border-top: 1px dashed $gold;
+
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -133,4 +128,9 @@
     color: black;
     text-decoration: none;
   }
+}
+.titoloLista {
+  margin-top: $spacing2;
+  font-size: $size-title/1.5;
+  font-family: $title;
 }
