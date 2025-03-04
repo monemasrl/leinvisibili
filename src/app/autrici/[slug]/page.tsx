@@ -103,6 +103,7 @@ async function Page({ params }: { params: any }) {
               <h2>Fonti</h2>
               <ul>
                 {autrice.fonti?.map((fonte, index) => {
+                  console.log(fonte.link, "fonte.link");
                   return (
                     <li key={index}>
                       {fonte?.link ? (

@@ -3,7 +3,8 @@ import style from "./page.module.scss";
 import { getTemi, getDataFromApi } from "@/utility/fetchdati";
 import { tTemi, tAutrice, tAutriciTemi, tLuoghi } from "../../../type";
 import TemiAutrici from "@/components/temi/temiAutrici";
-
+import Image from "next/image";
+import anelli from "../../../../public/image/anelli.png";
 async function Tema({ params }: { params: any }) {
   try {
     const data = (await getTemi(params.slug)) as tTemi[];
@@ -16,6 +17,12 @@ async function Tema({ params }: { params: any }) {
       return (
         <div className={style.container}>
           <section className={style.section1}>
+            <Image
+              className={style.anelli}
+              src={anelli}
+              alt="anelli immagine grafica"
+            />
+            <div className={style.topTitle}>Area tematica:</div>
             <h1>{data[0]?.titolo}</h1>
 
             <TemiAutrici
@@ -25,7 +32,10 @@ async function Tema({ params }: { params: any }) {
               luoghi={luoghi}
             />
           </section>
-          <div dangerouslySetInnerHTML={{ __html: data[0].testo }} />
+          <section
+            className={style.section2}
+            dangerouslySetInnerHTML={{ __html: data[0].testo }}
+          />
         </div>
       );
     } else {

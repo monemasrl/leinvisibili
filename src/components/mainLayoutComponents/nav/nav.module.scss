@@ -22,11 +22,6 @@
         color: $gold;
       }
     }
-    .title {
-      .mainTitle {
-        color: $gold;
-      }
-    }
   }
   &.scrolling {
     background-color: $goldTransparent;
@@ -111,6 +106,7 @@
         text-decoration: none;
         font-family: var(--font-inter);
         line-height: 1;
+        color: $gold;
         @media #{$landscape} {
           color: $gold;
           font-size: 60px;
@@ -131,8 +127,10 @@
             text-align: left;
           }
         }
+
         &__scrolling {
           font-size: $size-title-big / 1.3;
+          color: white;
           span {
             font-size: 20px;
           }
@@ -332,8 +330,8 @@
       padding: 0rem 1rem 0.2rem 1rem;
     }
   }
-  .activeLink {
-    border-bottom: 1px solid $navyBlue;
+  .activeLink a {
+    text-decoration: underline;
   }
 }
 

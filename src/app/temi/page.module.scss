@@ -2,6 +2,25 @@
   max-width: 1140px;
   margin: 180px auto 0 auto;
   min-height: 400px;
-  display: grid;
   gap: $spacing2;
+  .heading {
+    margin-bottom: $spacing3;
+    h1 {
+      margin-bottom: 0;
+      color: $gold;
+    }
+    p {
+      padding: $spacing1;
+    }
+  }
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing1;
+    .lettera {
+      font-family: $title;
+      font-size: $size-title;
+      color: $gold;
+    }
+  }
 }

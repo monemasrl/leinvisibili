@@ -25,3 +25,4 @@ Checklist con fondamentali per pubblicazione
 - [ ] Robots.txt
 - [ ] eliminare i console.log
 - [ ] eliminare eventuali componenti dichiarati e non utilizzati
+- [ ] CONTROLLARE ANALYTICS

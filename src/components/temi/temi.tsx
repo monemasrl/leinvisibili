@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 import style from "./temi.module.scss";
 import { tTemi, tAutriciTemi, tAutrice, tLuoghi } from "@/type";
 import Image from "next/image";
-
 import freccia from "../../../public/image/freccia.svg";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";

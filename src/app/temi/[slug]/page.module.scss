@@ -11,7 +11,36 @@
       rgb(207 212 240) 9%,
       rgb(218 224 242) 70%
     );
-    padding: $spacing2;
+    padding: $spacing2 $spacing2 $spacing2 3rem;
     border-radius: 10px;
+    position: relative;
+    box-shadow: 1px 1px 5px #bababa;
+    .topTitle {
+      font-weight: 200;
+      font-size: 1.5rem;
+    }
+    .anelli {
+      position: absolute;
+      top: 50%;
+      left: -15px;
+      z-index: 100;
+      width: 45px;
+      height: auto;
+      transform: translateY(-50%);
+    }
+  }
+  .section2 {
+    padding: $spacing2;
+    p {
+      line-height: 1.6;
+    }
+    p:first-child:first-letter {
+      font-size: 6rem;
+      font-weight: 700;
+      color: $gold;
+      font-family: $title;
+      position: relative;
+      line-height: 1;
+    }
   }
 }
