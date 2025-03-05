@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import freccia from "../../../public/image/freccia.svg";
 import { motion, AnimatePresence } from "motion/react";
-import { useMediaQuery } from "react-responsive";
+import useMediaquery from "@/hooks/mediaquery";
 type Tdata = {
   nome: string | null;
   descrizione: string | null;
@@ -23,13 +23,7 @@ function HeroLei({
 }) {
   const [boxOpen, setBoxOpen] = React.useState<number | null>(null);
 
-  const phone = useMediaQuery({ query: "(min-width: 460px)" });
-  const tablet = useMediaQuery({ query: "(min-width: 720px)" });
-  const landscape = useMediaQuery({ query: "(min-width: 1024px)" });
-  const desktop = useMediaQuery({ query: "(min-width: 1200px)" });
-  const large = useMediaQuery({ query: "(min-width: 1340px)" });
-  const wide = useMediaQuery({ query: "(min-width: 1620px)" });
-  const big = useMediaQuery({ query: "(min-width: 1920px)" });
+  const { landscape } = useMediaquery();
 
   return (
     <div className={style.hero}>

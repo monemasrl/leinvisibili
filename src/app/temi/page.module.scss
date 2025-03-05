@@ -13,10 +13,16 @@
       padding: $spacing1;
     }
   }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .left,
+  .right {
+    flex: 1;
+  }
   ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing1;
     .lettera {
       font-family: $title;
       font-size: $size-title;

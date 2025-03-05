@@ -3,10 +3,9 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion, m } from "motion/react";
 import Image from "next/image";
 import style from "./parallax.module.scss";
-import { useMediaQuery } from "react-responsive";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useRouter } from "next/navigation";
-
+import useMediaquery from "@/hooks/mediaquery";
 function Parallax({
   className,
   imageURL,
@@ -33,12 +32,7 @@ function Parallax({
 
   const parallax = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
-  const desktop = useMediaQuery({
-    query: "(max-width: 1224px)",
-  });
-  const landscape = useMediaQuery({
-    query: "(max-width: 1024px)",
-  });
+  const { landscape, desktop } = useMediaquery();
   const scroll = useLenis();
   return (
     <motion.div

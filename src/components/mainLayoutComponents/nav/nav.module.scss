@@ -11,11 +11,15 @@
   }
   &.page {
     position: absolute;
+    .mainTitle {
+      color: $gold;
+    }
     .navMobile {
       .burger {
         color: $gold;
       }
     }
+
     div ul li a {
       color: $gold;
       &:hover {
@@ -106,7 +110,7 @@
         text-decoration: none;
         font-family: var(--font-inter);
         line-height: 1;
-        color: $gold;
+
         @media #{$landscape} {
           color: $gold;
           font-size: 60px;

@@ -20,8 +20,9 @@ async function Temi() {
     const data = await getDataFromApi("temi");
     const alfabeto = generic.generics.alphabeth;
     const datiOrdinati = datiOrdineAlfabetico(data, alfabeto);
-    console.log(datiOrdinati, "datiOrdinati");
-
+    const col1 = datiOrdinati.slice(0, 13);
+    const col2 = datiOrdinati.slice(13, 26);
+    console.log(datiOrdinati.length);
     if (data) {
       return (
         <div className={style.container}>
@@ -34,23 +35,50 @@ async function Temi() {
               sapiente, molestias nostrum doloremque? Id?
             </p>
           </div>
-          <ul>
-            {datiOrdinati.map((item: any, index: number) => {
-              //if (item.data.length === 0) return null;
-              return (
-                <li key={item}>
-                  <div className={style.lettera}>{item.lettera}</div>
-                  {item.data.map((item: any, index: number) => {
-                    return (
-                      <li key={item}>
-                        <Link href={`/temi/${item.slug}`}>{item.titolo}</Link>
-                      </li>
-                    );
-                  })}
-                </li>
-              );
-            })}
-          </ul>
+          <div className={style.content}>
+            <div className={style.left}>
+              <ul>
+                {col1.map((item: any, index: number) => {
+                  if (item.data.length === 0) return null;
+                  return (
+                    <li key={index}>
+                      <div className={style.lettera}>{item.lettera}</div>
+                      {item.data.map((item: any, index: number) => {
+                        return (
+                          <div key={index}>
+                            <Link href={`/temi/${item.slug}`}>
+                              {item.titolo}
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className={style.right}>
+              <ul>
+                {col2.map((item: any, index: number) => {
+                  if (item.data.length === 0) return null;
+                  return (
+                    <li key={index}>
+                      <div className={style.lettera}>{item.lettera}</div>
+                      {item.data.map((item: any, index: number) => {
+                        return (
+                          <div key={index}>
+                            <Link href={`/temi/${item.slug}`}>
+                              {item.titolo}
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </div>
       );
     } else {

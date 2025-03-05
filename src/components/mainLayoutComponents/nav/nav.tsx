@@ -8,9 +8,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import navigation from "../../../../public/data/navigation.json";
 import { useLenis } from "@studio-freight/react-lenis";
-import { useMediaQuery } from "react-responsive";
+import useMediaquery from "@/hooks/mediaquery";
 function NavBar() {
-  const landscape = useMediaQuery({ query: "(min-width: 1024px)" });
+  const { landscape } = useMediaquery();
   const pathN = usePathname();
   const [mobile, setMobile] = useState(false);
   const [scrolling, setScrolling] = useState(false);

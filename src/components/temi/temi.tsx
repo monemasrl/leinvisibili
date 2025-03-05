@@ -9,7 +9,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import anelli from "../../../public/image/anelli.png";
 import immaginitematiche from "../../../public/image/tematiche.svg";
 import immagineSfondoDefault from "../../../public/image/areatematica-min.jpg";
-import { useMediaQuery } from "react-responsive";
+import useMediaquery from "@/hooks/mediaquery";
 import TemiAutrici from "./temiAutrici";
 
 function Temi({
@@ -25,13 +25,8 @@ function Temi({
   mainTitle: string;
   luoghi: tLuoghi[];
 }) {
-  const phone = useMediaQuery({ query: "(min-width: 460px)" });
-  const tablet = useMediaQuery({ query: "(min-width: 720px)" });
-  const landscape = useMediaQuery({ query: "(min-width: 1024px)" });
-  const desktop = useMediaQuery({ query: "(min-width: 1200px)" });
-  const large = useMediaQuery({ query: "(min-width: 1340px)" });
-  const wide = useMediaQuery({ query: "(min-width: 1620px)" });
-  const big = useMediaQuery({ query: "(min-width: 1920px)" });
+  const { phone, tablet, landscape, desktop, large, wide, big } =
+    useMediaquery();
   const mediaQueryData = {
     phone,
     tablet,
