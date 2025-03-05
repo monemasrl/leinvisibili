@@ -79,13 +79,7 @@ export const ImagePreload = ({
       )}
       <AnimatePresence>
         {!reveal && (
-          <motion.div
-            className={style.loader}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.1 }}
-          >
+          <motion.div className={style.loader}>
             <motion.div
               initial={{ opacity: 0.3, scale: 0.95 }}
               animate={{
@@ -99,7 +93,7 @@ export const ImagePreload = ({
               }}
             >
               <Image
-                src="/image/loader.svg"
+                src="/image/leiloader.svg"
                 width={300}
                 height={58}
                 alt="logo"
