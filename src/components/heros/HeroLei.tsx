@@ -6,6 +6,7 @@ import Link from "next/link";
 import freccia from "../../../public/image/freccia.svg";
 import { motion, AnimatePresence } from "motion/react";
 import useMediaquery from "../../hooks/mediaquery";
+import ImagePreload from "../loaders/imagePreLoad";
 type Tdata = {
   nome: string | null;
   descrizione: string | null;
@@ -30,18 +31,19 @@ function HeroLei({
       {data?.map((item, index) => {
         return (
           <div
-            className={`${style.hero__box} ${boxOpen != null && style.open}`}
+            className={`${style.hero__box} ${
+              boxOpen != null ? style.open : ""
+            }`}
             key={index}
             onClick={() => setBoxOpen(index)}
           >
             {item && assetsURL && (
-              <Image
+              <ImagePreload
                 src={assetsURL + item.image || ""}
                 width={566}
                 height={1050}
                 alt={item.nome || ""}
-                sizes="(max-width: 460px) 30vw"
-                priority={true}
+                type="fixed"
               />
             )}
           </div>

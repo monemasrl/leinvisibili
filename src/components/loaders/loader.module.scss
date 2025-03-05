@@ -4,9 +4,37 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $darkblue;
+  background-color: $gold;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
+}
+
+.imagePreloadWrapper {
+  &.fill {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &.hero {
+    height: 100vh;
+    @media #{$phone} {
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      @media #{$phone} {
+        position: relative !important;
+        object-fit: contain !important;
+        height: auto !important;
+      }
+    }
+  }
 }
