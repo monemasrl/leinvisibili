@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import freccia from "../../../public/image/freccia.svg";
 import { motion, AnimatePresence } from "motion/react";
-import useMediaquery from "@/hooks/mediaquery";
+import useMediaquery from "../../hooks/mediaquery";
 type Tdata = {
   nome: string | null;
   descrizione: string | null;
