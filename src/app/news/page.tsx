@@ -11,24 +11,42 @@ async function Page() {
       return (
         <div className={style.container}>
           <h1>New ed Eventi</h1>
-          {data.map((item, index) => {
-            return (
-              <div key={index}>
-                <h2>
-                  <Link href={item.slug}>{item.titolo}</Link>
-                </h2>
-                <ul>
-                  {" "}
-                  {item.data_inizio && (
-                    <li>{formatDataFromApi(item.data_inizio)}</li>
-                  )}{" "}
-                  {item.data_fine && (
-                    <li>{formatDataFromApi(item.data_fine)}</li>
-                  )}
-                </ul>
-              </div>
-            );
-          })}
+          <section className={style.eventi}>
+            {data.map((item, index) => {
+              return (
+                <div key={index} className={style.evento}>
+                  <div className={style.img}>
+                    {item.immagine_principale && (
+                      <img
+                        src={
+                          process.env.NEXT_PUBLIC_ASSETS_URL +
+                          item.immagine_principale
+                        }
+                        alt={item.titolo}
+                        width="150"
+                        height="150"
+                      />
+                    )}
+                  </div>
+                  <div className={style.text}>
+                    <h2>
+                      <Link href={item.slug}>{item.titolo}</Link>
+                    </h2>
+                    <p>{item.abstract}</p>
+                    <ul>
+                      {" "}
+                      {item.data_inizio && (
+                        <li>{formatDataFromApi(item.data_inizio)}</li>
+                      )}{" "}
+                      {item.data_fine && (
+                        <li>{formatDataFromApi(item.data_fine)}</li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
+          </section>
         </div>
       );
     }

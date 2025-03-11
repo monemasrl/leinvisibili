@@ -3,4 +3,37 @@
   margin: 180px auto 0 auto;
   min-height: 400px;
   gap: $spacing2;
+  .eventi {
+    margin-top: $spacing2;
+  }
+  .evento {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  h2 {
+    margin-bottom: 0;
+    a {
+      color: $gold;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  ul {
+    display: flex;
+
+    li:first-child::after {
+      content: "/";
+      width: 1px;
+      height: 100%;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
 }

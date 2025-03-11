@@ -24,7 +24,6 @@ const CookieConsentBanner = () => {
   const handleReject = () => {
     setShowBanner(false);
     cookie.set("cookieConsent", "rejected");
-    push("https://google.com");
   };
 
   if (!showBanner) {
