@@ -4,7 +4,7 @@ Checklist con fondamentali per pubblicazione
 
 # Frontend
 
-- [ ] Ottimizzare le immagini.
+- [ ] Ottimizzare le immagini con preloader.
 - [ ] Controllare i BreakPoint per: 1400, 1200, 768, 440, 360
 - [ ] Caricare i componenti dinamicamente quando necessario
 - [ ] Verificare stato ERRORE e LOADING per i componenti che ricevono dati
@@ -26,3 +26,4 @@ Checklist con fondamentali per pubblicazione
 - [ ] eliminare i console.log
 - [ ] eliminare eventuali componenti dichiarati e non utilizzati
 - [ ] CONTROLLARE ANALYTICS
+- [ ] eliminare file inutili da public

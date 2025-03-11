@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import style from "./Hero.module.scss";
-import Image from "next/image";
+
 import Link from "next/link";
 import freccia from "../../../public/image/freccia.svg";
 import { motion, AnimatePresence } from "motion/react";
 import useMediaquery from "../../hooks/mediaquery";
 import ImagePreload from "../loaders/imagePreLoad";
+import Image from "next/image";
 type Tdata = {
   nome: string | null;
   descrizione: string | null;
@@ -72,11 +73,12 @@ function HeroLei({
                 exit={{ opacity: 0, x: -100, transition: { duration: 0.5 } }}
               >
                 {assetsURL && (
-                  <Image
+                  <ImagePreload
                     src={assetsURL + data[boxOpen].image || ""}
                     width={485}
                     height={675}
                     alt={data[boxOpen].nome || ""}
+                    type="fixed"
                   />
                 )}
                 <div className={style.hero__content__box__text}>

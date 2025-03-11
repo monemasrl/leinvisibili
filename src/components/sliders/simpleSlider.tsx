@@ -15,9 +15,9 @@ import type {
   tAutrice,
   tAutriciCitazioni,
 } from "@/type";
-import Image from "next/image";
-import Link from "next/link";
 
+import Link from "next/link";
+import ImagePreload from "../loaders/imagePreLoad";
 function getdata(
   idOpera: number,
   id: number,
@@ -85,15 +85,16 @@ function SimpleSlider({
             <SwiperSlide key={index}>
               {mainData?.autrice?.id && (
                 <Link href={"/autrici/" + mainData?.autrice?.slug}>
-                  <Image
+                  <ImagePreload
                     src={
                       process.env.NEXT_PUBLIC_ASSETS_URL +
                       mainData?.autrice?.immagine_principale
                     }
-                    sizes="(max-width: 460px) 40vw"
                     width={500}
                     height={500}
                     alt={"item.titolo"}
+                    type="fixed"
+                    isLazy={true}
                   />
                 </Link>
               )}
