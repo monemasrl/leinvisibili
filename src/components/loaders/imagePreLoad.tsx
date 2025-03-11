@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
-import style from "./loader.module.scss";
+import "./imagepreload.scss";
 
 export const ImagePreload = ({
   src,
@@ -23,15 +23,11 @@ export const ImagePreload = ({
   const [reveal, setReveal] = useState(false);
   const visibility = reveal ? "visible" : "hidden";
   const loader = reveal ? "none" : "inline-block";
-
+  console.log(src);
   return (
     <div
-      className={`${style.imagePreloadWrapper} ${
-        type === "hero"
-          ? style.hero
-          : type === "fill"
-          ? style.fill
-          : style.fixed
+      className={`${"imagePreloadWrapper"} ${
+        type === "hero" ? "hero" : type === "fill" ? "fill" : "fixed"
       }`}
       style={{
         width: "100%",
@@ -40,7 +36,7 @@ export const ImagePreload = ({
     >
       {type === "hero" && (
         <Image
-          className={style.imagePreload}
+          className={"imagePreload"}
           src={src || ""}
           alt={alt}
           layout="fill"
@@ -67,7 +63,7 @@ export const ImagePreload = ({
 
       {type === "fill" && (
         <Image
-          className={style.imagePreload}
+          className={"imagePreload"}
           src={src || ""}
           alt={alt}
           layout="fill"
@@ -79,7 +75,7 @@ export const ImagePreload = ({
       )}
       <AnimatePresence>
         {!reveal && (
-          <motion.div className={style.loader}>
+          <motion.div className={"loader"}>
             <motion.div
               initial={{ opacity: 0.3, scale: 0.95 }}
               animate={{
@@ -93,6 +89,7 @@ export const ImagePreload = ({
               }}
             >
               <Image
+                className={"imagePreload"}
                 src="/image/leiloader.svg"
                 width={300}
                 height={58}

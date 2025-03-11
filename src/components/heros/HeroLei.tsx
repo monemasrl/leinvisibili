@@ -38,13 +38,13 @@ function HeroLei({
             key={index}
             onClick={() => setBoxOpen(index)}
           >
-            {item && assetsURL && (
-              <ImagePreload
+            {assetsURL && (
+              <Image
                 src={assetsURL + item.image || ""}
                 width={566}
                 height={1050}
                 alt={item.nome || ""}
-                type="fixed"
+                priority
               />
             )}
           </div>
@@ -73,12 +73,11 @@ function HeroLei({
                 exit={{ opacity: 0, x: -100, transition: { duration: 0.5 } }}
               >
                 {assetsURL && (
-                  <ImagePreload
+                  <Image
                     src={assetsURL + data[boxOpen].image || ""}
                     width={485}
                     height={675}
                     alt={data[boxOpen].nome || ""}
-                    type="fixed"
                   />
                 )}
                 <div className={style.hero__content__box__text}>

@@ -4,6 +4,7 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import { get } from "http";
 import { formatDataFromApi } from "@/utility/generic";
 import Link from "next/link";
+import ImagePreload from "@/components/loaders/imagePreLoad";
 async function Page() {
   try {
     const data = await getDataFromApi("blog");
@@ -17,20 +18,19 @@ async function Page() {
                 <div key={index} className={style.evento}>
                   <div className={style.img}>
                     {item.immagine_principale && (
-                      <img
+                      <ImagePreload
                         src={
                           process.env.NEXT_PUBLIC_ASSETS_URL +
                           item.immagine_principale
                         }
                         alt={item.titolo}
-                        width="150"
-                        height="150"
+                        type="fill"
                       />
                     )}
                   </div>
                   <div className={style.text}>
                     <h2>
-                      <Link href={item.slug}>{item.titolo}</Link>
+                      <Link href={"/news/" + item.slug}>{item.titolo}</Link>
                     </h2>
                     <p>{item.abstract}</p>
                     <ul>

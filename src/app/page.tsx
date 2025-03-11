@@ -81,7 +81,7 @@ export default async function Home() {
       <AnimatedSection classname={styles.section4} animateOnce={false}>
         {blog && <News data={blog as tBlog[]} />}
       </AnimatedSection>
-      <AnimatedSection classname={styles.section2} animateOnce={false}>
+      {/*       <AnimatedSection classname={styles.section2} animateOnce={false}>
         {opere?.length && (
           <SimpleSlider
             autrici={autrici as tAutrice[]}
@@ -92,7 +92,7 @@ export default async function Home() {
             id={0}
           />
         )}
-      </AnimatedSection>
+      </AnimatedSection> */}
       <section className="sectionTemi">
         {temi?.length && (
           <Temi

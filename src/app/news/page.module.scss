@@ -9,9 +9,19 @@
   .evento {
     margin: 1rem 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+    .img {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+    .text {
+      flex: 1;
+    }
   }
+
   img {
     border-radius: 50%;
     object-fit: cover;
