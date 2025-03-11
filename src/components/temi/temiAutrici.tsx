@@ -20,8 +20,6 @@ function TemiAutrici({
       <div className={style.temi__autrici}>
         {data[0].autrici.map((item, index) => {
           const autrice = getAutriciFromTema(item, temiAutrici, autrici);
-          console.log(autrice?.luogo_morte, "test");
-
           const autriceLuoghi = {
             nascita:
               luoghi.find((luogo) => luogo.id === autrice?.luogo_nascita) ||
@@ -80,7 +78,7 @@ function getAutriciFromTema(
   autrici: tAutrice[]
 ) {
   const idautrice = temiautrici.find((idAutrice) => idAutrice.id === idAutrici);
-  console.log(idautrice);
+
   const autriceData = autrici.find(
     (autrice) => autrice.id === idautrice?.autrici_id
   );

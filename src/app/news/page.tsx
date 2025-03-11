@@ -1,10 +1,11 @@
 import React from "react";
 import style from "./page.module.scss";
 import { getDataFromApi } from "@/utility/fetchdati";
-import { get } from "http";
+
 import { formatDataFromApi } from "@/utility/generic";
 import Link from "next/link";
 import ImagePreload from "@/components/loaders/imagePreLoad";
+import Image from "next/image";
 async function Page() {
   try {
     const data = await getDataFromApi("blog");
@@ -19,12 +20,21 @@ async function Page() {
                   <div className={style.img}>
                     {item.immagine_principale && (
                       <ImagePreload
-                        src={
-                          process.env.NEXT_PUBLIC_ASSETS_URL +
-                          item.immagine_principale
-                        }
-                        alt={item.titolo}
-                        type="fill"
+                        image={{
+                          url:
+                            process.env.NEXT_PUBLIC_ASSETS_URL +
+                            item.immagine_principale,
+                          width: 150,
+                          height: 150,
+                          alt: item.titolo,
+                        }}
+                        loader={{
+                          url: "/image/leiloader.svg",
+                          width: 150,
+                          height: 150,
+                        }}
+                        type="fixed"
+                        round
                       />
                     )}
                   </div>

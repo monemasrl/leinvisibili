@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -86,16 +87,34 @@ function SimpleSlider({
               {mainData?.autrice?.id && (
                 <Link href={"/autrici/" + mainData?.autrice?.slug}>
                   <ImagePreload
-                    src={
-                      process.env.NEXT_PUBLIC_ASSETS_URL +
-                      mainData?.autrice?.immagine_principale
-                    }
-                    width={500}
-                    height={500}
-                    alt={"item.titolo"}
+                    loader={{
+                      url: "/image/leiloader.svg",
+                      width: 500,
+                      height: 500,
+                    }}
+                    image={{
+                      url:
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                        mainData?.autrice?.immagine_principale,
+                      width: 500,
+                      height: 500,
+                      alt: mainData?.autrice?.cognome || "",
+                    }}
+                    round
                     type="fixed"
-                    isLazy={true}
-                  />
+                  >
+                    <Image
+                      src={
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                        mainData?.autrice?.immagine_principale
+                      }
+                      width={500}
+                      height={500}
+                      alt={mainData?.autrice?.cognome || ""}
+                      loading={"lazy"}
+                      onLoadingComplete={(e) => console.log("start")}
+                    />
+                  </ImagePreload>
                 </Link>
               )}
 

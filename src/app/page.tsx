@@ -1,7 +1,16 @@
+import { default as dynamicComponent } from "next/dynamic";
 import styles from "./page.module.scss";
 import HeroLei from "@/components/heros/HeroLei";
 import AnimatedSection from "../components/mainLayoutComponents/sections/animatedSection";
-import SimpleSlider from "@/components/sliders/simpleSlider";
+//carica il componente in modo dinamico above the fold
+const SimpleSlider = dynamicComponent(
+  () => import("@/components/sliders/simpleSlider"),
+  {
+    loading: () => <div>Loading placeholder</div>,
+    ssr: false,
+  }
+);
+
 import type {
   tOpera,
   tAutrice,
@@ -81,7 +90,7 @@ export default async function Home() {
       <AnimatedSection classname={styles.section4} animateOnce={false}>
         {blog && <News data={blog as tBlog[]} />}
       </AnimatedSection>
-      {/*       <AnimatedSection classname={styles.section2} animateOnce={false}>
+      <AnimatedSection classname={styles.section2} animateOnce={false}>
         {opere?.length && (
           <SimpleSlider
             autrici={autrici as tAutrice[]}
@@ -92,7 +101,7 @@ export default async function Home() {
             id={0}
           />
         )}
-      </AnimatedSection> */}
+      </AnimatedSection>
       <section className="sectionTemi">
         {temi?.length && (
           <Temi

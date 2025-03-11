@@ -7,6 +7,11 @@
 .swiper {
   width: 100%;
   max-width: 1200px;
+  .imagePreload__loader {
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: -1;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -69,7 +74,7 @@
   height: 500px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
+
   @media #{$desktop} {
     width: 250px;
     height: 250px;

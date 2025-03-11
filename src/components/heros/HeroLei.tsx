@@ -39,12 +39,20 @@ function HeroLei({
             onClick={() => setBoxOpen(index)}
           >
             {assetsURL && (
-              <Image
-                src={assetsURL + item.image || ""}
-                width={566}
-                height={1050}
-                alt={item.nome || ""}
-                priority
+              <ImagePreload
+                loader={{
+                  url: "/image/leiloader.svg",
+                  width: 200,
+                  height: 200,
+                }}
+                image={{
+                  url: assetsURL + item.image || "",
+                  width: 566,
+                  height: 1050,
+                  alt: item.nome || "",
+                }}
+                type="hero"
+                backgroundColor="#7a4535"
               />
             )}
           </div>

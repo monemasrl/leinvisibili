@@ -22,7 +22,7 @@ async function Temi() {
     const datiOrdinati = datiOrdineAlfabetico(data, alfabeto);
     const col1 = datiOrdinati.slice(0, 13);
     const col2 = datiOrdinati.slice(13, 26);
-    console.log(datiOrdinati.length);
+
     if (data) {
       return (
         <div className={style.container}>

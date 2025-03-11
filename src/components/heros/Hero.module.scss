@@ -115,3 +115,15 @@
     }
   }
 }
+.imageLoaded {
+  animation: opacity 0.5s ease-in-out forwards;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

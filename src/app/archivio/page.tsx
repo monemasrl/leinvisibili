@@ -48,7 +48,6 @@ function page() {
         throw new Error("errore collegamento al database");
       }
     } catch (e: any) {
-      console.log(e);
       setError(e.message);
     }
   }
@@ -63,7 +62,6 @@ function page() {
         throw new Error("errore collegamento al database");
       }
     } catch (e: any) {
-      console.log(e);
       setError(e.message);
     }
   }
@@ -81,7 +79,6 @@ function page() {
         throw new Error("errore collegamento al database");
       }
     } catch (e: any) {
-      console.log(e);
       setError(e.message);
     }
   }
