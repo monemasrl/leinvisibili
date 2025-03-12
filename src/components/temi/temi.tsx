@@ -73,8 +73,8 @@ function Temi({
           {mainTitle && <h2>{mainTitle}</h2>}
           <motion.div
             className={style.temi__box}
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
             viewport={{ once: false }}
           >

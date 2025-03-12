@@ -34,6 +34,7 @@
   margin-top: $spacing3;
   background: linear-gradient(90deg, rgb(207 212 240) 9%, rgb(218 224 242) 70%);
   box-shadow: 0px 0px 5px #5119197a;
+  overflow: hidden;
   @media #{$landscape} {
     margin-top: 0;
     box-shadow: none;
