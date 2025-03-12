@@ -50,7 +50,10 @@ export const ImagePreload = ({
         alt={"test"}
         width={image.width}
         height={image.height}
-        onLoadingComplete={() => setLoaded(true)}
+        onLoadingComplete={(e) => {
+          e.classList.add("loaded");
+          setLoaded(true);
+        }}
       />
     </div>
   );
