@@ -3,6 +3,7 @@ import style from "./temi.module.scss";
 import { tTemi, tAutriciTemi, tAutrice, tLuoghi } from "@/type";
 import { formatDataFromApi } from "@/utility/generic";
 import Image from "next/image";
+import ImagePreload from "../loaders/imagePreLoad";
 function TemiAutrici({
   data,
   temiAutrici,
@@ -30,14 +31,23 @@ function TemiAutrici({
           return (
             <div key={index} className={style.temi__autrici__box}>
               {autrice?.immagine_principale && (
-                <Image
-                  src={
-                    process.env.NEXT_PUBLIC_ASSETS_URL +
-                    autrice?.immagine_principale
-                  }
-                  width={500}
-                  height={500}
-                  alt={"item.titolo"}
+                <ImagePreload
+                  loader={{
+                    url: "/image/leiloader.svg",
+                    width: 100,
+                    height: 100,
+                  }}
+                  image={{
+                    url:
+                      process.env.NEXT_PUBLIC_ASSETS_URL +
+                        autrice?.immagine_principale || "",
+                    width: 500,
+                    height: 500,
+                    alt: autrice.nome + " " + autrice.cognome || "",
+                  }}
+                  type="fixed"
+                  backgroundColor="#7a4535"
+                  round
                 />
               )}
               <div className={style.temi__autrici__box__text}>

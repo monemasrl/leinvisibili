@@ -13,6 +13,9 @@
     justify-content: center;
     align-items: center;
     z-index: 0;
+    img {
+      animation: opacity 2s ease-in-out alternate infinite;
+    }
   }
 }
 @keyframes opacity {

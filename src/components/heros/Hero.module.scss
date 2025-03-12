@@ -9,15 +9,21 @@
     cursor: pointer;
     transition: all ease-in-out 0.3s;
     background-color: $gold;
+    overflow: hidden;
     &:hover {
       filter: brightness(1.25);
     }
 
     img {
+      display: block;
       width: 100%;
       height: auto;
       object-fit: contain;
       object-position: top;
+      transition: all ease-in-out 1s;
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
   &__content {

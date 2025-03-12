@@ -10,6 +10,7 @@ import { formatDataFromApi } from "@/utility/generic";
 import { tAutrice } from "../../../type";
 import Image from "next/image";
 import Link from "next/link";
+import ImagePreload from "@/components/loaders/imagePreLoad";
 
 async function Page({ params }: { params: any }) {
   try {
@@ -120,16 +121,26 @@ async function Page({ params }: { params: any }) {
             </section>
           </div>
           <div className={style.right}>
-            <Image
-              src={
-                process.env.NEXT_PUBLIC_ASSETS_URL +
-                "/" +
-                autrice.immagine_principale
-              }
-              width={300}
-              height={300}
-              alt={autrice.nome + " " + autrice.cognome}
+            <ImagePreload
+              loader={{
+                url: "/image/leiloader.svg",
+                width: 200,
+                height: 200,
+              }}
+              image={{
+                url:
+                  process.env.NEXT_PUBLIC_ASSETS_URL +
+                    "/" +
+                    autrice.immagine_principale || "",
+                width: 300,
+                height: 300,
+                alt: autrice.nome + " " + autrice.cognome || "",
+              }}
+              type="fixed"
+              backgroundColor="#7a4535"
+              round
             />
+
             <ul className={style.datiPersonali}>
               <li>
                 <div className={style.datiPersonali__titolo}>Nata</div>
