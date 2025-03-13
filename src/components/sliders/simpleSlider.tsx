@@ -85,7 +85,10 @@ function SimpleSlider({
           return (
             <SwiperSlide key={index}>
               {mainData?.autrice?.id && (
-                <Link href={"/autrici/" + mainData?.autrice?.slug}>
+                <Link
+                  href={"/autrici/" + mainData?.autrice?.slug}
+                  scroll={true}
+                >
                   <ImagePreload
                     loader={{
                       url: "/image/leiloader.svg",
@@ -112,7 +115,6 @@ function SimpleSlider({
                       height={500}
                       alt={mainData?.autrice?.cognome || ""}
                       loading={"lazy"}
-                      onLoadingComplete={(e) => console.log("start")}
                     />
                   </ImagePreload>
                 </Link>

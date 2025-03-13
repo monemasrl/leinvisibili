@@ -13,6 +13,9 @@
     gap: $spacing3;
     justify-content: space-between;
     padding: 0 $spacing1;
+    @media #{$tablet} {
+      gap: $spacing1;
+    }
     &__box {
       max-width: 500px;
       @media #{$desktop} {
@@ -31,6 +34,7 @@
         color: $gold;
         margin-top: $spacing1;
         margin-bottom: 0;
+        line-height: 1;
       }
       ul {
         display: flex;

@@ -11,7 +11,7 @@ import { tAutrice } from "../../../type";
 import Image from "next/image";
 import Link from "next/link";
 import ImagePreload from "@/components/loaders/imagePreLoad";
-
+import ScrollFix from "@/components/scroll/scrollFix";
 async function Page({ params }: { params: any }) {
   try {
     const data = await getDataAutriciPage(params.slug);
@@ -179,6 +179,7 @@ async function Page({ params }: { params: any }) {
               )}
             </ul>
           </div>
+          <ScrollFix />
         </div>
       );
     } else {

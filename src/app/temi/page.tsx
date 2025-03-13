@@ -3,6 +3,7 @@ import style from "./page.module.scss";
 import { getDataFromApi } from "@/utility/fetchdati";
 import generic from "../../../public/data/generic.json";
 import Link from "next/link";
+import ScrollFix from "@/components/scroll/scrollFix";
 function datiOrdineAlfabetico(lista: any, alfabeto: string[]) {
   const dati = alfabeto.map((lettera, index) => {
     let dataPerLettera = [];
@@ -79,6 +80,7 @@ async function Temi() {
               </ul>
             </div>
           </div>
+          <ScrollFix />
         </div>
       );
     } else {

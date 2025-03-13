@@ -50,8 +50,8 @@ export const ImagePreload = ({
         alt={"test"}
         width={image.width}
         height={image.height}
-        onLoadingComplete={(e) => {
-          e.classList.add("loaded");
+        onLoad={(e) => {
+          (e.currentTarget as HTMLImageElement).classList.add("loaded");
           setLoaded(true);
         }}
       />

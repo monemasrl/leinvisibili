@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./page.module.scss";
 import { getDataFromApi } from "@/utility/fetchdati";
-
 import { formatDataFromApi } from "@/utility/generic";
 import Link from "next/link";
 import ImagePreload from "@/components/loaders/imagePreLoad";
-import Image from "next/image";
+import ScrollFix from "@/components/scroll/scrollFix";
+
 async function Page() {
   try {
     const data = await getDataFromApi("blog");
@@ -57,6 +57,7 @@ async function Page() {
               );
             })}
           </section>
+          <ScrollFix />
         </div>
       );
     }

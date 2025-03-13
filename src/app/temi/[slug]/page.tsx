@@ -5,6 +5,7 @@ import { tTemi, tAutrice, tAutriciTemi, tLuoghi } from "../../../type";
 import TemiAutrici from "@/components/temi/temiAutrici";
 import Image from "next/image";
 import anelli from "../../../../public/image/anelli.png";
+import ScrollFix from "@/components/scroll/scrollFix";
 async function Tema({ params }: { params: any }) {
   try {
     const data = (await getTemi(params.slug)) as tTemi[];
@@ -36,6 +37,7 @@ async function Tema({ params }: { params: any }) {
             className={style.section2}
             dangerouslySetInnerHTML={{ __html: data[0].testo }}
           />
+          <ScrollFix />
         </div>
       );
     } else {

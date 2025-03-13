@@ -7,6 +7,7 @@ import Nav from "@/components/mainLayoutComponents/nav/nav";
 import CookieConsentBanner from "@/components/cookieConsent/cookieConsent";
 import Footer from "@/components/mainLayoutComponents/footer/footer";
 import ScrollTop from "@/components/scroll/scrollToTop";
+
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Cormorant({
@@ -40,8 +41,10 @@ export default async function RootLayout({
       <body className={`${inter.variable} ${text.variable}`}>
         <CookieConsentBanner />
         <Nav />
-        <SmoothScrolling>{children}</SmoothScrolling>
-        <Footer />
+        <SmoothScrolling>
+          {children}
+          <Footer />
+        </SmoothScrolling>
         <ScrollTop />
       </body>
       {/* <GoogleAnalytics gaId="UA-77301206-1" /> */}

@@ -4,6 +4,7 @@ import React, { FormEvent, useEffect, useState } from "react";
 import style from "./page.module.scss";
 import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
 import ArchivioLista from "@/components/archivio/archivioLista";
+import ScrollFix from "@/components/scroll/scrollFix";
 function page() {
   const [searchField, setSearchField] = useState<{
     opera?: string;
@@ -190,6 +191,7 @@ function page() {
           <p>{error}</p>
         </div>
       )}
+      <ScrollFix />
     </div>
   );
 }

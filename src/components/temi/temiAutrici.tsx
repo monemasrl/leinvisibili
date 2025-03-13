@@ -2,7 +2,7 @@ import React from "react";
 import style from "./temi.module.scss";
 import { tTemi, tAutriciTemi, tAutrice, tLuoghi } from "@/type";
 import { formatDataFromApi } from "@/utility/generic";
-import Image from "next/image";
+import Link from "next/link";
 import ImagePreload from "../loaders/imagePreLoad";
 function TemiAutrici({
   data,
@@ -52,7 +52,9 @@ function TemiAutrici({
               )}
               <div className={style.temi__autrici__box__text}>
                 <h3>
-                  {autrice?.nome} {autrice?.cognome}
+                  <Link href={`/autrici/${autrice?.slug}`}>
+                    {autrice?.nome} {autrice?.cognome}
+                  </Link>
                 </h3>
 
                 <ul>

@@ -74,34 +74,32 @@ export default async function Home() {
       <div className="divider">
         <Image src="/image/linea.svg" width={3} height={150} alt="divider" />
       </div>
-      <AnimatedSection classname={styles.section1} animateOnce={false}>
-        <div className={`${styles.home__content} mainwrapper`}>
-          <h1>Le Invisibili</h1>
-          <p>
-            è dedicato alle molte donne che, nella storia, hanno svolto un ruolo
-            cruciale nello sviluppo della cultura, pur rimanendo spesso
-            nell'ombra. Queste donne, che si sono distinte in vari campi come la
-            letteratura, la scienza, l'arte e la filosofia, hanno sfidato le
-            convenzioni del loro tempo e hanno contribuito in modo significativo
-            al progresso delle idee e delle pratiche culturali.
-          </p>
-        </div>
-      </AnimatedSection>
-      <AnimatedSection classname={styles.section4} animateOnce={false}>
-        {blog && <News data={blog as tBlog[]} />}
-      </AnimatedSection>
-      <AnimatedSection classname={styles.section2} animateOnce={false}>
-        {opere?.length && (
-          <SimpleSlider
-            autrici={autrici as tAutrice[]}
-            opereAutrici={opereAutrici as tOpereAutrici[]}
-            data={citazioni as tCitazioni[]}
-            opere={opere as tOpera[]}
-            autriciCitazioni={autriciCitazioni as tAutriciCitazioni[]}
-            id={0}
-          />
-        )}
-      </AnimatedSection>
+
+      <div className={`${styles.home__content} mainwrapper`}>
+        <h1>Le Invisibili</h1>
+        <p>
+          è dedicato alle molte donne che, nella storia, hanno svolto un ruolo
+          cruciale nello sviluppo della cultura, pur rimanendo spesso
+          nell'ombra. Queste donne, che si sono distinte in vari campi come la
+          letteratura, la scienza, l'arte e la filosofia, hanno sfidato le
+          convenzioni del loro tempo e hanno contribuito in modo significativo
+          al progresso delle idee e delle pratiche culturali.
+        </p>
+      </div>
+
+      {blog && <News data={blog as tBlog[]} />}
+
+      {opere?.length && (
+        <SimpleSlider
+          autrici={autrici as tAutrice[]}
+          opereAutrici={opereAutrici as tOpereAutrici[]}
+          data={citazioni as tCitazioni[]}
+          opere={opere as tOpera[]}
+          autriciCitazioni={autriciCitazioni as tAutriciCitazioni[]}
+          id={0}
+        />
+      )}
+
       <section className="sectionTemi">
         {temi?.length && (
           <Temi
