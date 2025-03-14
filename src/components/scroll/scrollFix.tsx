@@ -12,7 +12,6 @@ function ScrollFix() {
   const pathname = usePathname();
   useEffect(() => {
     window.scroll(0, 0);
-    console.log("window scrolled to top", window.scrollY, pathname);
   }, [pathname]);
 
   return <></>;

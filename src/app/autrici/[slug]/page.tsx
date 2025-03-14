@@ -14,8 +14,8 @@ import ImagePreload from "@/components/loaders/imagePreLoad";
 import ScrollFix from "@/components/scroll/scrollFix";
 async function Page({ params }: { params: any }) {
   try {
-    const data = await getDataAutriciPage(params.slug);
-
+    const paramsData = await params;
+    const data = await getDataAutriciPage(paramsData.slug);
     const luoghi = await getDataLuoghi();
     const autriciOpere = await getDataFromApi("autrici_opere_1", {});
     const opereTotali = await getOpere();

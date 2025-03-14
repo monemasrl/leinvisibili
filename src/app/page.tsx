@@ -1,15 +1,7 @@
-import { default as dynamicComponent } from "next/dynamic";
 import styles from "./page.module.scss";
 import HeroLei from "@/components/heros/HeroLei";
-import AnimatedSection from "../components/mainLayoutComponents/sections/animatedSection";
-//carica il componente in modo dinamico above the fold
-const SimpleSlider = dynamicComponent(
-  () => import("@/components/sliders/simpleSlider"),
-  {
-    loading: () => <div>Loading placeholder</div>,
-    ssr: false,
-  }
-);
+import AnimatedSection from "@/components/mainLayoutComponents/sections/animatedSection";
+import SimpleSlider from "@/components/sliders/simpleSlider";
 
 import type {
   tOpera,
