@@ -1,9 +1,15 @@
 .results {
   .result {
+    margin-bottom: $spacing2;
     h2 {
       color: $gold;
       font-size: $size-title/1.3;
       margin: 0;
+      @media #{$tablet} {
+        font-size: $size-title/1.5;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
     }
     .boxAutrice {
       display: flex;

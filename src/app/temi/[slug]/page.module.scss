@@ -4,6 +4,7 @@
   min-height: 400px;
   h1 {
     color: $gold;
+    animation: opacity 1s;
   }
   .section1 {
     background: linear-gradient(
@@ -44,5 +45,15 @@
       position: relative;
       line-height: 1;
     }
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

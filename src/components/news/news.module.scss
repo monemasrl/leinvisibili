@@ -1,6 +1,12 @@
 .news {
   max-width: 1200px;
   margin: $spacing2 auto;
+  @media #{$landscape} {
+    padding: 0 $spacing1;
+  }
+  @media #{$phone} {
+    padding: 0;
+  }
   > h2 {
     font-size: $size-title;
     letter-spacing: -1;
@@ -13,14 +19,14 @@
     gap: $spacing3;
     justify-content: space-between;
     padding: 0 $spacing1;
-    @media #{$tablet} {
-      gap: $spacing1;
+    @media #{$landscape} {
+      gap: $spacing2;
+      flex-direction: column;
+      padding: 0;
     }
     &__box {
-      max-width: 500px;
-      @media #{$desktop} {
-        max-width: 440px;
-      }
+      flex: 1;
+
       a {
         color: $gold;
         text-decoration: none;

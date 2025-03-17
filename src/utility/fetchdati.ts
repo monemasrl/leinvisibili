@@ -25,8 +25,8 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
             readItems(type, {
                 filter: {
                     "_and": [
-                        { "nome": { _contains: filter.nome?.length ? filter.nome : undefined } },
-                        { "cognome": { _contains: filter.cognome?.length ? filter.cognome : undefined } }
+                        { "nome": { _icontains: filter.nome?.length ? filter.nome : undefined } },
+                        { "cognome": { _icontains: filter.cognome?.length ? filter.cognome : undefined } }
                     ]
                 },
                 limit: limit,

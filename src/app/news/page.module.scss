@@ -2,8 +2,11 @@
   max-width: 1140px;
   margin: 180px auto 0 auto;
   min-height: 400px;
-  gap: $spacing2;
 
+  @media #{$landscape} {
+    padding-left: $spacing1;
+    padding-right: $spacing1;
+  }
   .eventi {
     margin-top: $spacing2;
   }
@@ -13,6 +16,10 @@
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
+    @media #{$tablet} {
+      flex-direction: column;
+      margin-bottom: $spacing2;
+    }
     img {
       position: relative;
       width: 150px;
@@ -29,8 +36,13 @@
 
   h2 {
     margin-bottom: 0;
+    font-size: $size-title/1.6;
     a {
       color: $gold;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   p {

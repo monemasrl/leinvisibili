@@ -38,7 +38,7 @@ function HeroLei({
             key={index}
             onClick={() => setBoxOpen(index)}
           >
-            {assetsURL && (
+            {assetsURL && landscape ? (
               <ImagePreload
                 loader={{
                   url: "/image/leiloader.svg",
@@ -54,6 +54,26 @@ function HeroLei({
                 type="hero"
                 backgroundColor="#7a4535"
               />
+            ) : (
+              <Link href={`/autrici/${item.link}`}>
+                {assetsURL && (
+                  <ImagePreload
+                    loader={{
+                      url: "/image/leiloader.svg",
+                      width: 200,
+                      height: 200,
+                    }}
+                    image={{
+                      url: assetsURL + item.image || "",
+                      width: 566,
+                      height: 1050,
+                      alt: item.nome || "",
+                    }}
+                    type="hero"
+                    backgroundColor="#7a4535"
+                  />
+                )}
+              </Link>
             )}
           </div>
         );

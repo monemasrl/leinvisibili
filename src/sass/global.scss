@@ -101,6 +101,12 @@ button {
   width: 1px;
   height: 150px;
   margin: $spacing1 auto;
+  @media #{$landscape} {
+    height: 70px;
+    overflow: hidden;
+    width: 2px;
+    margin-bottom: 0;
+  }
 }
 .loading {
   position: relative;

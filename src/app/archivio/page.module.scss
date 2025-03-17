@@ -2,6 +2,10 @@
   max-width: 900px;
   margin: 180px auto 0 auto;
   min-height: 400px;
+  @media #{$landscape} {
+    padding-left: $spacing1;
+    padding-right: $spacing1;
+  }
   h1 {
     text-align: center;
     color: $gold;
@@ -12,6 +16,9 @@
     margin: 0 auto;
     display: flex;
     gap: $spacing1;
+    @media #{$tablet} {
+      flex-direction: column;
+    }
     button {
       height: 50px;
     }
@@ -21,6 +28,7 @@
       align-items: flex-end;
       gap: $spacing1;
       flex: 1;
+
       input[name="search"] {
         border: 0;
         background-color: $lightGrey;
@@ -34,14 +42,19 @@
       display: flex;
       width: 100%;
       gap: 1rem;
+      @media #{$tablet} {
+        flex-direction: column;
+      }
       input {
         flex: 1;
         border: 0;
         background-color: $lightGrey;
         height: 50px;
-
         padding-left: $spacing1;
         font-size: 1rem;
+        @media #{$tablet} {
+          flex: none;
+        }
       }
     }
     .filterBox {
