@@ -11,80 +11,84 @@ function ArchivioLista({
   result: tAutrice[] | tOpera[];
   abstract?: boolean;
 }) {
-  return (
-    <div className={style.results}>
-      {result.map((item: any) => {
-        if (item.opera) {
-          return (
-            <div className={style.result} key={item.opera}>
-              <h2>{item.opera}</h2>
-              <ul className={style.boxAutrice}>
-                {item.autrice.map((autrice: tAutrice) => {
-                  return (
-                    <li key={autrice.id}>
-                      <Link href={`/autrici/${autrice.slug}`}>
-                        <h3>
-                          {autrice.nome} {autrice.cognome}
-                        </h3>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        } else {
-          return (
-            <div className={style.result} key={item.id}>
-              <div className={style.autrice}>
-                <div>
-                  <Image
-                    src={
-                      process.env.NEXT_PUBLIC_ASSETS_URL +
-                      item.immagine_principale
-                    }
-                    sizes="(max-width: 460px) 40vw"
-                    width={100}
-                    height={100}
-                    alt={"item.titolo"}
-                  />
-                </div>
-                <div className={style.text}>
-                  <Link href={`/autrici/${item.slug}`}>
-                    <h2>
-                      {item.nome} {item.cognome}
-                    </h2>
-                  </Link>
-                  <ul className={style.data}>
-                    <li>
-                      {item.data_di_nascita
-                        ? formatDataFromApi(item.data_di_nascita, {
-                            year: "numeric",
-                          })
-                        : ""}
-                    </li>
-                    <li>
-                      {item.data_di_morte
-                        ? formatDataFromApi(item.data_di_morte, {
-                            year: "numeric",
-                          })
-                        : ""}
-                    </li>
-                  </ul>
-                  {abstract && (
-                    <div
-                      className={style.abstract}
-                      dangerouslySetInnerHTML={{ __html: item.abstract }}
+  if (result) {
+    return (
+      <div className={style.results}>
+        {result.map((item: any) => {
+          if (item.opera) {
+            return (
+              <div className={style.result} key={item.opera}>
+                <h2>{item.opera}</h2>
+                <ul className={style.boxAutrice}>
+                  {item.autrice.map((autrice: tAutrice) => {
+                    return (
+                      <li key={autrice.id}>
+                        <Link href={`/autrici/${autrice.slug}`}>
+                          <h3>
+                            {autrice.nome} {autrice.cognome}
+                          </h3>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          } else {
+            return (
+              <div className={style.result} key={item.id}>
+                <div className={style.autrice}>
+                  <div>
+                    <Image
+                      src={
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                        item.immagine_principale
+                      }
+                      sizes="(max-width: 460px) 40vw"
+                      width={100}
+                      height={100}
+                      alt={"item.titolo"}
                     />
-                  )}
+                  </div>
+                  <div className={style.text}>
+                    <Link href={`/autrici/${item.slug}`}>
+                      <h2>
+                        {item.nome} {item.cognome}
+                      </h2>
+                    </Link>
+                    <ul className={style.data}>
+                      <li>
+                        {item.data_di_nascita
+                          ? formatDataFromApi(item.data_di_nascita, {
+                              year: "numeric",
+                            })
+                          : ""}
+                      </li>
+                      <li>
+                        {item.data_di_morte
+                          ? formatDataFromApi(item.data_di_morte, {
+                              year: "numeric",
+                            })
+                          : ""}
+                      </li>
+                    </ul>
+                    {abstract && (
+                      <div
+                        className={style.abstract}
+                        dangerouslySetInnerHTML={{ __html: item.abstract }}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        }
-      })}
-    </div>
-  );
+            );
+          }
+        })}
+      </div>
+    );
+  } else {
+    return <div>...Caricamento Dati...</div>;
+  }
 }
 
 export default ArchivioLista;

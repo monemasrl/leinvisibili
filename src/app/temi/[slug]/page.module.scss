@@ -31,8 +31,10 @@
   }
   .section2 {
     padding: $spacing2;
+    max-width: 900px;
+    margin: 0 auto;
     p {
-      line-height: 1.6;
+      line-height: 1.7;
     }
     p:first-child:first-letter {
       font-size: 6rem;

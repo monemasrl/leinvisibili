@@ -81,11 +81,20 @@ function HeroLei({
                 exit={{ opacity: 0, x: -100, transition: { duration: 0.5 } }}
               >
                 {assetsURL && (
-                  <Image
-                    src={assetsURL + data[boxOpen].image || ""}
-                    width={485}
-                    height={675}
-                    alt={data[boxOpen].nome || ""}
+                  <ImagePreload
+                    loader={{
+                      url: "/image/leiloader.svg",
+                      width: 200,
+                      height: 200,
+                    }}
+                    image={{
+                      url: assetsURL + data[boxOpen].image || "",
+                      width: 485,
+                      height: 675,
+                      alt: data[boxOpen].nome || "",
+                    }}
+                    type="fixed"
+                    backgroundColor="#7a4535"
                   />
                 )}
                 <div className={style.hero__content__box__text}>
@@ -130,6 +139,7 @@ function HeroLei({
                     <Link href={`/autrici/${data[boxOpen].link}`}>
                       Scopri di più
                     </Link>
+
                     <Image src={freccia} width={200} height={3} alt="freccia" />
                   </motion.div>
                 </div>

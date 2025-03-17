@@ -170,7 +170,6 @@ function page() {
         </div>
         <button type="submit">cerca</button>
       </form>
-
       {Boolean(result?.length && searchData) && (
         <ArchivioLista result={result} abstract />
       )}
@@ -180,12 +179,10 @@ function page() {
         </div>
       )}
 
-      {defaultData && (
-        <section className={style.defaultData}>
-          <h2>Ultime Autrici</h2>
-          <ArchivioLista result={defaultData} />
-        </section>
-      )}
+      <section className={style.defaultData}>
+        <h2>Ultime Autrici</h2>
+        <ArchivioLista result={defaultData} />
+      </section>
       {error && (
         <div className={style.error}>
           <p>{error}</p>

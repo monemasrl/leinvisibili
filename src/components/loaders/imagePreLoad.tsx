@@ -47,7 +47,7 @@ export const ImagePreload = ({
       )}
       <Image
         src={image.url}
-        alt={"test"}
+        alt={image.alt}
         width={image.width}
         height={image.height}
         onLoad={(e) => {

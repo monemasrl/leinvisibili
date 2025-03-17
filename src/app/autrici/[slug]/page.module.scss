@@ -93,40 +93,11 @@
       margin-bottom: 0;
     }
     &__dato {
-      font-size: $size-title/2.4;
+      font-size: $size-title/2.5;
       color: black;
       font-family: $text;
       font-weight: 200;
       margin-bottom: 0;
     }
-  }
-}
-
-.loading {
-  position: relative;
-
-  background-color: $gold;
-  width: 100%;
-  height: 100vh;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing2;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  img {
-    animation: jumping 4s infinite;
-  }
-}
-@keyframes jumping {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
