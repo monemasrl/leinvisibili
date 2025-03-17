@@ -3,6 +3,7 @@ import style from "./page.module.scss";
 import { getDataFromApi } from "@/utility/fetchdati";
 import ScrollFix from "@/components/scroll/scrollFix";
 import ImagePreload from "@/components/loaders/imagePreLoad";
+import { formatDataFromApi } from "@/utility/generic";
 async function Page({ params }: { params: { slug: string } }) {
   try {
     const data = await getDataFromApi("blog", { slug: params.slug });
@@ -25,8 +26,21 @@ async function Page({ params }: { params: { slug: string } }) {
                 alt: data[0].titolo,
               }}
               type="fixed"
-            />
-            <h1>{data[0].titolo}</h1>
+            />{" "}
+            <div className={style.headerContent}>
+              {data[0].data_inizio && data[0].data_fine && (
+                <ul>
+                  {" "}
+                  {data[0].data_inizio && (
+                    <li>{formatDataFromApi(data[0].data_inizio)}</li>
+                  )}{" "}
+                  {data[0].data_fine && (
+                    <li>{formatDataFromApi(data[0].data_fine)}</li>
+                  )}
+                </ul>
+              )}
+              <h1>{data[0].titolo}</h1>
+            </div>
           </header>
           <section className={style.mainContent}>
             <div

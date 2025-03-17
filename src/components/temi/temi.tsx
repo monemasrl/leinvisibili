@@ -60,7 +60,7 @@ function Temi({
         <motion.div
           className={style.temi}
           style={{
-            rotateZ: mediaQueryData.landscape ? rotation : 0,
+            rotateZ: mediaQueryData.landscape ? rotation : "0",
 
             opacity: motionValueOpacity,
           }}

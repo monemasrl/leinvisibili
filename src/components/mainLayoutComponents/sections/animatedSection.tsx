@@ -27,7 +27,7 @@ function AnimatedSection({
       className={classname}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 1 }}
+      transition={{ duration: 1, delay: 0.7 }}
       viewport={{ once: animateOnce }}
       id={scrollToMe ? scrollToMe : ""}
     >
