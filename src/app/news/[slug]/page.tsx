@@ -4,9 +4,11 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import ScrollFix from "@/components/scroll/scrollFix";
 import ImagePreload from "@/components/loaders/imagePreLoad";
 import { formatDataFromApi } from "@/utility/generic";
-async function Page({ params }: { params: { slug: string } }) {
+import { PageProps } from "../../../../.next/types/app/page";
+async function Page({ params }: PageProps) {
   try {
-    const data = await getDataFromApi("blog", { slug: params.slug });
+    const { slug } = await params;
+    const data = await getDataFromApi("blog", { slug: slug });
     if (data) {
       return (
         <div className={style.container}>

@@ -99,7 +99,7 @@ function page() {
 
     fetchDefaultData();
   }, [searchData]);
-  console.log("searchData", searchData);
+
   return (
     <div className={style.container}>
       <h1>Archivio autrici</h1>
