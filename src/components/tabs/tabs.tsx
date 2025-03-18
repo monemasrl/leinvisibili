@@ -92,6 +92,7 @@ function Tabs({ data }: { data: Tdata[] | undefined }) {
   );
   useEffect(() => {
     setTabData(data && data[activeTab]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   if (!data) return null;

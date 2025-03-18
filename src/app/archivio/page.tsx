@@ -5,7 +5,7 @@ import style from "./page.module.scss";
 import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
 import ArchivioLista from "@/components/archivio/archivioLista";
 import ScrollFix from "@/components/scroll/scrollFix";
-function page() {
+function Page() {
   const [searchField, setSearchField] = useState<{
     opera?: string;
     nome?: string;
@@ -193,4 +193,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

@@ -60,6 +60,7 @@ function SimpleSlider({
   const [swiper, setSwiper] = useState<any>();
   useEffect(() => {
     swiper?.slideTo(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [swiper]);
 
   return (

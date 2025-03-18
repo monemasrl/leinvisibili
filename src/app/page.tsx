@@ -72,10 +72,10 @@ export default async function Home() {
           <p>
             è dedicato alle molte donne che, nella storia, hanno svolto un ruolo
             cruciale nello sviluppo della cultura, pur rimanendo spesso
-            nell'ombra. Queste donne, che si sono distinte in vari campi come la
-            letteratura, la scienza, l'arte e la filosofia, hanno sfidato le
-            convenzioni del loro tempo e hanno contribuito in modo significativo
-            al progresso delle idee e delle pratiche culturali.
+            nell&rsquo;ombra. Queste donne, che si sono distinte in vari campi
+            come la letteratura, la scienza, l&apos;arte e la filosofia, hanno
+            sfidato le convenzioni del loro tempo e hanno contribuito in modo
+            significativo al progresso delle idee e delle pratiche culturali.
           </p>
         </div>
       </AnimatedSection>
