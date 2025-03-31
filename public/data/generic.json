@@ -50,5 +50,8 @@
         "err_messaggio": "Inserire almeno 10 caratteri",
         "success": "Messaggio inviato, risponderemo al messaggio nel più breve tempo possibile",
         "invia": "Invia"
+    },
+    "Progetto": {
+        "description": "Il progetto di ricerca 'Le Donne Invisibili' si propone di riportare alla luce le vite e i contributi di donne straordinarie che, fino al 1800, hanno giocato un ruolo fondamentale nello sviluppo della scienza e della cultura, ma che sono state dimenticate o ignorate dalla storia ufficiale. Attraverso un'analisi approfondita di documenti storici, lettere, opere e testimonianze, il progetto mira a ricostruire le loro storie, evidenziando il loro impatto e restituendo loro il posto che meritano nella memoria collettiva. Questo lavoro non solo celebra il loro genio e la loro determinazione, ma ispira anche le generazioni future a riconoscere e valorizzare il contributo di tutte le persone, indipendentemente dal genere, alla costruzione del sapere umano."
     }
 }

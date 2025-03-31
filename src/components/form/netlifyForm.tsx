@@ -76,6 +76,7 @@ function Form() {
     } else {
       setSubmit(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nome, mail, messaggio, tel, privacy]);
 
   const handleFormSubmit = async (event: any) => {
