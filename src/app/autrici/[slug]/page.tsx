@@ -12,6 +12,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ImagePreload from "@/components/loaders/imagePreLoad";
 import ScrollFix from "@/components/scroll/scrollFix";
+import { CiSaveDown2, CiLink } from "react-icons/ci";
+
 async function Page({ params }: { params: any }) {
   try {
     const paramsData = await params;
@@ -81,20 +83,30 @@ async function Page({ params }: { params: any }) {
               <ul>
                 {opere()?.map((opera) => {
                   return (
-                    <li key={opera?.id}>
-                      {opera?.file ? (
-                        <Link
-                          target="_blank"
-                          href={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${opera?.file}`}
-                        >
-                          <h3>{opera?.titolo}</h3>
-                        </Link>
-                      ) : (
-                        <a target="_blank" href={opera?.link}>
-                          <h3>{opera?.titolo}</h3>
-                        </a>
-                      )}
+                    <li key={opera?.id} className={style.opera}>
+                      <h3>{opera?.titolo}</h3>
                       <p>{opera?.info}</p>
+                      <div className={style.opera__link}>
+                        {opera?.file && (
+                          <Link
+                            target="_blank"
+                            href={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${opera?.file}`}
+                          >
+                            <span>
+                              <CiSaveDown2 />
+                            </span>{" "}
+                            File Download
+                          </Link>
+                        )}
+                        {opera?.link && (
+                          <a target="_blank" href={opera?.link}>
+                            <span>
+                              <CiLink />
+                            </span>{" "}
+                            Risorsa esterna
+                          </a>
+                        )}
+                      </div>
                     </li>
                   );
                 })}

@@ -11,6 +11,7 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                 filter: {
                     "titolo": { _contains: filter.opera },
                 },
+
                 limit: limit,
                 offset: offset,
             })
@@ -44,6 +45,7 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                 filter: filter || {},
                 limit: limit,
                 offset: offset,
+
             })
         );
 
