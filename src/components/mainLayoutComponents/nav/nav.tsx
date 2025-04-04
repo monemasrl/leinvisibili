@@ -120,7 +120,7 @@ function NavBar() {
               </div>
               <a href="/">
                 <Image
-                  src="/image/logo-studio-dentistico-vincenzi.png"
+                  src="/image/logo_footer.svg"
                   width={220}
                   height={40}
                   alt="logo"
@@ -135,22 +135,13 @@ function NavBar() {
                     }`}
                     key={index}
                   >
-                    <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scroll?.scrollTo(item.url || "", { offset: -100 });
-                        setMobile(false);
-                      }}
-                      href={item.url || ""}
-                    >
-                      {item.name}
-                    </a>
+                    <Link href={item.url || "/"}>{item.name}</Link>
                   </li>
                 ))}
               </ul>
               <hr style={{ width: "50%" }} />
               <div className={style.navMobile__generic}>
-                Via della Stazione 27, Barga - 0583 711372 - info@vtservices.it
+                info@leinvisibili.it
               </div>
             </motion.div>
           )}

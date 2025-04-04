@@ -8,7 +8,8 @@ import anelli from "../../../../public/image/anelli.png";
 import ScrollFix from "@/components/scroll/scrollFix";
 async function Tema({ params }: { params: any }) {
   try {
-    const data = (await getTemi(params.slug)) as tTemi[];
+    const p = await params;
+    const data = (await getTemi(p.slug)) as tTemi[];
     const autrici = (await getDataFromApi("autrici")) as tAutrice[];
     const temiAutrici = (await getDataFromApi(
       "temi_autrici"

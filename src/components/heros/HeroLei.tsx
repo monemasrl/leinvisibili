@@ -26,10 +26,10 @@ function HeroLei({
   const [boxOpen, setBoxOpen] = React.useState<number | null>(null);
 
   const { landscape } = useMediaquery();
-
+  const datiNumeroLimitato = data?.slice(0, 3);
   return (
     <div className={style.hero}>
-      {data?.map((item, index) => {
+      {datiNumeroLimitato?.map((item, index) => {
         return (
           <div
             className={`${style.hero__box} ${
