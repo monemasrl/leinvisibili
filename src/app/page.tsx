@@ -33,7 +33,6 @@ export default async function Home() {
   });
   const opere = await getDataFromApi("opere", {
     status: "published",
-    in_homepage: true,
   });
   const citazioni = await getDataFromApi("citazioni", {
     in_homepage: true,
