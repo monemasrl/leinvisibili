@@ -1,16 +1,16 @@
 {
     "it": {
         "metaHtml": {
-            "title": "Studio dentistico Dott. Vincenti",
-            "description": "Lo studio dentistico Dott. Vincenti, situato a Prato, si avvale di uno staff di professionisti qualificati e di attrezzature moderne per la prevenzione e la cura delle malattie della bocca e per le riabilitazioni su impianti.",
-            "keywords": "dentista, Prato, dott. Vincenti, studio dentistico",
+            "title": "Le invisibili",
+            "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
+            "keywords": "Le invisibili",
             "openGraph": {
-                "title": "Studio dentistico Dott. Vincenti",
-                "description": "Lo studio dentistico Dott. Vincenti, situato a Prato, si avvale di uno staff di professionisti qualificati e di attrezzature moderne per la prevenzione e la cura delle malattie della bocca e per le riabilitazioni su impianti.",
+                "title": "Le invisibili",
+                "description": "test",
                 "type": "website",
                 "locale": "it_IT",
-                "url": "https://dottvincenti.dentistiprato.com/",
-                "siteName": "Studio dentistico Dott. Vincenti",
+                "url": "https://Le invisibili.com/",
+                "siteName": "Le invisibili",
                 "images": [
                     {
                         "url": "https://dottvincenti.dentistiprato.com/image/opengraph-image.jpg",
@@ -28,7 +28,7 @@
                 "https://dottvincenti.dentistiprato.com/image/4_3graph.jpg",
                 "https://dottvincenti.dentistiprato.com/image/mainimage.jpg"
             ],
-            "name": "Studio dentistico Dott. Vincenti",
+            "name": "Le invisibili",
             "address": [
                 {
                     "@type": "PostalAddress",
@@ -39,9 +39,9 @@
                     "addressCountry": "IT"
                 }
             ],
-            "url": "https://dottvincenti.dentistiprato.com/",
+            "url": "https://Le invisibili.com/",
             "telephone": "+390574514380",
-            "email": "info@dottvincenti.dentistiprato.com"
+            "email": "info@Le invisibili.com"
         }
     }
 }
