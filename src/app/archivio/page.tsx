@@ -5,6 +5,7 @@ import style from "./page.module.scss";
 import { getDataFromApi, getDataAutriciOpere } from "@/utility/fetchdati";
 import ArchivioLista from "@/components/archivio/archivioLista";
 import ScrollFix from "@/components/scroll/scrollFix";
+import Indice from "@/components/indice/indice";
 function Page() {
   const [searchField, setSearchField] = useState<{
     opera?: string;
@@ -19,7 +20,6 @@ function Page() {
   const [result, setResult] = useState<any>(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
   const [defaultData, setDefaultData] = useState<any>(undefined);
-  const [loading, setLoading] = useState<boolean>(false);
 
   /* funzione SUBMIT del form */
   function handleSubmit(e: FormEvent) {
@@ -56,7 +56,7 @@ function Page() {
   /* funzione Fetch che scarica i dati AUTRICI DEFAULT e setta lo stato Result */
   async function fetchDefaultData() {
     try {
-      const data = await getDataFromApi("autrici", { status: "published" }, 2);
+      const data = await getDataFromApi("autrici", { status: "published" });
       if (data) {
         setDefaultData(data);
       } else {
@@ -179,10 +179,12 @@ function Page() {
         </div>
       )}
 
-      <section className={style.defaultData}>
-        <h2>Ultime Autrici</h2>
-        <ArchivioLista result={defaultData} />
-      </section>
+      {!searchData && (
+        <section className={style.defaultData}>
+          <h2>Indice Autrici</h2>
+          <Indice data={defaultData} type="autrici" />
+        </section>
+      )}
       {error && (
         <div className={style.error}>
           <p>{error}</p>

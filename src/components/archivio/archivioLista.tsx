@@ -72,7 +72,7 @@ function ArchivioLista({
                           : ""}
                       </li>
                     </ul>
-                    {abstract && (
+                    {item.abstract && (
                       <div
                         className={style.abstract}
                         dangerouslySetInnerHTML={{ __html: item.abstract }}
