@@ -1,7 +1,7 @@
 function NotFound() {
   return (
-    <main>
-      <section className="p404">
+    <main className="p404">
+      <section>
         <h1>Pagina non trovata</h1>
       </section>
     </main>

@@ -12,13 +12,13 @@ async function Page() {
     if (data) {
       return (
         <div className={style.container}>
-          <h1>New ed Eventi</h1>
+          <h1>News ed Eventi</h1>
           <section className={style.eventi}>
             {data.map((item, index) => {
               return (
                 <div key={index} className={style.evento}>
                   <div className={style.img}>
-                    {item.immagine_principale && (
+                    {item.immagine_principale ? (
                       <ImagePreload
                         image={{
                           url:
@@ -32,6 +32,17 @@ async function Page() {
                           url: "/image/leiloader.svg",
                           width: 150,
                           height: 150,
+                        }}
+                        type="fixed"
+                        round
+                      />
+                    ) : (
+                      <ImagePreload
+                        image={{
+                          url: "/image/leiloader.svg",
+                          width: 150,
+                          height: 150,
+                          alt: item.titolo,
                         }}
                         type="fixed"
                         round

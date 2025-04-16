@@ -56,7 +56,6 @@ function Temi({
         <Image src={immagineSfondoDefault} alt="immagine tematiche" />
       </div>
       <div className={style.wrappertemi} ref={scrollRef}>
-        <Image src={immaginitematiche} alt="immagine tematiche" />
         <motion.div
           className={style.temi}
           style={{
@@ -97,7 +96,7 @@ function Temi({
                 }}
                 exit={{ opacity: 0 }}
               >
-                <Link href={`/temi/${data[0].slug}`}>Scheda tematica</Link>
+                <Link href={`/lessico/${data[0].slug}`}>Vai alla scheda</Link>
                 <Image src={freccia} width={220} height={6} alt="freccia" />
               </motion.div>
             </div>

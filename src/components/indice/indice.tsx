@@ -4,7 +4,7 @@ import Link from "next/link";
 import style from "./style.module.scss";
 import Image from "next/image";
 function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
-  if (!data) return "non ci sono dati";
+  if (!data) return "Caricamento dati...";
   const datiOrdinati = indiceAlfabetico(data, type);
   const col1 = datiOrdinati.slice(0, 13);
   const col2 = datiOrdinati.slice(13, 26);
@@ -23,7 +23,9 @@ function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
                     {item.data.map((item: any, index: number) => {
                       return (
                         <div key={index}>
-                          <Link href={`/temi/${item.slug}`}>{item.titolo}</Link>
+                          <Link href={`/lessico/${item.slug}`}>
+                            {item.titolo}
+                          </Link>
                         </div>
                       );
                     })}
@@ -93,7 +95,9 @@ function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
                     {item.data.map((item: any, index: number) => {
                       return (
                         <div key={index}>
-                          <Link href={`/temi/${item.slug}`}>{item.titolo}</Link>
+                          <Link href={`/lessico/${item.slug}`}>
+                            {item.titolo}
+                          </Link>
                         </div>
                       );
                     })}

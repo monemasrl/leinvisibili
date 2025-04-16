@@ -96,7 +96,7 @@ export default async function Home() {
       <section className="sectionTemi">
         {temi?.length && (
           <Temi
-            mainTitle="Tema in evidenza:"
+            mainTitle="In evidenza:"
             data={temi as tTemi[]}
             temiAutrici={temiautrici as tAutriciTemi[]}
             autrici={autrici as tAutrice[]}
