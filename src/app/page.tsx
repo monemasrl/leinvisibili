@@ -126,7 +126,9 @@ function datahero(data: tAutrice[]) {
       });
 
       return {
-        nome: item.nome + " " + item.cognome || null,
+        nomeCompleto: item.nome + " " + item.cognome || null,
+        nome: item.nome || null,
+        cognome: item.cognome || null,
         descrizione: item.abstract || null,
         image: item.immagine_principale || null,
         data_nascita: nascita || null,

@@ -10,6 +10,8 @@ import ImagePreload from "../loaders/imagePreLoad";
 import Image from "next/image";
 type Tdata = {
   nome: string | null;
+  nomeCompleto: string | null;
+  cognome: string | null;
   descrizione: string | null;
   image: string | null;
   data_nascita: string | null;
@@ -30,6 +32,7 @@ function HeroLei({
   return (
     <div className={style.hero}>
       {datiNumeroLimitato?.map((item, index) => {
+        console.log(item);
         return (
           <div
             className={`${style.hero__box} ${
@@ -49,7 +52,7 @@ function HeroLei({
                   url: assetsURL + item.image || "",
                   width: 566,
                   height: 1050,
-                  alt: item.nome || "",
+                  alt: item.nomeCompleto || "",
                 }}
                 type="hero"
                 backgroundColor="#7a4535"
@@ -67,7 +70,7 @@ function HeroLei({
                       url: assetsURL + item.image || "",
                       width: 566,
                       height: 1050,
-                      alt: item.nome || "",
+                      alt: item.nomeCompleto || "",
                     }}
                     type="hero"
                     backgroundColor="#7a4535"
@@ -75,6 +78,7 @@ function HeroLei({
                 )}
               </Link>
             )}
+            <div className={style.nome}>{item.nome}</div>
           </div>
         );
       })}
@@ -111,7 +115,7 @@ function HeroLei({
                       url: assetsURL + data[boxOpen].image || "",
                       width: 485,
                       height: 675,
-                      alt: data[boxOpen].nome || "",
+                      alt: data[boxOpen].nomeCompleto || "",
                     }}
                     type="fixed"
                     backgroundColor="#7a4535"
@@ -130,7 +134,7 @@ function HeroLei({
                   >
                     {" "}
                     {data[boxOpen].data_nascita} - {data[boxOpen].data_morte}
-                    <h2>{data[boxOpen].nome}</h2>
+                    <h2>{data[boxOpen].nomeCompleto}</h2>
                   </motion.div>
 
                   <motion.div
