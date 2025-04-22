@@ -116,4 +116,9 @@ type tAutriciOpere = {
     opere_id: number;
     sort: number | null;
 };
-export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog, tAutriciOpere };
+type tAutriciFiles = {
+    id: number;
+    autrici_id: number;
+    directus_files_id: string;
+}
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog, tAutriciOpere, tAutriciFiles };

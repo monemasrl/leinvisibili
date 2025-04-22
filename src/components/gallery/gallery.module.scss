@@ -49,8 +49,26 @@
     width: 100%;
     height: 100%;
   }
+}
+
+/* MASONRY */
+
+.masonryItem {
+  background-color: #ffffff;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  color: #fff;
+  button {
+    background-color: white;
+  }
   img {
     height: auto;
-    width: 100%;
   }
 }

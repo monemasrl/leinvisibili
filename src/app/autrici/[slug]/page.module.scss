@@ -133,6 +133,11 @@
       margin: 0;
     }
   }
+  .gallery {
+    h2 {
+      font-size: $size-title/1.2;
+    }
+  }
   .datiPersonali {
     margin-top: $spacing2;
     padding: 0 $spacing2;

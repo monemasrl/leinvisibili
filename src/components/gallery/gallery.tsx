@@ -3,9 +3,11 @@ import { useState } from "react";
 import style from "./gallery.module.scss";
 import Image from "next/image";
 import FixedModal from "../modals/fixedModal";
-import SimpleSlider from "../sliders/simpleSlider";
+import { tAutriciFiles } from "@/type";
 
-function Gallery({ type, images }: { type: string; images: string[] }) {
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+
+function Gallery({ type, images }: { type: string; images: tAutriciFiles[] }) {
   const [modalState, setModalState] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   if (type === "one") {
@@ -109,29 +111,47 @@ function Gallery({ type, images }: { type: string; images: string[] }) {
   }
   if (type === "two") {
     return (
-      <div className={style.galleryGrid2}>
+      <div className={style.masonryWrapper}>
         {/*  <FixedModal modalState={modalState} closeModal={setModalState}>
           <SimpleSlider data={images} id={currentImage} />
         </FixedModal> */}
-        {images.map((item, index) => {
-          return (
-            <div key={index} className={style.galleryGrid2__col}>
-              <button
-                onClick={() => {
-                  setModalState(true);
-                  setCurrentImage(index);
-                }}
-              >
-                <Image
-                  src={"/image/" + item}
-                  width={300}
-                  height={230}
-                  alt="gallery"
-                />
-              </button>
-            </div>
-          );
-        })}
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
+          <Masonry>
+            {images.map((item, index) => {
+              return (
+                <div key={index} className={style.masonryItem}>
+                  <button
+                    onClick={() => {
+                      setModalState(true);
+                      setCurrentImage(index);
+                    }}
+                  >
+                    <Image
+                      src={
+                        process.env.NEXT_PUBLIC_ASSETS_URL +
+                        item.directus_files_id
+                      }
+                      width={150}
+                      height={150}
+                      alt="gallery"
+                    />
+                  </button>
+                </div>
+              );
+            })}
+          </Masonry>
+        </ResponsiveMasonry>
+        <FixedModal modalState={modalState} closeModal={setModalState}>
+          <Image
+            src={
+              process.env.NEXT_PUBLIC_ASSETS_URL +
+              images[currentImage].directus_files_id
+            }
+            width={900}
+            height={450}
+            alt="gallery"
+          />
+        </FixedModal>
       </div>
     );
   }

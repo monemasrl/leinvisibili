@@ -7,11 +7,12 @@ import {
   getOpere,
 } from "@/utility/fetchdati";
 import { formatDataFromApi } from "@/utility/generic";
-import { tAutrice } from "../../../type";
+import { tAutrice, tAutriciFiles } from "../../../type";
 import Image from "next/image";
 import Link from "next/link";
 import ImagePreload from "@/components/loaders/imagePreLoad";
 import ScrollFix from "@/components/scroll/scrollFix";
+import Gallery from "@/components/gallery/gallery";
 import { CiSaveDown2, CiLink } from "react-icons/ci";
 
 async function Page({ params }: { params: any }) {
@@ -21,10 +22,18 @@ async function Page({ params }: { params: any }) {
     const luoghi = await getDataLuoghi();
     const autriciOpere = await getDataFromApi("autrici_opere_1", {});
     const opereTotali = await getOpere();
+    const autriciFiles = await getDataFromApi("autrici_files", {});
 
+    console.log(autriciFiles, "autriciFiles");
     if (data) {
       const autrice = data[0] as tAutrice;
 
+      // array di immagini creati dalla junction collection
+      const image = autriciFiles?.filter((item) => {
+        return autrice?.galleria.some((files) => files === item.id);
+      });
+
+      console.log(image, "image");
       const luogoNascita =
         luoghi && luoghi.find((item) => item.id === autrice.luogo_nascita);
       const luogoMorte =
@@ -131,6 +140,12 @@ async function Page({ params }: { params: any }) {
                 })}
               </ul>
             </section>
+            {image && image.length > 0 && (
+              <section className={style.gallery}>
+                <h2>Immagini</h2>
+                <Gallery type="two" images={image as tAutriciFiles[]} />
+              </section>
+            )}
           </div>
           <div className={style.right}>
             <ImagePreload
