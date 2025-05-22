@@ -99,7 +99,7 @@ async function Page({ params }: { params: any }) {
                   return (
                     <li key={opera?.id} className={style.opera}>
                       <h3>{opera?.titolo}</h3>
-                      <p>{opera?.info}</p>
+                      <div dangerouslySetInnerHTML={{ __html: opera?.info }} />
                       {(opera?.file || opera?.link) && (
                         <div className={style.opera__link}>
                           {opera?.file && (
