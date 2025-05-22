@@ -52,7 +52,9 @@
 }
 
 /* MASONRY */
-
+.masonryWrapper {
+  margin-bottom: 2rem;
+}
 .masonryItem {
   background-color: #ffffff;
 
@@ -67,6 +69,7 @@
   color: #fff;
   button {
     background-color: white;
+    padding: 0;
   }
   img {
     height: auto;

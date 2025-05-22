@@ -29,6 +29,8 @@ type tAutrice = {
     slug: string;
     luogo_nascita: number;
     luogo_morte: number | null;
+    nascita_solo_anno: boolean;
+    morte_solo_anno: boolean;
     Contenuto: string;
     fonti: { link: string, titolo: string }[] | null;
     in_homepage: boolean;

@@ -14,7 +14,7 @@ import ImagePreload from "@/components/loaders/imagePreLoad";
 import ScrollFix from "@/components/scroll/scrollFix";
 import Gallery from "@/components/gallery/gallery";
 import { CiSaveDown2, CiLink } from "react-icons/ci";
-
+import TextHide from "@/components/mainLayoutComponents/textcontainer/textHide";
 async function Page({ params }: { params: any }) {
   try {
     const paramsData = await params;
@@ -24,7 +24,6 @@ async function Page({ params }: { params: any }) {
     const opereTotali = await getOpere();
     const autriciFiles = await getDataFromApi("autrici_files", {});
 
-    console.log(autriciFiles, "autriciFiles");
     if (data) {
       const autrice = data[0] as tAutrice;
 
@@ -46,7 +45,7 @@ async function Page({ params }: { params: any }) {
           return opereTotali?.find((item) => item.id === opera?.opere_id);
         });
       };
-
+      console.log(autrice.Contenuto.length);
       return (
         <div className={style.container}>
           <div className={style.left}>
@@ -75,9 +74,9 @@ async function Page({ params }: { params: any }) {
                 alt="divider"
               />
             </div>
-            <section
-              className={style.mainText}
-              dangerouslySetInnerHTML={{ __html: autrice.Contenuto }}
+            <TextHide
+              classStyle={style.mainText}
+              contenuto={autrice.Contenuto}
             />
             <div className={style.dividerH}>
               <Image
@@ -87,6 +86,12 @@ async function Page({ params }: { params: any }) {
                 alt="divider"
               />
             </div>
+            {image && image.length > 0 && (
+              <section className={style.gallery}>
+                <h2>Immagini</h2>
+                <Gallery type="two" images={image as tAutriciFiles[]} />
+              </section>
+            )}
             <section className={style.opere}>
               <h2>Bibliografia</h2>
               <ul>
@@ -121,7 +126,7 @@ async function Page({ params }: { params: any }) {
                 })}
               </ul>
             </section>
-            <section className={style.opere}>
+            <section className={style.fonti}>
               <h2>Fonti</h2>
               <ul>
                 {autrice.fonti?.map((fonte, index) => {
@@ -140,12 +145,6 @@ async function Page({ params }: { params: any }) {
                 })}
               </ul>
             </section>
-            {image && image.length > 0 && (
-              <section className={style.gallery}>
-                <h2>Immagini</h2>
-                <Gallery type="two" images={image as tAutriciFiles[]} />
-              </section>
-            )}
           </div>
           <div className={style.right}>
             <ImagePreload
@@ -190,8 +189,13 @@ async function Page({ params }: { params: any }) {
                 <li>
                   <div className={style.datiPersonali__titolo}>Nascita</div>
                   <div className={style.datiPersonali__dato}>
-                    {luogoNascita?.Nome}{" "}
-                    {formatDataFromApi(autrice.data_di_nascita)}
+                    {luogoNascita?.Nome},{" "}
+                    {autrice.nascita_solo_anno
+                      ? "~" +
+                        formatDataFromApi(autrice.data_di_nascita, {
+                          year: "numeric",
+                        })
+                      : formatDataFromApi(autrice.data_di_nascita)}
                   </div>
                 </li>
               )}
@@ -199,8 +203,13 @@ async function Page({ params }: { params: any }) {
                 <li>
                   <div className={style.datiPersonali__titolo}>Morte</div>
                   <div className={style.datiPersonali__dato}>
-                    {luogoMorte?.Nome}{" "}
-                    {formatDataFromApi(autrice.data_di_morte)}
+                    {luogoMorte?.Nome},{" "}
+                    {autrice.morte_solo_anno
+                      ? "~" +
+                        formatDataFromApi(autrice.data_di_morte, {
+                          year: "numeric",
+                        })
+                      : formatDataFromApi(autrice.data_di_morte)}
                   </div>
                 </li>
               )}

@@ -11,7 +11,6 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                 filter: {
                     "titolo": { _contains: filter.opera },
                 },
-
                 limit: limit,
                 offset: offset,
             })
@@ -58,7 +57,7 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
 
 }
 async function getDataAutriciOpere(datiPerRicerca: { opera?: string, nome?: string, titolo?: string }) {
-    console.log('autrici opere')
+
     // dati autrici
     const autriciData = await getDataFromApi("autrici", {
         status: "published",
