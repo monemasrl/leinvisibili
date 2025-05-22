@@ -100,27 +100,29 @@ async function Page({ params }: { params: any }) {
                     <li key={opera?.id} className={style.opera}>
                       <h3>{opera?.titolo}</h3>
                       <p>{opera?.info}</p>
-                      <div className={style.opera__link}>
-                        {opera?.file && (
-                          <Link
-                            target="_blank"
-                            href={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${opera?.file}`}
-                          >
-                            <span>
-                              <CiSaveDown2 />
-                            </span>{" "}
-                            File Download
-                          </Link>
-                        )}
-                        {opera?.link && (
-                          <a target="_blank" href={opera?.link}>
-                            <span>
-                              <CiLink />
-                            </span>{" "}
-                            Risorsa esterna
-                          </a>
-                        )}
-                      </div>
+                      {(opera?.file || opera?.link) && (
+                        <div className={style.opera__link}>
+                          {opera?.file && (
+                            <Link
+                              target="_blank"
+                              href={`${process.env.NEXT_PUBLIC_ASSETS_URL}/${opera?.file}`}
+                            >
+                              <span>
+                                <CiSaveDown2 />
+                              </span>{" "}
+                              File Download
+                            </Link>
+                          )}
+                          {opera?.link && (
+                            <a target="_blank" href={opera?.link}>
+                              <span>
+                                <CiLink />
+                              </span>{" "}
+                              Risorsa esterna
+                            </a>
+                          )}
+                        </div>
+                      )}
                     </li>
                   );
                 })}

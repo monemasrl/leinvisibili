@@ -7,7 +7,6 @@ import Nav from "@/components/mainLayoutComponents/nav/nav";
 import CookieConsentBanner from "@/components/cookieConsent/cookieConsent";
 import Footer from "@/components/mainLayoutComponents/footer/footer";
 import ScrollTop from "@/components/scroll/scrollToTop";
-
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Cormorant({
