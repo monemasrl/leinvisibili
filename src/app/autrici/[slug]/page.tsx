@@ -14,6 +14,8 @@ import ImagePreload from "@/components/loaders/imagePreLoad";
 import ScrollFix from "@/components/scroll/scrollFix";
 import Gallery from "@/components/gallery/gallery";
 import { CiSaveDown2, CiLink } from "react-icons/ci";
+import { IoIosLink } from "react-icons/io";
+
 import TextHide from "@/components/mainLayoutComponents/textcontainer/textHide";
 async function Page({ params }: { params: any }) {
   try {
@@ -116,7 +118,7 @@ async function Page({ params }: { params: any }) {
                           {opera?.link && (
                             <a target="_blank" href={opera?.link}>
                               <span>
-                                <CiLink />
+                                <IoIosLink />
                               </span>{" "}
                               Risorsa esterna
                             </a>

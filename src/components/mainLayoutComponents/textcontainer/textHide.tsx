@@ -2,6 +2,7 @@
 import React from "react";
 import style from "./textHide.module.scss";
 import { FaAnglesDown, FaAnglesUp } from "react-icons/fa6";
+import { motion } from "motion/react";
 function TextHide({
   contenuto,
   classStyle,
@@ -14,21 +15,34 @@ function TextHide({
   if (contenuto.length > 1000) {
     return (
       <div className={style.container}>
-        <div className={`${style.toHide} ${openContent ? style.open : ""}`}>
+        <motion.div
+          className={style.toHide}
+          initial={{
+            height: 500,
+            overflow: "hidden",
+          }}
+          animate={{
+            height: !openContent ? 490 : "auto",
+            overflow: !openContent ? "hidden" : "vislbe",
+          }}
+          transition={{
+            duration: !openContent ? 1 : 3,
+          }}
+        >
           <section
             className={classStyle || ""}
             dangerouslySetInnerHTML={{ __html: contenuto }}
           />
-        </div>
-        <button
-          onClick={() => {
-            setOpenContent((prev) => !prev);
-            window.scrollTo(0, 0);
-          }}
-        >
-          {/* <span>{openContent == false ? "mostra tutto" : "nascondi"}</span> */}
-          {openContent == true ? <FaAnglesUp /> : <FaAnglesDown />}
-        </button>
+        </motion.div>
+        {!openContent && (
+          <button
+            onClick={() => {
+              setOpenContent((prev) => !prev);
+            }}
+          >
+            <FaAnglesDown />
+          </button>
+        )}
       </div>
     );
   }
