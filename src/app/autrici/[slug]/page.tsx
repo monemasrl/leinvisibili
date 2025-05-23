@@ -99,7 +99,12 @@ async function Page({ params }: { params: any }) {
               <ul>
                 {opere()?.map((opera) => {
                   return (
-                    <li key={opera?.id} className={style.opera}>
+                    <li
+                      key={opera?.id}
+                      className={`${style.opera} ${
+                        (opera?.file || opera?.link) && style.opera__links
+                      }`}
+                    >
                       <h3>{opera?.titolo}</h3>
                       <div dangerouslySetInnerHTML={{ __html: opera?.info }} />
                       {(opera?.file || opera?.link) && (
