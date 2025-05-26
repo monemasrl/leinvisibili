@@ -6,8 +6,9 @@ import FixedModal from "../modals/fixedModal";
 import { tAutriciFiles } from "@/type";
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { div } from "motion/react-client";
 
-function Gallery({ type, images }: { type: string; images: tAutriciFiles[] }) {
+function Gallery({ type, images }: { type: string; images: any[] }) {
   const [modalState, setModalState] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   if (type === "one") {
@@ -152,6 +153,27 @@ function Gallery({ type, images }: { type: string; images: tAutriciFiles[] }) {
             alt="gallery"
           />
         </FixedModal>
+      </div>
+    );
+  }
+  if (type == "three") {
+    return (
+      <div className={style.genericGallery}>
+        {images.map((item, index) => {
+          return (
+            <div key={index} className={style.genericGallery__item}>
+              <Image
+                src={
+                  process.env.NEXT_PUBLIC_ASSETS_URL +
+                  (item as tAutriciFiles).directus_files_id
+                }
+                width={300}
+                height={300}
+                alt="gallery"
+              />
+            </div>
+          );
+        })}
       </div>
     );
   }

@@ -21,8 +21,16 @@
     padding-top: $spacing3;
     padding-bottom: $spacing3;
     h2 {
-      font-size: $size-title;
+      font-size: 60px;
       color: $gold;
+    }
+    &__container {
+      margin-top: $spacing3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     img {
       width: 100%;

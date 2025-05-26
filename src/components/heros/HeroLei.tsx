@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import useMediaquery from "../../hooks/mediaquery";
 import ImagePreload from "../loaders/imagePreLoad";
 import Image from "next/image";
+
 type Tdata = {
   nome: string | null;
   nomeCompleto: string | null;

@@ -1,4 +1,5 @@
 .container {
+  margin-bottom: $spacing3;
   header {
     width: 100%;
     img {
@@ -11,7 +12,7 @@
       margin: $spacing2 auto 0 auto;
       max-width: 900px;
       h1 {
-        margin: 0 auto;
+        margin: 0 auto $spacing2 auto;
       }
 
       ul {
@@ -31,7 +32,17 @@
   }
   section {
     max-width: 900px;
-    min-height: 400px;
+
     margin: 0 auto;
+    p {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
+}
+.loghi {
+  margin-top: $spacing2;
+  width: 100%;
 }

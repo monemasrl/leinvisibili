@@ -1,3 +1,4 @@
+import { tBlog } from '@/type';
 
 type tOpera = {
     id: number;
@@ -111,7 +112,15 @@ type tBlog = {
     immagine_principale: string;
     abstract: string;
     slug: string;
+    loghi: string[];
 };
+
+type tBlogFiles = {
+    blog_id: number;
+    directus_files_id: string;
+    id: number;
+};
+
 type tAutriciOpere = {
     id: number;
     autrici_id: number;
@@ -123,4 +132,4 @@ type tAutriciFiles = {
     autrici_id: number;
     directus_files_id: string;
 }
-export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog, tAutriciOpere, tAutriciFiles };
+export type { tOpera, tAutrice, tOpereAutrici, tCitazioni, tAutriciCitazioni, tTemi, tAutriciTemi, tLuoghi, tBlog, tAutriciOpere, tAutriciFiles, tBlogFiles };

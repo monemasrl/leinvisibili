@@ -75,3 +75,15 @@
     height: auto;
   }
 }
+
+.genericGallery {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  img {
+    flex: 1 0 auto;
+    max-width: 200px;
+    height: auto;
+  }
+}
