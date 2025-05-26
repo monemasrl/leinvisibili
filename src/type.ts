@@ -1,4 +1,3 @@
-import { tBlog } from '@/type';
 
 type tOpera = {
     id: number;
