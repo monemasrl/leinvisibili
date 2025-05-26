@@ -9,6 +9,9 @@ const immaginePatrocinio3 = "/image/sponsor/italia-domani-logo-1024x301.png";
 const immaginePatrocinio4 = "/image/sponsor/unical.png";
 const immaginePatrocinio5 = "/image/sponsor/padova.png";
 const immaginePatrocinio6 = "/image/sponsor/logo_cnr_affiancato.png";
+const immaginePatrocinio7 = "/image/sponsor/cnr-iliesi.jpg";
+const immaginePatrocinio8 = "/image/sponsor/irpps.png";
+const immaginePatrocinio9 = "/image/sponsor/cnr-ispf.png";
 
 const sponsor = [
   immaginePatrocinio1,
@@ -17,6 +20,9 @@ const sponsor = [
   immaginePatrocinio4,
   immaginePatrocinio5,
   immaginePatrocinio6,
+  immaginePatrocinio9,
+  immaginePatrocinio7,
+  immaginePatrocinio8,
 ];
 const logo = "/image/logo_footer.svg";
 function Footer() {
