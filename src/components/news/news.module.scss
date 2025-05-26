@@ -36,18 +36,23 @@
       }
       h3 {
         font-family: $title;
-        font-size: $size-title/1.5;
+        font-size: $size-title/1.4;
         color: $gold;
         margin-top: $spacing1;
         margin-bottom: 0;
         line-height: 1;
+        hyphens: auto;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+        max-width: 100%;
       }
       ul {
         display: flex;
         gap: $spacing1/2;
         li {
           font-size: $size-p;
-          font-weight: lighter;
+          font-weight: 400;
           &:first-child::after {
             content: "-";
             margin-left: $spacing1/2;

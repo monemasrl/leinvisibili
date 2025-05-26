@@ -22,24 +22,32 @@ async function Page({ params }: PageProps) {
       });
       return (
         <div className={style.container}>
-          <header>
-            <ImagePreload
-              loader={{
-                url: "/image/leiloader.svg",
-                width: 150,
-                height: 150,
-              }}
-              image={{
-                url:
-                  process.env.NEXT_PUBLIC_ASSETS_URL +
-                  data[0].immagine_principale,
-                width: 1200,
-                height: 400,
-                alt: data[0].titolo,
-              }}
-              type="fixed"
-            />{" "}
-            <div className={style.headerContent}>
+          <header
+            className={` ${!data[0].immagine_principale ? style.noImage : ""}`}
+          >
+            {data[0].immagine_principale && (
+              <ImagePreload
+                loader={{
+                  url: "/image/leiloader.svg",
+                  width: 150,
+                  height: 150,
+                }}
+                image={{
+                  url:
+                    process.env.NEXT_PUBLIC_ASSETS_URL +
+                    data[0].immagine_principale,
+                  width: 1200,
+                  height: 400,
+                  alt: data[0].titolo,
+                }}
+                type="fixed"
+              />
+            )}{" "}
+            <div
+              className={`${style.headerContent} ${
+                !data[0].immagine_principale ? style.noImage : ""
+              }`}
+            >
               {data[0].data_inizio && data[0].data_fine && (
                 <ul>
                   {" "}
