@@ -12,7 +12,9 @@ function News({
 }) {
   return (
     <div className={style.news}>
-      <h2>{mainTitle && mainTitle}</h2>
+      <h2>
+        <Link href={"/news"}>{mainTitle && mainTitle}</Link>
+      </h2>
       <div className={style.news__wrapper}>
         {data.map((item, index) => {
           return (

@@ -16,11 +16,26 @@ h2 {
   margin-bottom: $spacing1;
   color: $gold;
   line-height: 1;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 h1 {
   font-size: $size-title-big;
 }
-
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
 ul {
   list-style-type: none;
   padding: 0;

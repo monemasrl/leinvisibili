@@ -7,11 +7,12 @@
   @media #{$phone} {
     padding: 0;
   }
-  > h2 {
+  > h2 a {
     font-size: $size-title;
     letter-spacing: -1;
     color: $gold;
     margin-bottom: 0;
+    text-decoration: none;
   }
   &__wrapper {
     display: flex;
