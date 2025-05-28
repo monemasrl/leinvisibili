@@ -138,7 +138,7 @@ function HeroLei({
                     <h2>{data[boxOpen].nomeCompleto}</h2>
                     {data[boxOpen].pseudonimi && (
                       <ul>
-                        {data[boxOpen].pseudonimi.map((item, index) => {
+                        {data[boxOpen]?.pseudonimi?.map((item, index) => {
                           return <li key={index}>{item.pseudonimo}</li>;
                         })}
                       </ul>
