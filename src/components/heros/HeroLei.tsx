@@ -14,6 +14,7 @@ type Tdata = {
   nomeCompleto: string | null;
   cognome: string | null;
   descrizione: string | null;
+  pseudonimi: { pseudonimo: string }[] | null;
   image: string | null;
   data_nascita: string | null;
   data_morte: string | null;
@@ -33,7 +34,6 @@ function HeroLei({
   return (
     <div className={style.hero}>
       {datiNumeroLimitato?.map((item, index) => {
-        console.log(item);
         return (
           <div
             className={`${style.hero__box} ${
@@ -136,6 +136,13 @@ function HeroLei({
                     {" "}
                     {data[boxOpen].data_nascita} - {data[boxOpen].data_morte}
                     <h2>{data[boxOpen].nomeCompleto}</h2>
+                    {data[boxOpen].pseudonimi && (
+                      <ul>
+                        {data[boxOpen].pseudonimi.map((item, index) => {
+                          return <li key={index}>{item.pseudonimo}</li>;
+                        })}
+                      </ul>
+                    )}
                   </motion.div>
 
                   <motion.div

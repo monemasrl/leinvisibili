@@ -3,6 +3,7 @@ import { formatDataFromApi, indiceAlfabetico } from "@/utility/generic";
 import Link from "next/link";
 import style from "./style.module.scss";
 import Image from "next/image";
+import { tAutrice } from "@/type";
 function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
   if (!data) return "Caricamento dati...";
   const datiOrdinati = indiceAlfabetico(data, type);
@@ -33,7 +34,7 @@ function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
                 ) : (
                   <div className={style.results}>
                     <div className={style.lettera}>{item.lettera}</div>
-                    {item.data.map((item: any, index: number) => {
+                    {item.data.map((item: tAutrice, index: number) => {
                       return (
                         <div className={style.result} key={item.id}>
                           <div className={style.autrice}>
@@ -55,6 +56,18 @@ function Indice({ data, type }: { data: any; type: "temi" | "autrici" }) {
                                   {item.nome} {item.cognome}
                                 </h2>
                               </Link>
+
+                              {item.pseudonimi && (
+                                <ul className={style.pseudonimi}>
+                                  {item.pseudonimi.length > 0 &&
+                                    item.pseudonimi.map((item, index) => {
+                                      return (
+                                        <li key={index}>{item.pseudonimo}</li>
+                                      );
+                                    })}
+                                </ul>
+                              )}
+
                               <ul className={style.data}>
                                 <li>
                                   {item.data_di_nascita

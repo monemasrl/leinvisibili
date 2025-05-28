@@ -123,6 +123,24 @@
           margin: 0;
           line-height: 1;
         }
+        ul {
+          font-size: 1.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+
+          &::before {
+            font-size: 1.5rem;
+            content: "(";
+          }
+          &::after {
+            font-size: 1.5rem;
+            content: ")";
+          }
+          li:not(:last-child)::after {
+            content: ", ";
+          }
+        }
         p {
           margin: 0;
           font-size: $size-p / 1.1;

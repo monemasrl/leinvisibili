@@ -56,6 +56,17 @@ function ArchivioLista({
                         {item.nome} {item.cognome}
                       </h2>
                     </Link>
+
+                    {item.pseudonimi && (
+                      <ul className={style.pseudonimi}>
+                        {item.pseudonimi.length > 0 &&
+                          item.pseudonimi.map(
+                            (item: { pseudonimo: string }, index: number) => {
+                              return <li key={index}>{item.pseudonimo}</li>;
+                            }
+                          )}
+                      </ul>
+                    )}
                     <ul className={style.data}>
                       <li>
                         {item.data_di_nascita

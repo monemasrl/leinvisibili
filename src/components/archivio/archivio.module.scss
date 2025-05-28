@@ -46,6 +46,26 @@
           color: $gold;
         }
       }
+      ul.pseudonimi {
+        display: flex;
+        gap: 0.5rem;
+        color: black;
+
+        li {
+          font-size: 1.5rem;
+        }
+        &::before {
+          font-size: 1.5rem;
+          content: "(";
+        }
+        &::after {
+          font-size: 1.5rem;
+          content: ")";
+        }
+        li:not(:last-child)::after {
+          content: ", ";
+        }
+      }
       ul {
         display: flex;
         gap: 0.5rem;

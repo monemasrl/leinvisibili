@@ -74,7 +74,7 @@ ul.datiColonna {
           color: $gold;
         }
       }
-      ul {
+      ul.data {
         display: flex;
         gap: 0.5rem;
         font-size: 2rem;
@@ -87,6 +87,27 @@ ul.datiColonna {
           content: "/";
           position: relative;
           left: 0.25rem;
+        }
+      }
+      ul.pseudonimi {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 1rem;
+        font-family: $title;
+        color: black;
+        li {
+          font-size: 1.2rem;
+        }
+        &::before {
+          font-size: 1.2rem;
+          content: "(";
+        }
+        &::after {
+          font-size: 1.2rem;
+          content: ")";
+        }
+        li:not(:last-child)::after {
+          content: ", ";
         }
       }
       .abstract {

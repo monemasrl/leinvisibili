@@ -130,6 +130,7 @@ function datahero(data: tAutrice[]) {
         nome: item.nome || null,
         cognome: item.cognome || null,
         descrizione: item.abstract || null,
+        pseudonimi: item.pseudonimi || null,
         image: item.immagine_principale || null,
         data_nascita: nascita || null,
         data_morte: morte || null,
