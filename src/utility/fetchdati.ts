@@ -23,11 +23,20 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
     } else if (type === 'autrici' || type === 'autrici_opere_1') {
         const data = await directus.request(
             readItems(type, {
-                filter: {
+                filter: type === 'autrici' ? {
                     "_and": [
                         { "nome": { _icontains: filter.nome?.length ? filter.nome : undefined } },
                         { "cognome": { _icontains: filter.cognome?.length ? filter.cognome : undefined } }
-                    ]
+                    ],
+                    "status": { "_eq": "published" },
+
+                } : {
+                    "_and": [
+                        { "nome": { _icontains: filter.nome?.length ? filter.nome : undefined } },
+                        { "cognome": { _icontains: filter.cognome?.length ? filter.cognome : undefined } }
+                    ],
+
+
                 },
                 limit: limit,
                 offset: offset,
@@ -95,7 +104,8 @@ async function getDataAutriciPage(slug: string) {
     const data = await directus.request(
         readItems('autrici', {
             filter: {
-                "slug": { "_eq": slug }
+                "slug": { "_eq": slug },
+                "status": "published",
             }
         })
     );

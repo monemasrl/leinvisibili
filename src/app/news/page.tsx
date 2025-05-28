@@ -57,7 +57,12 @@ async function Page() {
                     <ul>
                       {" "}
                       {item.data_inizio && (
-                        <li>{formatDataFromApi(item.data_inizio)}</li>
+                        <li>
+                          {formatDataFromApi(item.data_inizio, {
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </li>
                       )}{" "}
                       {item.data_fine && (
                         <li>{formatDataFromApi(item.data_fine)}</li>

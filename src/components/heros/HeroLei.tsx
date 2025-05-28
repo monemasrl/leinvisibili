@@ -27,7 +27,7 @@ function HeroLei({
   assetsURL: string | undefined;
 }) {
   const [boxOpen, setBoxOpen] = React.useState<number | null>(null);
-
+  console.log("HeroLei", data);
   const { landscape } = useMediaquery();
   const datiNumeroLimitato = data?.slice(0, 3);
   return (

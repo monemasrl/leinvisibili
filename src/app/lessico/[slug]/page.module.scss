@@ -46,6 +46,13 @@
       line-height: 1;
     }
   }
+  h2 {
+    font-size: $size-title;
+  }
+  h3 {
+    font-size: 1.2rem;
+    color: $gold;
+  }
 }
 @keyframes opacity {
   0% {

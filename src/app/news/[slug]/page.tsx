@@ -52,7 +52,12 @@ async function Page({ params }: PageProps) {
                 <ul>
                   {" "}
                   {data[0].data_inizio && (
-                    <li>{formatDataFromApi(data[0].data_inizio)}</li>
+                    <li>
+                      {formatDataFromApi(data[0].data_inizio, {
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </li>
                   )}{" "}
                   {data[0].data_fine && (
                     <li>{formatDataFromApi(data[0].data_fine)}</li>
