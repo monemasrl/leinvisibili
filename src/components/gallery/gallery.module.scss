@@ -53,16 +53,18 @@
 
 /* MASONRY */
 .masonryWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 .masonryItem {
   background-color: #ffffff;
-
   box-sizing: border-box;
-
   border-radius: 8px;
   transition: transform 0.3s;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.2em;
@@ -70,9 +72,17 @@
   button {
     background-color: white;
     padding: 0;
+    height: 100%;
   }
   img {
-    height: auto;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    font-style: italic;
   }
 }
 

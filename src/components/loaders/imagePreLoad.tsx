@@ -10,6 +10,7 @@ export const ImagePreload = ({
   round = false,
   backgroundColor = "transparent",
   type,
+  classname,
 }: {
   loader?: { url: StaticImageData | string; width: number; height: number };
   image: {
@@ -22,11 +23,12 @@ export const ImagePreload = ({
   round?: boolean;
   type: "fill" | "hero" | "fixed";
   backgroundColor?: string;
+  classname?: string;
 }) => {
   const [loaded, setLoaded] = useState(false);
   return (
     <div
-      className={"imagePreload" + " " + type}
+      className={"imagePreload" + " " + type + " " + (classname || "")}
       style={{
         borderRadius: round ? "50%" : "0",
         overflow: round ? "hidden" : "",

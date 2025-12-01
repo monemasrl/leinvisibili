@@ -24,17 +24,15 @@ async function Page({ params }: { params: any }) {
     const luoghi = await getDataLuoghi();
     const autriciOpere = await getDataFromApi("autrici_opere_1", {});
     const opereTotali = await getOpere();
-    const autriciFiles = await getDataFromApi("autrici_files", {});
-
+    const autriciFiles = await getDataFromApi("autrici_files", {
+      autrici_id: (data && data[0].id) || undefined,
+    });
+    console.log(autriciFiles, "autriciFiles");
     if (data) {
       const autrice = data[0] as tAutrice;
 
       // array di immagini creati dalla junction collection
-      const image = autriciFiles?.filter((item) => {
-        return autrice?.galleria.some((files) => files === item.id);
-      });
 
-      console.log(image, "image");
       const luogoNascita =
         luoghi && luoghi.find((item) => item.id === autrice.luogo_nascita);
       const luogoMorte =
@@ -47,7 +45,7 @@ async function Page({ params }: { params: any }) {
           return opereTotali?.find((item) => item.id === opera?.opere_id);
         });
       };
-      console.log(autrice.Contenuto.length);
+
       return (
         <div className={style.container}>
           <div className={style.left}>
@@ -88,10 +86,10 @@ async function Page({ params }: { params: any }) {
                 alt="divider"
               />
             </div>
-            {image && image.length > 0 && (
+            {autriciFiles && autriciFiles.length > 0 && (
               <section className={style.gallery}>
                 <h2>Immagini</h2>
-                <Gallery type="two" images={image as tAutriciFiles[]} />
+                <Gallery type="two" images={autriciFiles as tAutriciFiles[]} />
               </section>
             )}
             <section className={style.opere}>
@@ -139,7 +137,6 @@ async function Page({ params }: { params: any }) {
               <h2>Fonti</h2>
               <ul>
                 {autrice.fonti?.map((fonte, index) => {
-                  console.log(fonte.link, "fonte.link");
                   return (
                     <li key={index}>
                       {fonte?.link ? (
@@ -174,6 +171,7 @@ async function Page({ params }: { params: any }) {
               type="fixed"
               backgroundColor="#7a4535"
               round
+              classname="profilo"
             />
 
             <ul className={style.datiPersonali}>
@@ -198,7 +196,7 @@ async function Page({ params }: { params: any }) {
                 <li>
                   <div className={style.datiPersonali__titolo}>Nascita</div>
                   <div className={style.datiPersonali__dato}>
-                    {luogoNascita?.Nome},{" "}
+                    {luogoNascita?.Nome},<br />
                     {autrice.nascita_solo_anno
                       ? "~" +
                         formatDataFromApi(autrice.data_di_nascita, {
@@ -212,7 +210,7 @@ async function Page({ params }: { params: any }) {
                 <li>
                   <div className={style.datiPersonali__titolo}>Morte</div>
                   <div className={style.datiPersonali__dato}>
-                    {luogoMorte?.Nome},{" "}
+                    {luogoMorte?.Nome},<br />
                     {autrice.morte_solo_anno
                       ? "~" +
                         formatDataFromApi(autrice.data_di_morte, {

@@ -24,7 +24,7 @@ async function Tema({ params }: { params: any }) {
               src={anelli}
               alt="anelli immagine grafica"
             />
-            <div className={style.topTitle}>Area tematica:</div>
+
             <h1>{data[0]?.titolo}</h1>
 
             <TemiAutrici

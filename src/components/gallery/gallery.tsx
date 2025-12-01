@@ -5,12 +5,10 @@ import Image from "next/image";
 import FixedModal from "../modals/fixedModal";
 import { tAutriciFiles } from "@/type";
 
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { div } from "motion/react-client";
-
 function Gallery({ type, images }: { type: string; images: any[] }) {
   const [modalState, setModalState] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  console.log(images, "images gallery");
   if (type === "one") {
     return (
       <div className={style.galleryGrid}>
@@ -46,6 +44,7 @@ function Gallery({ type, images }: { type: string; images: any[] }) {
               alt="gallery"
             />
           </button>
+          <p></p>
         </div>
         <div className={style.galleryGrid__col}>
           <button
@@ -116,37 +115,40 @@ function Gallery({ type, images }: { type: string; images: any[] }) {
         {/*  <FixedModal modalState={modalState} closeModal={setModalState}>
           <SimpleSlider data={images} id={currentImage} />
         </FixedModal> */}
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
-          <Masonry>
-            {images.map((item, index) => {
-              return (
-                <div key={index} className={style.masonryItem}>
-                  <button
-                    onClick={() => {
-                      setModalState(true);
-                      setCurrentImage(index);
-                    }}
-                  >
-                    <Image
-                      src={
-                        process.env.NEXT_PUBLIC_ASSETS_URL +
-                        item.directus_files_id
-                      }
-                      width={150}
-                      height={150}
-                      alt="gallery"
-                    />
-                  </button>
-                </div>
-              );
-            })}
-          </Masonry>
-        </ResponsiveMasonry>
+
+        {images.map((item, index) => {
+          return (
+            <div key={index} className={style.masonryItem}>
+              <button
+                onClick={() => {
+                  setModalState(true);
+                  setCurrentImage(index);
+                }}
+              >
+                <Image
+                  src={
+                    process.env.NEXT_PUBLIC_ASSETS_URL +
+                    item.directus_files_id.id
+                  }
+                  width={150}
+                  height={150}
+                  alt="gallery"
+                />
+              </button>
+              <p>
+                {item.directus_files_id.description
+                  ? item.directus_files_id.description
+                  : ""}
+              </p>
+            </div>
+          );
+        })}
+
         <FixedModal modalState={modalState} closeModal={setModalState}>
           <Image
             src={
               process.env.NEXT_PUBLIC_ASSETS_URL +
-              images[currentImage].directus_files_id
+              images[currentImage].directus_files_id.id
             }
             width={900}
             height={450}
@@ -165,7 +167,7 @@ function Gallery({ type, images }: { type: string; images: any[] }) {
               <Image
                 src={
                   process.env.NEXT_PUBLIC_ASSETS_URL +
-                  (item as tAutriciFiles).directus_files_id
+                  (item as tAutriciFiles).directus_files_id.id
                 }
                 width={300}
                 height={300}

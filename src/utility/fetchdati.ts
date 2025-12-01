@@ -1,8 +1,7 @@
-
 import directus from "@/lib/directus";
 import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
-type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string, in_homepage?: boolean }
+type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string, in_homepage?: boolean, autrici_id?: number }
 async function getDataFromApi(type: string, filter: tFilter = {}, limit: number = -1, offset: number = 0) {
 
     if (type === 'opere' && filter.opera) {
@@ -43,6 +42,30 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
             })
         );
 
+        if (!data) {
+            console.error("errore collegamento al database");
+        }
+        else { return data; }
+    } else if (type === "autrici_files") {
+        const data = await directus.request(
+            readItems(type, {
+                filter: {
+                    "autrici_id": { _eq: filter.autrici_id ? filter.autrici_id : undefined }
+                },
+                fields: [
+                    'id',
+                    'autrici_id',
+                    'directus_files_id',
+                    'directus_files_id.id',
+                    'directus_files_id.title',
+                    'directus_files_id.description',
+                    'directus_files_id.filename_download',
+                    'directus_files_id.type'
+                ],
+                limit: limit,
+                offset: offset,
+            })
+        );
         if (!data) {
             console.error("errore collegamento al database");
         }

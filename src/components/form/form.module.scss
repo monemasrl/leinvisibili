@@ -37,7 +37,7 @@ form.form {
       }
     }
     input {
-      width: auto;
+      width: 100%;
     }
   }
   p {
@@ -45,6 +45,7 @@ form.form {
   }
   label {
     display: none;
+    width: 100%;
   }
   @media #{$phone} {
     padding: 1rem;

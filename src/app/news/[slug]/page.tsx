@@ -4,13 +4,12 @@ import { getDataFromApi } from "@/utility/fetchdati";
 import ScrollFix from "@/components/scroll/scrollFix";
 import ImagePreload from "@/components/loaders/imagePreLoad";
 import { formatDataFromApi } from "@/utility/generic";
-import { PageProps } from "../../../../.next/types/app/page";
 import { tBlog } from "@/type";
 import { tBlogFiles } from "@/type";
 import Gallery from "@/components/gallery/gallery";
-async function Page({ params }: PageProps) {
+async function Page({ params }: { params: { slug: string } }) {
   try {
-    const { slug } = await params;
+    const { slug } = params;
     const data = await getDataFromApi("blog", { slug: slug });
     const BlogLoghi = await getDataFromApi("blog_files", {});
 
