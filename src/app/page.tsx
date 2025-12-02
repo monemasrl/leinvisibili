@@ -53,7 +53,11 @@ export default async function Home() {
       status: "published",
       in_homepage: true,
     },
-    2
+    4
+  ).then((data) =>
+    data?.sort((a, b) => {
+      return a.home_position - b.home_position;
+    })
   );
 
   return (

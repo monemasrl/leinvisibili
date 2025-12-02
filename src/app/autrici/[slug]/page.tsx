@@ -27,7 +27,7 @@ async function Page({ params }: { params: any }) {
     const autriciFiles = await getDataFromApi("autrici_files", {
       autrici_id: (data && data[0].id) || undefined,
     });
-    console.log(autriciFiles, "autriciFiles");
+
     if (data) {
       const autrice = data[0] as tAutrice;
 

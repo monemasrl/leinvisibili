@@ -10,10 +10,11 @@ async function Page() {
   try {
     const data = await getDataFromApi("blog");
     data?.sort((a, b) => {
-      const dateA = new Date(a.date_updated).getTime();
-      const dateB = new Date(b.date_updated).getTime();
+      const dateA = new Date(a.date_created).getTime();
+      const dateB = new Date(b.date_created).getTime();
       return dateB - dateA;
     });
+
     if (data) {
       return (
         <div className={style.container}>

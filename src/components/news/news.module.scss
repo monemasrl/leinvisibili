@@ -26,7 +26,8 @@
       padding: 0;
     }
     &__box {
-      flex: 1;
+      flex: 1 1 460px;
+      max-width: 530px;
 
       a {
         color: $gold;

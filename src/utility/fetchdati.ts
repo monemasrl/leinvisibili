@@ -1,8 +1,8 @@
 import directus from "@/lib/directus";
 import { tAutrice, tAutriciOpere, tOpera } from "@/type";
 import { readItems } from "@directus/sdk";
-type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string, in_homepage?: boolean, autrici_id?: number }
-async function getDataFromApi(type: string, filter: tFilter = {}, limit: number = -1, offset: number = 0) {
+type tFilter = { opera?: string, nome?: string, cognome?: string, status?: string, slug?: string, in_homepage?: boolean, autrici_id?: number, id?: any, blog_id?: number, fields?: string[] };
+async function getDataFromApi(type: string, filter: tFilter = {}, limit: number = -1, offset: number = 0, fields: string[] = []) {
 
     if (type === 'opere' && filter.opera) {
         const data = await directus.request(
@@ -12,6 +12,7 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                 },
                 limit: limit,
                 offset: offset,
+                ...(fields.length > 0 && { fields: fields }),
             })
         );
 
@@ -34,11 +35,10 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                         { "nome": { _icontains: filter.nome?.length ? filter.nome : undefined } },
                         { "cognome": { _icontains: filter.cognome?.length ? filter.cognome : undefined } }
                     ],
-
-
                 },
                 limit: limit,
                 offset: offset,
+                ...(fields.length > 0 && { fields: fields }),
             })
         );
 
@@ -76,7 +76,7 @@ async function getDataFromApi(type: string, filter: tFilter = {}, limit: number 
                 filter: filter || {},
                 limit: limit,
                 offset: offset,
-
+                ...(fields.length > 0 && { fields: fields }),
             })
         );
 

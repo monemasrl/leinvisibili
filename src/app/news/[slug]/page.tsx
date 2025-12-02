@@ -9,9 +9,26 @@ import { tBlogFiles } from "@/type";
 import Gallery from "@/components/gallery/gallery";
 async function Page({ params }: { params: { slug: string } }) {
   try {
-    const { slug } = params;
+    const { slug } = await params;
     const data = await getDataFromApi("blog", { slug: slug });
     const BlogLoghi = await getDataFromApi("blog_files", {});
+    const documenti = await getDataFromApi(
+      "blog_files_1",
+      {
+        blog_id: data && data[0].id,
+      },
+      -1,
+      0,
+      [
+        "id",
+        "directus_files_id",
+        "directus_files_id.id",
+        "directus_files_id.title",
+        "directus_files_id.description",
+        "directus_files_id.filename_download",
+        "directus_files_id.type",
+      ]
+    );
 
     if (data) {
       const blogPage = data[0] as tBlog;
@@ -72,7 +89,34 @@ async function Page({ params }: { params: { slug: string } }) {
                 __html: data[0].testo,
               }}
             />
+            {documenti && documenti?.length > 0 && (
+              <div className={style.documenti}>
+                <h2>Documenti allegati</h2>
+                <ul>
+                  {documenti.map((item) => {
+                    return (
+                      <li key={item.id}>
+                        <a
+                          href={
+                            process.env.NEXT_PUBLIC_ASSETS_URL +
+                            "/" +
+                            item.directus_files_id.id
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.directus_files_id.description ||
+                            item.directus_files_id.title ||
+                            "Documento allegato"}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </section>
+
           {image && image?.length > 1 && (
             <div className={style.loghi}>
               <Gallery type="three" images={image as tBlogFiles[]} />

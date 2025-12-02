@@ -8,7 +8,7 @@ import { tAutriciFiles } from "@/type";
 function Gallery({ type, images }: { type: string; images: any[] }) {
   const [modalState, setModalState] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  console.log(images, "images gallery");
+
   if (type === "one") {
     return (
       <div className={style.galleryGrid}>
