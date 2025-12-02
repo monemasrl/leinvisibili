@@ -7,7 +7,7 @@ import { formatDataFromApi } from "@/utility/generic";
 import { tBlog } from "@/type";
 import { tBlogFiles } from "@/type";
 import Gallery from "@/components/gallery/gallery";
-async function Page({ params }: { params: { slug: string } }) {
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
   try {
     const { slug } = await params;
     const data = await getDataFromApi("blog", { slug: slug });
