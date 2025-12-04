@@ -37,6 +37,11 @@
     font-size: $size-title;
     color: $gold;
     line-height: 0.5;
+    li {
+      span {
+        font-size: 24px;
+      }
+    }
     li:first-child::after {
       content: " - ";
     }
@@ -75,6 +80,7 @@
       height: 300px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: top;
       @media #{$landscape} {
         width: 200px;
         height: 200px;
@@ -175,6 +181,10 @@
       font-family: $text;
       font-weight: 200;
       margin-bottom: 0;
+    }
+    .morte span,
+    .nascita span {
+      font-size: 14px;
     }
   }
 }

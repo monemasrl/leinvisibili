@@ -37,7 +37,19 @@
   h2 {
     margin-bottom: 0;
     font-size: $size-title/1.6;
+    span {
+      display: inline-block;
+      width: auto;
+      font-size: 15px;
+      font-weight: 300;
+      background-color: #f1f0f0;
+      padding: 5px;
+      border-radius: 5px;
+      font-family: var(--font-text);
+      margin-bottom: 5px;
+    }
     a {
+      display: block;
       color: $gold;
       text-decoration: none;
       &:hover {

@@ -25,6 +25,8 @@ type tAutrice = {
     pseudonimi: { pseudonimo: string }[] | null;
     data_di_nascita: string;
     data_di_morte: string;
+    nascita_incerta: boolean;
+    morte_incerta: boolean;
     immagine_principale: string;
     slug: string;
     luogo_nascita: number;
@@ -97,6 +99,7 @@ type tLuoghi = {
 };
 type tBlog = {
     id: number;
+    tipo: string;
     status: string;
     sort: number | null;
     user_created: string;

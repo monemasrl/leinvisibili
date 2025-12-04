@@ -20,7 +20,12 @@ function News({
           return (
             <div className={style.news__wrapper__box} key={index}>
               <Link href={`/news/${item.slug}`}>
-                <h3>{item.titolo}</h3>
+                <h3>
+                  <span>
+                    {item.tipo === "0" ? "Iniziativa" : "Pubblicazione"}
+                  </span>
+                  {item.titolo}
+                </h3>
               </Link>
               {/*       <Image
                 src={

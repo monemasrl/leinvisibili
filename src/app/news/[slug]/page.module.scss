@@ -11,14 +11,24 @@
       object-fit: cover;
       margin-top: 200px;
     }
+    .tipo {
+      margin-top: $spacing1;
+      font-size: $size-title / 3;
+      font-weight: 200;
+      padding: 5px;
+      background-color: #ececec;
+      display: inline-block;
+      border-radius: 5px;
+    }
     .headerContent {
       margin: $spacing2 auto 0 auto;
       max-width: 900px;
       h1 {
-        margin: 0 auto $spacing2 auto;
+        margin: 0 auto 0 auto;
       }
 
       ul {
+        margin-bottom: $spacing1;
         display: flex;
         padding-left: 5px;
 

@@ -64,6 +64,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
                 !data[0].immagine_principale ? style.noImage : ""
               }`}
             >
+              <div className={style.tipo}>
+                {data[0].tipo === "0" ? "Iniziativa" : "Pubblicazione"}
+              </div>
+
+              <h1>{data[0].titolo}</h1>
               {data[0].data_inizio && data[0].data_fine && (
                 <ul>
                   {" "}
@@ -80,7 +85,6 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
                   )}
                 </ul>
               )}
-              <h1>{data[0].titolo}</h1>
             </div>
           </header>
           <section className={style.mainContent}>

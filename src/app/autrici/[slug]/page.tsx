@@ -55,11 +55,13 @@ async function Page({ params }: { params: any }) {
               </h1>
               <ul className={style.data}>
                 <li>
+                  {autrice.nascita_incerta ? <span>ca.</span> : ""}
                   {formatDataFromApi(autrice.data_di_nascita, {
                     year: "numeric",
                   })}
                 </li>
                 <li>
+                  {autrice.morte_incerta ? <span>ca.</span> : ""}
                   {formatDataFromApi(autrice.data_di_morte, {
                     year: "numeric",
                   })}
@@ -93,7 +95,9 @@ async function Page({ params }: { params: any }) {
               </section>
             )}
             <section className={style.opere}>
-              <h2>Bibliografia</h2>
+              {autrice.opere && autrice.opere.length > 0 && (
+                <h2>Bibliografia</h2>
+              )}
               <ul>
                 {opere()?.map((opera) => {
                   return (
@@ -134,7 +138,7 @@ async function Page({ params }: { params: any }) {
               </ul>
             </section>
             <section className={style.fonti}>
-              <h2>Fonti</h2>
+              {autrice.fonti && autrice.fonti.length > 0 && <h2>Fonti</h2>}
               <ul>
                 {autrice.fonti?.map((fonte, index) => {
                   return (
@@ -197,12 +201,14 @@ async function Page({ params }: { params: any }) {
                   <div className={style.datiPersonali__titolo}>Nascita</div>
                   <div className={style.datiPersonali__dato}>
                     {luogoNascita?.Nome},<br />
-                    {autrice.nascita_solo_anno
-                      ? "~" +
-                        formatDataFromApi(autrice.data_di_nascita, {
-                          year: "numeric",
-                        })
-                      : formatDataFromApi(autrice.data_di_nascita)}
+                    <div className={style.nascita}>
+                      {autrice.nascita_incerta || autrice.nascita_solo_anno ? (
+                        <span>ca.</span>
+                      ) : null}
+                      {formatDataFromApi(autrice.data_di_nascita, {
+                        year: autrice.nascita_solo_anno ? "numeric" : undefined,
+                      })}
+                    </div>
                   </div>
                 </li>
               )}
@@ -211,12 +217,14 @@ async function Page({ params }: { params: any }) {
                   <div className={style.datiPersonali__titolo}>Morte</div>
                   <div className={style.datiPersonali__dato}>
                     {luogoMorte?.Nome},<br />
-                    {autrice.morte_solo_anno
-                      ? "~" +
-                        formatDataFromApi(autrice.data_di_morte, {
-                          year: "numeric",
-                        })
-                      : formatDataFromApi(autrice.data_di_morte)}
+                    <div className={style.morte}>
+                      {autrice.morte_incerta || autrice.morte_solo_anno ? (
+                        <span>ca.</span>
+                      ) : null}
+                      {formatDataFromApi(autrice.data_di_morte, {
+                        year: autrice.morte_solo_anno ? "numeric" : undefined,
+                      })}
+                    </div>
                   </div>
                 </li>
               )}

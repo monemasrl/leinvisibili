@@ -57,6 +57,9 @@ async function Page() {
                   </div>
                   <div className={style.text}>
                     <h2>
+                      <span>
+                        {item.tipo === "0" ? "Iniziativa" : "Pubblicazione"}
+                      </span>
                       <Link href={"/news/" + item.slug}>{item.titolo}</Link>
                     </h2>
                     <p>{item.abstract}</p>
