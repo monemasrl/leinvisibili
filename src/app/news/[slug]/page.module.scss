@@ -12,13 +12,10 @@
       margin-top: 200px;
     }
     .tipo {
-      margin-top: $spacing1;
       font-size: $size-title / 3;
       font-weight: 200;
-      padding: 5px;
-      background-color: #ececec;
+      color: $gold;
       display: inline-block;
-      border-radius: 5px;
     }
     .headerContent {
       margin: $spacing2 auto 0 auto;
